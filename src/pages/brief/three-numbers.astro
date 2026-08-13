@@ -7,7 +7,7 @@ import LegalNote from "../../components/LegalNote.astro";
 import ThreeNumbersTable from "../../components/ThreeNumbersTable.astro";
 import IndexSeriesTable from "../../components/IndexSeriesTable.astro";
 import { FEATURED } from "../../lib/briefs";
-import { LINKS, CANON_PATHS, linkClass, ext } from "../../lib/links";
+import { CANON_PATHS } from "../../lib/links";
 import { newsArticleNode } from "../../lib/schema";
 import { withBase } from "../../lib/base";
 
@@ -163,21 +163,7 @@ const pageUrl = "https://fflintel.com/brief/three-numbers";
       <ThreeNumbersTable />
     </div>
 
-    <div
-      class="mt-8 space-y-5 text-[1.05rem] leading-[1.7] text-stone-700 font-serif"
-    >
-      <p>
-        If you already read RetailBI, the side-by-side of the two ways of
-        counting lives on GunSearchEngine:{" "}
-        <a href={LINKS.fortress} class={linkClass} {...ext}
-          >RetailBI and Betsy, side by side</a
-        >. If you run a shop, the site tool is{" "}
-        <a href={LINKS.gsa} class={linkClass} {...ext}>GunSearchAgent</a>
-        — a different product than this page.
-      </p>
-    </div>
-
-    <DualDoors heading="What to do with the distinction" />
+    <DualDoors heading="What to do next" />
 
     <p class="mt-10">
       <LegalNote />

@@ -5,7 +5,7 @@ import Byline from "../components/Byline.astro";
 import DualDoors from "../components/DualDoors.astro";
 import LegalNote from "../components/LegalNote.astro";
 import { FROZEN } from "../lib/frozen";
-import { LINKS, CANON_PATHS, linkClass, ext } from "../lib/links";
+import { CANON_PATHS } from "../lib/links";
 import { withBase } from "../lib/base";
 
 const path = "/sell-through-vs-search-intent";
@@ -68,16 +68,8 @@ const crumbs = [
         {FROZEN.betsy}
       </p>
       <p>
-        If you make the guns:{" "}
-        <a href={LINKS.brandIntel} class={linkClass} {...ext}
-          >Brand Intelligence</a
-        >
-        {" · "}
-        <a href={LINKS.copilot} class={linkClass} {...ext}>Co-Pilot</a>.
-        If you sell them:{" "}
-        <a href={LINKS.gsa} class={linkClass} {...ext}>GunSearchAgent</a>.
-        The long comparison:{" "}
-        <a href={LINKS.fortress} class={linkClass} {...ext}>RetailBI vs Betsy</a>.
+        The cards below send you to the right next page. This one is just
+        the explanation.
       </p>
     </div>
     <DualDoors />

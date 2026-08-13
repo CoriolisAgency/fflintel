@@ -5,7 +5,7 @@ import Byline from "../components/Byline.astro";
 import DualDoors from "../components/DualDoors.astro";
 import LegalNote from "../components/LegalNote.astro";
 import IndexSeriesTable from "../components/IndexSeriesTable.astro";
-import { LINKS, CANON_PATHS, linkClass, ext } from "../lib/links";
+import { CANON_PATHS } from "../lib/links";
 import { withBase } from "../lib/base";
 
 const path = "/retailbi-firearm-sales-index";
@@ -87,10 +87,6 @@ const crumbs = [
         release. Samples move. Believe the revision line. A same-stores
         new-gun number is last month talking. It is not NICS. It is not the
         used-gun aisle. It is not the sentence someone typed at 9:40 p.m.
-        Definition:{" "}
-        <a href={LINKS.fortress} class={linkClass} {...ext}>RetailBI vs Betsy</a>
-        {" · "}
-        <a href={LINKS.gseIndex} class={linkClass} {...ext}>GSE Index page</a>.
       </p>
     </div>
     <DualDoors />
