@@ -1,0 +1,89 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FaqBlock from "../components/FaqBlock.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import LegalNote from "../components/LegalNote.astro";
+import { FROZEN } from "../lib/frozen";
+import { LINKS, linkClass, ext } from "../lib/links";
+import { withBase } from "../lib/base";
+import { type Crumb, type FaqItem } from "../lib/schema";
+
+const path = "/what-is-retailbi";
+const title = "What is RetailBI? | FFL Intel";
+const description = FROZEN.retailbi;
+const canonicalUrl = LINKS.fortress;
+
+const crumbs: Crumb[] = [
+  { name: "Home", path: "/" },
+  { name: "What is RetailBI", path },
+];
+
+const faqs: FaqItem[] = [
+  {
+    q: "What is RetailBI?",
+    a: FROZEN.retailbi,
+  },
+  {
+    q: "What is the RetailBI Firearm Sales Index?",
+    a: FROZEN.index,
+  },
+  {
+    q: "Is Coriolis affiliated with Gearfire or RetailBI?",
+    a: "No. Coriolis is not affiliated with Gearfire or RetailBI; marks belong to their owners.",
+  },
+  {
+    q: "Where is the long definition?",
+    a: "The ranking definition lives on GunSearchEngine: https://www.gunsearchengine.com/betsy-vs-retailbi. This page is a short desk summary and canonicals there.",
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  canonicalUrl={canonicalUrl}
+  breadcrumbs={crumbs}
+  faqs={faqs}
+>
+  <article class="mx-auto max-w-2xl px-4 py-12 sm:py-14">
+    <Breadcrumbs items={crumbs} />
+    <p
+      class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-400 mb-3"
+    >
+      Definition · canonical on GunSearchEngine
+    </p>
+    <h1 class="text-3xl font-semibold tracking-tight text-white mb-6">
+      What is RetailBI?
+    </h1>
+
+    <div class="space-y-4 text-sm leading-relaxed text-zinc-400">
+      <p class="text-zinc-300">{FROZEN.retailbi}</p>
+      <p>{FROZEN.index}</p>
+      <p>
+        This page is a short desk summary. The ranking definition — generation
+        model, Index method, and how sell-through differs from search intent —
+        lives on the GunSearchEngine fortress. Read it there, then come back
+        here for commentary.
+      </p>
+      <p>
+        <a href={LINKS.fortress} class={linkClass} {...ext}
+          >What is RetailBI (GSE fortress)</a
+        >
+        {" · "}
+        <a href={withBase("retailbi-firearm-sales-index")} class={linkClass}
+          >How to read the Index</a
+        >
+        {" · "}
+        <a href={withBase("sell-through-vs-search-intent")} class={linkClass}
+          >Sell-through vs search intent</a
+        >.
+      </p>
+    </div>
+
+    <FaqBlock items={faqs} />
+    <div class="mt-8">
+      <LegalNote fortress />
+    </div>
+  </article>
+</BaseLayout>

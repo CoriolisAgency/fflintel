@@ -1,0 +1,114 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FaqBlock from "../components/FaqBlock.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import ThreeNumbersTable from "../components/ThreeNumbersTable.astro";
+import { FROZEN } from "../lib/frozen";
+import { LINKS, linkClass, ext } from "../lib/links";
+import { withBase } from "../lib/base";
+import { type Crumb, type FaqItem } from "../lib/schema";
+
+const path = "/nics-is-not-sales";
+const title = "NICS is not sales | FFL Intel";
+const description =
+  "NICS is public FBI background-check counts — not sales. The RetailBI Index is same-store new firearm units at the register. The Betsy ask is what shoppers tried to find, including zeros.";
+
+const crumbs: Crumb[] = [
+  { name: "Home", path: "/" },
+  { name: "NICS is not sales", path },
+];
+
+const faqs: FaqItem[] = [
+  {
+    q: "Is NICS the same as firearm sales?",
+    a: "No. NICS is public FBI background-check counts. Checks are not sales.",
+  },
+  {
+    q: "If NICS is not sales, what is the Index?",
+    a: FROZEN.index,
+  },
+  {
+    q: "What is the Betsy ask?",
+    a: "What shoppers tried to find, including zeros. It is not a sales index.",
+  },
+  {
+    q: "Does FFLIntel run NICS checks?",
+    a: "No. Not a NICS system. Not 4473/ATF software. Public FBI counts only, as backdrop.",
+  },
+  {
+    q: "Where is the platform page?",
+    a: "https://www.gunsearchengine.com/nics-vs-firearm-sales",
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  breadcrumbs={crumbs}
+  faqs={faqs}
+>
+  <article class="mx-auto max-w-2xl px-4 py-12 sm:py-14">
+    <Breadcrumbs items={crumbs} />
+    <p
+      class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-400 mb-3"
+    >
+      Checks ≠ units ≠ ask
+    </p>
+    <h1 class="text-3xl font-semibold tracking-tight text-white mb-6">
+      NICS is not sales
+    </h1>
+
+    <div class="space-y-4 text-sm leading-relaxed text-zinc-400">
+      <p>
+        <strong class="text-zinc-200">NICS</strong> is public FBI
+        background-check counts — not sales. The{" "}
+        <strong class="text-zinc-200">RetailBI Firearm Sales Index</strong> is
+        same-store new firearm units at the register — not search intent. The{" "}
+        <strong class="text-zinc-200">Betsy ask</strong> is what shoppers tried
+        to find, including zeros — not a sales index. Three numbers. They do
+        not collapse.
+      </p>
+      <p>{FROZEN.fflintel}</p>
+      <p>
+        RetailBI’s public Index thesis is that NICS is a flawed proxy for new
+        firearm sales and that same-store register units are a better
+        sell-through series. That argument is about{" "}
+        <strong class="text-zinc-200">sales measurement</strong>. This desk
+        grants it — and still keeps a third number: search intent.
+      </p>
+    </div>
+
+    <div class="mt-8">
+      <ThreeNumbersTable />
+    </div>
+
+    <div class="mt-8 space-y-4 text-sm leading-relaxed text-zinc-400">
+      <p>
+        A NICS line can rise while new-gun sell-through falls, and the reverse.
+        Permits, used guns, transfers, multi-gun checks, and denials live in
+        the check series. The Index, as publicly described, isolates new
+        firearm unit sales from a selected panel. Neither series is what
+        someone typed into search and did not find.
+      </p>
+      <p>
+        This desk does not invent NICS totals and does not run checks. When we
+        mention NICS, it is backdrop — public FBI counts — labeled as checks,
+        never as sales. See{" "}
+        <a href={withBase("methodology")} class={linkClass}>Methodology</a>.
+      </p>
+      <p>
+        Platform literacy:{" "}
+        <a href={LINKS.gseNics} class={linkClass} {...ext}
+          >GunSearchEngine /nics-vs-firearm-sales</a
+        >. Index reader:{" "}
+        <a href={withBase("retailbi-firearm-sales-index")} class={linkClass}
+          >How to read the Index</a
+        >.
+      </p>
+    </div>
+
+    <FaqBlock items={faqs} />
+  </article>
+</BaseLayout>

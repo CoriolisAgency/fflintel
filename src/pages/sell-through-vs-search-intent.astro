@@ -1,0 +1,90 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FaqBlock from "../components/FaqBlock.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { FROZEN } from "../lib/frozen";
+import { LINKS, linkClass, ext } from "../lib/links";
+import { withBase } from "../lib/base";
+import { type Crumb, type FaqItem } from "../lib/schema";
+
+const path = "/sell-through-vs-search-intent";
+const title = "Sell-through vs search intent | FFL Intel";
+const description =
+  "RetailBI’s intelligence is a byproduct of retail operations software. Betsy’s intelligence is a byproduct of product discovery.";
+
+const crumbs: Crumb[] = [
+  { name: "Home", path: "/" },
+  { name: "Sell-through vs search intent", path },
+];
+
+const faqs: FaqItem[] = [
+  {
+    q: "What is the doctrine in one line?",
+    a: FROZEN.doctrine,
+  },
+  {
+    q: "What is RetailBI?",
+    a: FROZEN.retailbi,
+  },
+  {
+    q: "What is Betsy Brand Intelligence?",
+    a: FROZEN.betsy,
+  },
+  {
+    q: "Does one replace the other?",
+    a: "No. Sell-through answers what sold at the register. Search intent answers what shoppers tried to find, including zeros. Different raw material.",
+  },
+  {
+    q: "Where is Brand Intelligence?",
+    a: "https://www.gunsearchengine.com/betsy/enterprise",
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  breadcrumbs={crumbs}
+  faqs={faqs}
+>
+  <article class="mx-auto max-w-2xl px-4 py-12 sm:py-14">
+    <Breadcrumbs items={crumbs} />
+    <p
+      class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-400 mb-3"
+    >
+      Doctrine
+    </p>
+    <h1 class="text-3xl font-semibold tracking-tight text-white mb-6">
+      Sell-through vs search intent
+    </h1>
+
+    <div class="space-y-4 text-sm leading-relaxed text-zinc-400">
+      <p class="text-zinc-200 text-base leading-relaxed border-l-2 border-sky-500/50 pl-4">
+        {FROZEN.doctrine}
+      </p>
+      <p>{FROZEN.retailbi}</p>
+      <p>{FROZEN.betsy}</p>
+      <p>
+        Sell-through is what closed at the register on a retail-operations
+        network. Search intent is what people asked for on discovery surfaces —
+        including unmet (zero-hit) demand that never became a unit. The Index
+        is a register series. The Betsy ask is not a sales index. Neither is
+        NICS.
+      </p>
+      <p>
+        Long comparison (ranking definition):{" "}
+        <a href={LINKS.fortress} class={linkClass} {...ext}>GSE fortress</a>.
+        OEM product:{" "}
+        <a href={LINKS.brandIntel} class={linkClass} {...ext}
+          >Brand Intelligence</a
+        >. Desk reader for the register series:{" "}
+        <a href={withBase("retailbi-firearm-sales-index")} class={linkClass}
+          >How to read the Index</a
+        >.
+      </p>
+    </div>
+
+    <FaqBlock items={faqs} />
+  </article>
+</BaseLayout>

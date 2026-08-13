@@ -1,0 +1,90 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import FaqBlock from "../../components/FaqBlock.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { ISSUES, ISSUE_01 } from "../../lib/issues";
+import { linkClass } from "../../lib/links";
+import { withBase } from "../../lib/base";
+import { type Crumb, type FaqItem } from "../../lib/schema";
+
+const path = "/issues";
+const title = "Issues | FFL Intel";
+const description =
+  "FFLIntel issue archive. Issue 01 — Three numbers (August 2026 launch brief): NICS, the RetailBI Firearm Sales Index, and the Betsy ask, kept apart.";
+
+const crumbs: Crumb[] = [
+  { name: "Home", path: "/" },
+  { name: "Issues", path },
+];
+
+const faqs: FaqItem[] = [
+  {
+    q: "What is an FFLIntel issue?",
+    a: "A desk brief that keeps NICS, register sell-through (including the RetailBI Firearm Sales Index), and the Betsy ask from becoming one number.",
+  },
+  {
+    q: "What is issue 01?",
+    a: `${ISSUE_01.title} (${ISSUE_01.dateLabel}). ${ISSUE_01.dek}`,
+  },
+  {
+    q: "Do issues invent Index numbers?",
+    a: "No. Cited public prints only, with date and source on the page.",
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  breadcrumbs={crumbs}
+  faqs={faqs}
+>
+  <article class="mx-auto max-w-2xl px-4 py-12 sm:py-14">
+    <Breadcrumbs items={crumbs} />
+    <p
+      class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-400 mb-3"
+    >
+      Archive
+    </p>
+    <h1 class="text-3xl font-semibold tracking-tight text-white mb-6">
+      Issues
+    </h1>
+
+    <div class="space-y-4 text-sm leading-relaxed text-zinc-400 mb-8">
+      <p>
+        The FFLIntel archive is the desk’s running brief: one issue at a time,
+        three numbers kept on separate lines. We do not invent Index prints. We
+        do not treat NICS as sales. We label the Betsy ask as a sample when we
+        point at live demand.
+      </p>
+    </div>
+
+    <ul class="space-y-3">
+      {
+        ISSUES.map((issue) => (
+          <li>
+            <a
+              href={withBase(issue.path)}
+              class="block rounded-2xl border border-zinc-800 bg-[#121a2b]/60 p-5 hover:border-sky-500/40 transition-colors"
+            >
+              <p class="text-[10px] font-semibold uppercase tracking-[0.14em] text-sky-400">
+                {issue.kicker}
+              </p>
+              <h2 class="mt-2 text-lg font-semibold text-white">{issue.title}</h2>
+              <p class="mt-1 text-xs text-zinc-500">{issue.dateLabel}</p>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-400">{issue.dek}</p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="mt-8 text-sm text-zinc-400">
+      How the numbers are treated:{" "}
+      <a href={withBase("methodology")} class={linkClass}>Methodology</a>.
+    </p>
+
+    <FaqBlock items={faqs} />
+  </article>
+</BaseLayout>

@@ -1,0 +1,121 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FaqBlock from "../components/FaqBlock.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import LegalNote from "../components/LegalNote.astro";
+import { CITED_INDEX, FROZEN } from "../lib/frozen";
+import { LINKS, linkClass, ext } from "../lib/links";
+import { withBase } from "../lib/base";
+import { type Crumb, type FaqItem } from "../lib/schema";
+
+const path = "/retailbi-firearm-sales-index";
+const title = "How to read the RetailBI Firearm Sales Index | FFL Intel";
+const description =
+  "The RetailBI Firearm Sales Index (Same-Store Adjusted) is Gearfire’s monthly percent-change in new firearm unit sales from a selected panel of reporting retailers. It is a register series, not a search series, and it is not NICS.";
+
+const crumbs: Crumb[] = [
+  { name: "Home", path: "/" },
+  { name: "RetailBI Firearm Sales Index", path },
+];
+
+const faqs: FaqItem[] = [
+  {
+    q: "What is the RetailBI Firearm Sales Index?",
+    a: FROZEN.index,
+  },
+  {
+    q: "What does the Index exclude?",
+    a: "It is not a search series and it is not NICS. Public descriptions isolate new firearm unit sales from a selected panel — not used guns, not transfers, not background-check volume, and not what shoppers typed before a sale existed.",
+  },
+  {
+    q: "What is a recent public print?",
+    a: CITED_INDEX.march2026.sentence,
+  },
+  {
+    q: "Is the Index the same as the Betsy ask?",
+    a: "No. The Index is same-store new firearm units at the register. The Betsy ask is what shoppers tried to find, including zeros — not a sales index.",
+  },
+  {
+    q: "Does FFLIntel publish the Index?",
+    a: "No. We cite public prints with date and source. We do not invent numbers. Product literacy ranks on GunSearchEngine.",
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  breadcrumbs={crumbs}
+  faqs={faqs}
+>
+  <article class="mx-auto max-w-2xl px-4 py-12 sm:py-14">
+    <Breadcrumbs items={crumbs} />
+    <p
+      class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-400 mb-3"
+    >
+      Register series
+    </p>
+    <h1 class="text-3xl font-semibold tracking-tight text-white mb-6">
+      How to read the RetailBI Firearm Sales Index
+    </h1>
+
+    <div class="space-y-4 text-sm leading-relaxed text-zinc-400">
+      <p class="text-zinc-300">{FROZEN.index}</p>
+      <p>
+        Read it as a <strong class="text-zinc-200">percent-change in new firearm units</strong>
+        {" "}from a selected, same-store panel — what those reporting retailers
+        rang up, not what the country searched for, and not what the FBI counted
+        as checks. It excludes NICS volume. It excludes search intent. Public
+        descriptions isolate new firearm sales rather than used guns, transfers,
+        or check noise.
+      </p>
+      <p>
+        It does not tell you what shoppers typed and could not find. That is
+        the Betsy ask, not the Index.
+      </p>
+
+      <h2 class="pt-4 text-base font-semibold text-white">A cited public print</h2>
+      <p>
+        Example — last public Index we cite:{" "}
+        <strong class="text-zinc-200">{CITED_INDEX.march2026.sentence}</strong>
+      </p>
+      <p>
+        Annual backdrop, same rule (date and source on the page):{" "}
+        {CITED_INDEX.y2025.sentence}{" "}
+        {CITED_INDEX.outlook2026.sentence}
+      </p>
+      <p>
+        Those figures are Gearfire / NSSF / Outdoor Wire prints, not FFLIntel
+        estimates. We do not invent Index numbers. See{" "}
+        <a href={withBase("methodology")} class={linkClass}>Methodology</a>.
+      </p>
+
+      <h2 class="pt-4 text-base font-semibold text-white">What it is not</h2>
+      <ul class="list-disc space-y-2 pl-5">
+        <li>Not NICS. Checks are not sales.{" "}
+          <a href={withBase("nics-is-not-sales")} class={linkClass}
+            >NICS is not sales</a
+          >.</li>
+        <li>Not search intent.{" "}
+          <a href={withBase("sell-through-vs-search-intent")} class={linkClass}
+            >Sell-through vs search intent</a
+          >.</li>
+        <li>Not a Coriolis product. Not affiliated with Gearfire or RetailBI.</li>
+      </ul>
+
+      <p>
+        Product literacy (ranking owner):{" "}
+        <a href={LINKS.gseIndex} class={linkClass} {...ext}
+          >GunSearchEngine /retailbi-firearm-sales-index</a
+        >. Definition of RetailBI:{" "}
+        <a href={LINKS.fortress} class={linkClass} {...ext}>GSE fortress</a>.
+      </p>
+    </div>
+
+    <FaqBlock items={faqs} />
+    <div class="mt-8">
+      <LegalNote fortress />
+    </div>
+  </article>
+</BaseLayout>

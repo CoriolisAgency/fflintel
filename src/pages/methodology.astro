@@ -1,0 +1,129 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FaqBlock from "../components/FaqBlock.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import ThreeNumbersTable from "../components/ThreeNumbersTable.astro";
+import { FROZEN } from "../lib/frozen";
+import { LINKS, linkClass, ext } from "../lib/links";
+import { withBase } from "../lib/base";
+import { type Crumb, type FaqItem } from "../lib/schema";
+
+const path = "/methodology";
+const title = "Methodology | How FFL Intel treats NICS, the Index, and the ask";
+const description =
+  "How FFLIntel treats the RetailBI Firearm Sales Index (cited public only), NICS (public FBI checks, not sales), and the Betsy ask (Betsy Live, labeled sample).";
+
+const crumbs: Crumb[] = [
+  { name: "Home", path: "/" },
+  { name: "Methodology", path },
+];
+
+const faqs: FaqItem[] = [
+  {
+    q: "Where do Index figures on this desk come from?",
+    a: "Cited public prints only. If a date and a source are not on the page, we do not print a number. We do not invent Index numbers.",
+  },
+  {
+    q: "How do you treat NICS?",
+    a: "As public FBI background-check counts. Checks are not sales. We do not run NICS. We do not treat check volume as unit sell-through.",
+  },
+  {
+    q: "What is the Betsy ask on this desk?",
+    a: "Search intent — what shoppers tried to find, including zeros. When we point at a live pulse, we link Betsy Live and label it a sample. It is not a sales index.",
+  },
+  {
+    q: "Is FFLIntel a POS or a 4473 system?",
+    a: "No. Not a POS. Not 4473/ATF software. Not a NICS system.",
+  },
+  {
+    q: "What is the RetailBI Firearm Sales Index?",
+    a: FROZEN.index,
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  breadcrumbs={crumbs}
+  faqs={faqs}
+>
+  <article class="mx-auto max-w-2xl px-4 py-12 sm:py-14">
+    <Breadcrumbs items={crumbs} />
+    <p
+      class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-400 mb-3"
+    >
+      Methodology
+    </p>
+    <h1 class="text-3xl font-semibold tracking-tight text-white mb-6">
+      How we treat the three numbers
+    </h1>
+
+    <div class="space-y-4 text-sm leading-relaxed text-zinc-400">
+      <p>
+        We treat the RetailBI Firearm Sales Index as a <strong class="text-zinc-200">cited public series only</strong>.
+        If a date and a source are not on the page, we do not print a number. We
+        treat NICS as <strong class="text-zinc-200">public FBI background-check counts</strong>
+        — checks, not sales. We treat the Betsy ask as search intent from{" "}
+        <a href={LINKS.betsyLive} class={linkClass} {...ext}>Betsy Live</a>,
+        labeled as a sample, not as a sales index.
+      </p>
+      <p>{FROZEN.fflintel}</p>
+    </div>
+
+    <div class="mt-8">
+      <ThreeNumbersTable />
+    </div>
+
+    <div class="mt-8 space-y-6 text-sm leading-relaxed text-zinc-400">
+      <section class="rounded-2xl border border-zinc-800 bg-[#121a2b]/60 p-5 space-y-2">
+        <h2 class="text-base font-semibold text-white">Index — cited public only</h2>
+        <p>{FROZEN.index}</p>
+        <p>
+          FFLIntel does not subscribe to RetailBI, does not operate the panel,
+          and does not invent prints. A figure appears here only with its date
+          and source on the same page. How to read the series:{" "}
+          <a href={withBase("retailbi-firearm-sales-index")} class={linkClass}
+            >RetailBI Firearm Sales Index</a
+          >. Product literacy on GunSearchEngine:{" "}
+          <a href={LINKS.gseIndex} class={linkClass} {...ext}
+            >GSE Index spoke</a
+          >.
+        </p>
+      </section>
+
+      <section class="rounded-2xl border border-zinc-800 bg-[#121a2b]/60 p-5 space-y-2">
+        <h2 class="text-base font-semibold text-white">NICS — public FBI, checks not sales</h2>
+        <p>
+          NICS is public FBI background-check counts. It is not sales. It mixes
+          permits, used guns, transfers, multi-gun checks, and denials into a
+          volume series. This desk never treats a NICS print as register units
+          and never implies we run a check. Essay:{" "}
+          <a href={withBase("nics-is-not-sales")} class={linkClass}
+            >NICS is not sales</a
+          >. Platform literacy:{" "}
+          <a href={LINKS.gseNics} class={linkClass} {...ext}
+            >GSE NICS vs firearm sales</a
+          >.
+        </p>
+      </section>
+
+      <section class="rounded-2xl border border-zinc-800 bg-[#121a2b]/60 p-5 space-y-2">
+        <h2 class="text-base font-semibold text-white">Ask — Betsy Live, labeled sample</h2>
+        <p>{FROZEN.betsy}</p>
+        <p>
+          When an issue points at live demand, the link is{" "}
+          <a href={LINKS.betsyLive} class={linkClass} {...ext}>Betsy Live</a>
+          {" "}and the label is <strong class="text-zinc-200">sample</strong> —
+          not a closed monthly index, not units at the register. Doctrine:{" "}
+          <a href={withBase("sell-through-vs-search-intent")} class={linkClass}
+            >Sell-through vs search intent</a
+          >.
+        </p>
+      </section>
+    </div>
+
+    <FaqBlock items={faqs} />
+  </article>
+</BaseLayout>

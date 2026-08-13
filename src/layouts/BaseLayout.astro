@@ -1,0 +1,98 @@
+---
+import "../styles/global.css";
+import SiteChrome from "../components/SiteChrome.astro";
+import { SITE } from "../lib/site";
+import { CANON_PATHS } from "../lib/links";
+import { withBase } from "../lib/base";
+import {
+  pageGraph,
+  webPageNode,
+  breadcrumbJsonLd,
+  faqJsonLd,
+  type Crumb,
+  type FaqItem,
+} from "../lib/schema";
+
+interface Props {
+  title?: string;
+  description?: string;
+  path?: string;
+  /** Absolute URL override (what-is-retailbi → GSE fortress). */
+  canonicalUrl?: string;
+  ogImagePath?: string;
+  breadcrumbs?: Crumb[];
+  faqs?: FaqItem[];
+  extraJsonLd?: Record<string, unknown>[];
+  jsonLdExtra?: Record<string, unknown>[];
+}
+
+const {
+  title = SITE.titleDefault,
+  description = SITE.description,
+  path = "/",
+  canonicalUrl,
+  ogImagePath = CANON_PATHS.headshot,
+  breadcrumbs,
+  faqs,
+  extraJsonLd = [],
+  jsonLdExtra = [],
+} = Astro.props;
+
+const siteOrigin = Astro.site ?? new URL("https://fflintel.com");
+const pagePath = path === "/" ? withBase("/") : withBase(path);
+const selfUrl = new URL(pagePath, siteOrigin).href;
+const canonical = canonicalUrl ?? selfUrl;
+const ogAbs = new URL(withBase(ogImagePath), siteOrigin).href;
+
+const extras: Record<string, unknown>[] = [
+  webPageNode({ url: canonical, name: title, description }),
+];
+if (breadcrumbs?.length) extras.push(breadcrumbJsonLd(breadcrumbs));
+if (faqs?.length) extras.push(faqJsonLd(faqs));
+extras.push(...extraJsonLd, ...jsonLdExtra);
+
+const jsonLd = pageGraph(extras);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0a1220" />
+    <link rel="icon" type="image/svg+xml" href={withBase("favicon.svg")} />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href={withBase("favicon-32.png")}
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="48x48"
+      href={withBase("favicon-48.png")}
+    />
+    <link rel="apple-touch-icon" href={withBase("apple-touch-icon.png")} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogAbs} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@2ABetsy" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogAbs} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="min-h-dvh flex flex-col bg-ink text-zinc-200">
+    <SiteChrome>
+      <slot />
+    </SiteChrome>
+  </body>
+</html>

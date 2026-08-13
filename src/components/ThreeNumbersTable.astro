@@ -1,0 +1,32 @@
+---
+import { THREE_NUMBERS } from "../lib/frozen";
+---
+
+<div class="overflow-x-auto rounded-2xl border border-zinc-800">
+  <table class="w-full min-w-[28rem] text-left text-sm">
+    <thead>
+      <tr class="border-b border-zinc-800 bg-[#121a2b]">
+        <th class="px-3 py-3 text-[10px] font-semibold uppercase tracking-wider text-sky-400">
+          Number
+        </th>
+        <th class="px-3 py-3 text-[10px] font-semibold uppercase tracking-wider text-zinc-400">
+          What it is
+        </th>
+        <th class="px-3 py-3 text-[10px] font-semibold uppercase tracking-wider text-zinc-500">
+          What it is not
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        THREE_NUMBERS.map((row) => (
+          <tr class="border-b border-zinc-800/80 last:border-0 align-top">
+            <td class="px-3 py-3 text-xs font-medium text-zinc-100">{row.number}</td>
+            <td class="px-3 py-3 text-xs text-zinc-300 leading-relaxed">{row.is}</td>
+            <td class="px-3 py-3 text-xs text-zinc-500 leading-relaxed">{row.isNot}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>

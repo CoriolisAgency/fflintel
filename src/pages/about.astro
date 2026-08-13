@@ -1,0 +1,124 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FaqBlock from "../components/FaqBlock.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { FROZEN } from "../lib/frozen";
+import { LINKS, linkClass, ext } from "../lib/links";
+import { withBase } from "../lib/base";
+import { type Crumb, type FaqItem } from "../lib/schema";
+
+const path = "/about";
+const title = "About FFL Intel | Published by Coriolis, LLC";
+const description =
+  "FFLIntel is published by Coriolis, LLC. Not Gearfire. Not 4473. Not a POS. Not a NICS system. An industry desk for NICS, register sell-through, and the Betsy ask.";
+
+const crumbs: Crumb[] = [
+  { name: "Home", path: "/" },
+  { name: "About", path },
+];
+
+const faqs: FaqItem[] = [
+  {
+    q: "Who publishes FFLIntel?",
+    a: "Coriolis, LLC (Coriolis Agency). FFLIntel is the industry desk — not a Gearfire product.",
+  },
+  {
+    q: "Is this Gearfire or RetailBI?",
+    a: "No. Not affiliated with Gearfire or RetailBI. Marks belong to their owners.",
+  },
+  {
+    q: "Is FFLIntel 4473 or ATF software?",
+    a: "No. Not 4473/ATF software. Not a NICS system. We do not process transfers or run background checks.",
+  },
+  {
+    q: "Is this a POS?",
+    a: "No. FFLIntel is a desk. It is not a point-of-sale system and does not publish a same-store unit-sales index of its own.",
+  },
+  {
+    q: "What is Betsy AI on this site?",
+    a: "Betsy AI is the platform face of Coriolis demand intelligence. The 36px work headshot in the header links to 2aBetsy.com. This desk is commentary, not the character home.",
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  breadcrumbs={crumbs}
+  faqs={faqs}
+>
+  <article class="mx-auto max-w-2xl px-4 py-12 sm:py-14">
+    <Breadcrumbs items={crumbs} />
+    <p
+      class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-400 mb-3"
+    >
+      About
+    </p>
+    <h1 class="text-3xl font-semibold tracking-tight text-white mb-6">
+      Published by Coriolis, LLC
+    </h1>
+
+    <div class="space-y-4 text-sm leading-relaxed text-zinc-400">
+      <p>
+        FFLIntel is published by <strong class="text-zinc-200">Coriolis, LLC</strong>
+        (Coriolis Agency). This desk is not Gearfire, not RetailBI, and not a
+        product of the Gearfire network. We do not process 4473s, we are not ATF
+        software, and we are not a point-of-sale system. We are not a NICS
+        system.
+      </p>
+      <p>{FROZEN.fflintel}</p>
+      <p>
+        The job is literacy: keep background-check counts, register
+        sell-through, and search intent from collapsing into one headline. When
+        a trade note, a forecast, or a dashboard treats those three as
+        interchangeable, the desk says so.
+      </p>
+
+      <h2 class="pt-4 text-base font-semibold text-white">What this desk is</h2>
+      <ul class="list-disc space-y-2 pl-5">
+        <li>
+          A commentary host for the three numbers — see{" "}
+          <a href={withBase("issues")} class={linkClass}>Issues</a> and{" "}
+          <a href={withBase("methodology")} class={linkClass}>Methodology</a>.
+        </li>
+        <li>
+          A short spoke for “what is RetailBI” that{" "}
+          <a href={withBase("what-is-retailbi")} class={linkClass}
+            >canonicals to the GSE fortress</a
+          >.
+        </li>
+        <li>
+          A reader for the Index and for NICS-as-checks, with links back to
+          GunSearchEngine product literacy.
+        </li>
+      </ul>
+
+      <h2 class="pt-4 text-base font-semibold text-white">What this desk is not</h2>
+      <ul class="list-disc space-y-2 pl-5">
+        <li>Not Gearfire. Not RetailBI. Marks belong to their owners.</li>
+        <li>Not 4473 / ATF software.</li>
+        <li>Not a POS.</li>
+        <li>Not a NICS system — we do not run checks.</li>
+        <li>Not the ranking home for “what is RetailBI.” That is the fortress.</li>
+      </ul>
+
+      <p>
+        Family:{" "}
+        <a href={LINKS.gse} class={linkClass} {...ext}>GunSearchEngine</a>
+        {" · "}
+        <a href={LINKS.brandIntel} class={linkClass} {...ext}>Brand Intelligence</a>
+        {" · "}
+        <a href={LINKS.gsa} class={linkClass} {...ext}>GunSearchAgent</a>
+        {" · "}
+        <a href={LINKS.accelerator} class={linkClass} {...ext}>FFL Accelerator</a>
+        {" · "}
+        <a href={LINKS.betsy} class={linkClass} {...ext}>2aBetsy</a>
+        {" · "}
+        <a href={LINKS.coriolis} class={linkClass} {...ext}>Coriolis</a>.
+      </p>
+    </div>
+
+    <FaqBlock items={faqs} />
+  </article>
+</BaseLayout>

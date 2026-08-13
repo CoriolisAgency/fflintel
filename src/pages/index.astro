@@ -1,0 +1,132 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FaqBlock from "../components/FaqBlock.astro";
+import ThreeNumbersTable from "../components/ThreeNumbersTable.astro";
+import { FROZEN } from "../lib/frozen";
+import { ISSUE_01 } from "../lib/issues";
+import { LINKS, linkClass } from "../lib/links";
+import { withBase } from "../lib/base";
+import { SITE } from "../lib/site";
+import { type FaqItem } from "../lib/schema";
+
+const path = "/";
+const title = SITE.titleDefault;
+const description = SITE.description;
+
+const crumbs = [{ name: "Home", path: "/" }];
+
+const faqs: FaqItem[] = [
+  {
+    q: "What is FFLIntel?",
+    a: FROZEN.fflintel,
+  },
+  {
+    q: "What are the three numbers?",
+    a: "NICS is public FBI background-check counts, not sales. The RetailBI Index is same-store new firearm units at the register, not search intent. The Betsy ask is what shoppers tried to find, including zeros — not a sales index.",
+  },
+  {
+    q: "Is FFLIntel affiliated with Gearfire or RetailBI?",
+    a: "No. Published by Coriolis, LLC. Not affiliated with Gearfire or RetailBI. Marks belong to their owners.",
+  },
+  {
+    q: "Is NICS the same as firearm sales?",
+    a: "No. NICS counts background checks. Checks are not sales. The Index is a register series. The Betsy ask is search intent.",
+  },
+];
+
+const cards = [
+  {
+    href: ISSUE_01.path,
+    kicker: ISSUE_01.kicker,
+    title: ISSUE_01.title,
+    dek: ISSUE_01.dek,
+  },
+  {
+    href: "/methodology",
+    kicker: "How we treat the numbers",
+    title: "Methodology",
+    dek: "Cited public Index only. Public FBI NICS. Betsy Live, labeled sample.",
+  },
+  {
+    href: "/what-is-retailbi",
+    kicker: "Definition · GSE fortress",
+    title: "What is RetailBI?",
+    dek: FROZEN.retailbi,
+  },
+  {
+    href: "/retailbi-firearm-sales-index",
+    kicker: "How to read a register series",
+    title: "RetailBI Firearm Sales Index",
+    dek: "A register series, not a search series, and it is not NICS.",
+  },
+] as const;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  breadcrumbs={crumbs}
+  faqs={faqs}
+>
+  <div class="mx-auto max-w-3xl px-4 py-12 sm:py-14">
+    <p
+      class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-400 mb-3"
+    >
+      Industry desk
+    </p>
+    <h1 class="text-3xl font-semibold tracking-tight text-white mb-6">
+      Three numbers. One desk.
+    </h1>
+
+    <div class="space-y-4 text-sm leading-relaxed text-zinc-400">
+      <p class="text-zinc-300">{FROZEN.fflintel}</p>
+      <p>
+        NICS is public FBI background-check counts — not sales. The RetailBI
+        Firearm Sales Index is same-store new firearm units at the register —
+        not search intent. The Betsy ask is what shoppers tried to find,
+        including zeros — not a sales index.
+      </p>
+    </div>
+
+    <div class="mt-8">
+      <ThreeNumbersTable />
+    </div>
+
+    <div class="mt-8 grid gap-3 sm:grid-cols-2">
+      {
+        cards.map((card) => (
+          <a
+            href={withBase(card.href)}
+            class="rounded-2xl border border-zinc-800 bg-[#121a2b]/60 p-5 hover:border-sky-500/40 transition-colors"
+          >
+            <p class="text-[10px] font-semibold uppercase tracking-[0.14em] text-sky-400 mb-2">
+              {card.kicker}
+            </p>
+            <h2 class="text-base font-semibold text-white">{card.title}</h2>
+            <p class="mt-2 text-xs leading-relaxed text-zinc-400 line-clamp-4">
+              {card.dek}
+            </p>
+          </a>
+        ))
+      }
+    </div>
+
+    <p class="mt-8 text-sm leading-relaxed text-zinc-400">
+      Also on this desk:{" "}
+      <a href={withBase("nics-is-not-sales")} class={linkClass}
+        >NICS is not sales</a
+      >
+      {" · "}
+      <a href={withBase("sell-through-vs-search-intent")} class={linkClass}
+        >Sell-through vs search intent</a
+      >
+      {" · "}
+      <a href={LINKS.fortress} class={linkClass} target="_blank" rel="noopener noreferrer"
+        >GSE fortress</a
+      >.
+    </p>
+
+    <FaqBlock items={faqs} />
+  </div>
+</BaseLayout>

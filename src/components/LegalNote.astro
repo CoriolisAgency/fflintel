@@ -1,0 +1,24 @@
+---
+import { LINKS, linkClass, ext } from "../lib/links";
+
+interface Props {
+  fortress?: boolean;
+}
+
+const { fortress = false } = Astro.props;
+---
+
+<p class="text-xs leading-relaxed text-zinc-500">
+  Not affiliated. Marks of their owners.{
+    fortress ? (
+      <>
+        {" "}
+        Ranking definition:{" "}
+        <a href={LINKS.fortress} class={linkClass} {...ext}>
+          What is RetailBI
+        </a>{" "}
+        on GunSearchEngine.
+      </>
+    ) : null
+  }
+</p>
