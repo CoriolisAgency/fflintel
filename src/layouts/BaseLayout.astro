@@ -40,7 +40,7 @@ const {
 
 const siteOrigin = Astro.site ?? new URL("https://fflintel.com");
 const pagePath = path === "/" ? withBase("/") : withBase(path);
-const selfUrl = new URL(pagePath, siteOrigin).href;
+const selfUrl = new URL(pagePath, siteOrigin).href.replace(/\/$/, "") || new URL(pagePath, siteOrigin).href;
 const canonical = canonicalUrl ?? selfUrl;
 const ogAbs = new URL(withBase(ogImagePath), siteOrigin).href;
 
