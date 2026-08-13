@@ -2,11 +2,12 @@ export const SITE = {
   name: "FFL Intel",
   legalName: "Coriolis, LLC",
   publisher: "Coriolis, LLC",
-  titleDefault: "FFL Intel — The desk",
+  titleDefault: "FFL Intel — Night desk",
   description:
-    "Last month’s print told you what rang. It did not tell you what people asked for when the case was empty. A small desk for firearms numbers, written by Paul Angell.",
+    "Betsy files the firearms wire after the sensors go quiet. Same-store prints, NICS weather, and the ask the register cannot see. Published by Coriolis, LLC.",
   job: "Three numbers. One desk.",
   origin: "https://fflintel.com",
-  editor: "Paul Angell",
-  editorRole: "Desk editor",
+  editor: "Betsy",
+  editorRole: "Night desk",
+  publisherCredit: "Coriolis, LLC · Paul Angell, publisher",
 } as const;

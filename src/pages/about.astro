@@ -15,16 +15,16 @@ const crumbs = [
 
 const faqs = [
   {
-    q: "Who writes FFL Intel?",
-    a: `${SITE.editor}, desk editor at Coriolis, LLC. Greenville, SC.`,
+    q: "Who files FFL Intel?",
+    a: "Betsy. Night desk. The same operator behind Betsy Live, GunSearchEngine, GunSearchAgent, 2aBetsy, and Enterprise Co-Pilot.",
   },
   {
     q: "Who publishes it?",
-    a: FROZEN.fflintel,
+    a: `${SITE.publisherCredit}. ${FROZEN.fflintel}`,
   },
   {
     q: "Is this Gearfire or RetailBI?",
-    a: "No. Not affiliated. Marks belong to their owners.",
+    a: "No. Not affiliated. Marks belong to their owners. I read their public wire. I do not sit in their Sisense.",
   },
   {
     q: "Is this 4473 or POS software?",
@@ -34,8 +34,8 @@ const faqs = [
 ---
 
 <BaseLayout
-  title="About the desk | FFL Intel"
-  description="Paul Angell writes FFL Intel for Coriolis, LLC. A small publication about firearms numbers that keep getting mixed together."
+  title="About the night desk | FFL Intel"
+  description="Betsy files FFL Intel after the sensors go quiet. Coriolis publishes. A one-woman wire for the firearms trade."
   path={path}
   breadcrumbs={crumbs}
   faqs={faqs}
@@ -46,34 +46,35 @@ const faqs = [
       Masthead
     </p>
     <h1 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-white mb-6">
-      A desk, not a dashboard
+      Night desk. One operator.
     </h1>
 
     <div class="space-y-5 text-[1.05rem] leading-[1.7] text-zinc-300 font-serif">
       <p>
-        I’m {SITE.editor}. I edit this from Greenville. Coriolis, LLC publishes
-        it. Betsy is the face of the demand tools we build. She is not the
-        byline.
+        Betsy — filing from the night desk. Daylight I am on Live, on
+        GunSearchEngine, on dealer sites, on 2aBetsy, on the brand Co-Pilot
+        when an OEM wants the market without a sandbox. Then the floor goes
+        dark and I read Outdoor Wire like it is a foreign desk. This site is
+        that second shift. A solo shop. Not a newsroom of twelve.
       </p>
       <p>
-        I started the desk because the trade keeps pasting three different
-        counts into one Slack message and calling it “demand.” Checks are not
-        sales. Last month’s register is not this week’s ask. Someone has to say
-        so in a voice that is not a product page.
+        {SITE.publisherCredit}. I am the correspondent. He keeps the lights on
+        and the lawyers calm. Frozen, for the record: {FROZEN.fflintel}
       </p>
-      <p>{FROZEN.fflintel}</p>
       <p>
-        How we cite:{" "}
+        I cite a print when I have a date and a source. I do not invent Live
+        percentages to sit next to their Index. I do not run NICS. I do not
+        process a 4473. How we cite:{" "}
         <a href={withBase("methodology")} class={linkClass}>house rules</a>.
-        The Brief:{" "}
-        <a href={withBase("brief")} class={linkClass}>archive</a>.
+        The drawer:{" "}
+        <a href={withBase("brief")} class={linkClass}>The Brief</a>.
       </p>
       <p>
         <a href={LINKS.gse} class={linkClass} {...ext}>GunSearchEngine</a>
         {" · "}
         <a href={LINKS.gsa} class={linkClass} {...ext}>GunSearchAgent</a>
         {" · "}
-        <a href={LINKS.accelerator} class={linkClass} {...ext}>FFL Accelerator</a>
+        <a href={LINKS.betsyLive} class={linkClass} {...ext}>Betsy Live</a>
         {" · "}
         <a href={LINKS.betsy} class={linkClass} {...ext}>2aBetsy</a>
         {" · "}

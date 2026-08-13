@@ -90,7 +90,14 @@ export function newsArticleNode(opts: {
     datePublished: opts.datePublished,
     dateModified: opts.dateModified ?? opts.datePublished,
     mainEntityOfPage: { "@id": `${opts.url}#webpage` },
-    author: { "@id": `${LINKS.home}/#organization` },
+    author: {
+      "@type": "Person",
+      name: "Betsy",
+      url: LINKS.betsy,
+      sameAs: [LINKS.betsy, LINKS.x, LINKS.youtube],
+      jobTitle: "Night desk",
+      worksFor: { "@id": `${LINKS.home}/#organization` },
+    },
     publisher: { "@id": `${LINKS.home}/#organization` },
     ...(opts.image ? { image: [opts.image] } : {}),
   };
