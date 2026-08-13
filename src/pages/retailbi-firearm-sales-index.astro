@@ -3,9 +3,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import Byline from "../components/Byline.astro";
 import DualDoors from "../components/DualDoors.astro";
+import PillarLinks from "../components/PillarLinks.astro";
 import LegalNote from "../components/LegalNote.astro";
 import IndexSeriesTable from "../components/IndexSeriesTable.astro";
-import { CANON_PATHS } from "../lib/links";
+import { CANON_PATHS, LINKS, linkClass, ext } from "../lib/links";
 import { withBase } from "../lib/base";
 
 const path = "/retailbi-firearm-sales-index";
@@ -83,10 +84,14 @@ const crumbs = [
         Last monthly we have is March. They revise when more shops report. A
         same-stores new-gun number is last month talking. It is not NICS. It
         is not the used-gun aisle. It is not the sentence someone typed at
-        9:40 p.m.
+        9:40 p.m. Longer version:{" "}
+        <a href={LINKS.gseIndex} class={linkClass} {...ext}
+          >how the Index is counted</a
+        >.
       </p>
     </div>
     <DualDoors />
+    <PillarLinks />
     <p class="mt-10"><LegalNote fortress /></p>
   </article>
 </BaseLayout>

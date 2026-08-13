@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import StoryCard from "../../components/StoryCard.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { BRIEFS, ESSAYS } from "../../lib/briefs";
+import PillarLinks from "../../components/PillarLinks.astro";
 import { CANON_PATHS } from "../../lib/links";
 
 const path = "/brief";
@@ -65,5 +66,6 @@ const crumbs = [
         ))
       }
     </div>
+    <PillarLinks />
   </div>
 </BaseLayout>

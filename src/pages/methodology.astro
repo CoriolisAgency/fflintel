@@ -4,6 +4,7 @@ import Breadcrumbs from "../components/Breadcrumbs.astro";
 import Byline from "../components/Byline.astro";
 import FaqBlock from "../components/FaqBlock.astro";
 import LegalNote from "../components/LegalNote.astro";
+import PillarLinks from "../components/PillarLinks.astro";
 import { LINKS, linkClass, ext } from "../lib/links";
 import { withBase } from "../lib/base";
 
@@ -86,6 +87,7 @@ const faqs = [
       </p>
     </div>
 
+    <PillarLinks />
     <FaqBlock items={faqs} />
     <p class="mt-8"><LegalNote fortress /></p>
   </article>

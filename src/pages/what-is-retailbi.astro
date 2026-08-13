@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import FaqBlock from "../components/FaqBlock.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import LegalNote from "../components/LegalNote.astro";
+import PillarLinks from "../components/PillarLinks.astro";
 import { FROZEN } from "../lib/frozen";
 import { LINKS, linkClass, ext } from "../lib/links";
 import { withBase } from "../lib/base";
@@ -66,19 +67,20 @@ const faqs: FaqItem[] = [
       <p>{FROZEN.index}</p>
       <p>
         <a href={LINKS.fortress} class={linkClass} {...ext}
-          >What is RetailBI (GSE fortress)</a
+          >What is RetailBI</a
         >
         {" · "}
-        <a href={withBase("retailbi-firearm-sales-index")} class={linkClass}
-          >How to read the Index</a
+        <a href={LINKS.gseIndex} class={linkClass} {...ext}
+          >How the Index is counted</a
         >
         {" · "}
-        <a href={withBase("sell-through-vs-search-intent")} class={linkClass}
-          >Sell-through vs search intent</a
+        <a href={LINKS.gsaRetailbi} class={linkClass} {...ext}
+          >RetailBI and your gun store</a
         >.
       </p>
     </div>
 
+    <PillarLinks />
     <FaqBlock items={faqs} />
     <div class="mt-8">
       <LegalNote fortress />

@@ -21,6 +21,7 @@ export const LINKS = {
   checkout: "https://coriolisagency.com/plans",
   coriolis: "https://coriolisagency.com",
   betsy: "https://2abetsy.com",
+  artOfDemand: "https://2abetsy.com/art-of-demand-retailbi",
   x: "https://x.com/2ABetsy",
   youtube: "https://www.youtube.com/@BetsyAI",
 } as const;

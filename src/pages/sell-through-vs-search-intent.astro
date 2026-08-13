@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import Byline from "../components/Byline.astro";
 import DualDoors from "../components/DualDoors.astro";
+import PillarLinks from "../components/PillarLinks.astro";
 import LegalNote from "../components/LegalNote.astro";
 import { FROZEN } from "../lib/frozen";
 import { CANON_PATHS } from "../lib/links";
@@ -73,6 +74,7 @@ const crumbs = [
       </p>
     </div>
     <DualDoors />
+    <PillarLinks />
     <p class="mt-10"><LegalNote /></p>
   </article>
 </BaseLayout>
