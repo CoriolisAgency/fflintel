@@ -33,3 +33,23 @@ a {
 ::selection {
   background: color-mix(in srgb, var(--color-sky) 28%, transparent);
 }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.2rem;
+  border: 1px solid var(--color-ink);
+  border-radius: 2px;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+}
+.btn:hover {
+  background: var(--color-sky);
+  border-color: var(--color-sky);
+  color: #fff;
+}
