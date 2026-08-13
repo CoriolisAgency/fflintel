@@ -21,11 +21,11 @@ const faqs = [
   },
   {
     q: "What is Betsy’s role?",
-    a: "Research. Demand sensors on GunSearchEngine, GunSearchAgent, Betsy Live, and Enterprise Co-Pilot. She is the instrument behind the notes, not the narrator.",
+    a: "She runs the numbers — GunSearchEngine, GunSearchAgent, Betsy Live, and Enterprise Co-Pilot. She is in the background on purpose. These pages are written so a shop owner can forward them.",
   },
   {
     q: "Is this Gearfire or RetailBI?",
-    a: "No. Not affiliated. Marks belong to their owners. This desk reads the public wire. It does not sit in their Sisense.",
+    a: "No. Not affiliated. Marks belong to their owners. We read the same public Outdoor Wire you do.",
   },
   {
     q: "Is this 4473 or POS software?",
@@ -36,7 +36,7 @@ const faqs = [
 
 <BaseLayout
   title="About | FFL Intel"
-  description="FFL Intel is a trade signal: NICS, register sell-through, and search intent. Research by Betsy. Published by Coriolis, LLC."
+  description="FFL Intel keeps three numbers apart: background checks (NICS), what sold last month (RetailBI Index), and what people asked for (Betsy BI). Numbers by Betsy. Published by Coriolis, LLC."
   path={path}
   ogImagePath={CANON_PATHS.copilot}
   breadcrumbs={crumbs}
@@ -45,16 +45,16 @@ const faqs = [
   <article class="mx-auto max-w-2xl px-4 py-12 sm:py-14">
     <Breadcrumbs items={crumbs} />
     <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-400 mb-3">
-      Masthead
+      About
     </p>
     <h1 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-white mb-6">
-      A trade signal. Not a newsroom.
+      Three numbers. Stop mixing them up.
     </h1>
 
     <figure class="mb-8 overflow-hidden rounded-2xl border border-zinc-800">
       <img
         src={withBase(CANON_PATHS.copilot)}
-        alt="Betsy — demand research"
+        alt="Betsy in the background — she runs the demand numbers"
         width="1792"
         height="1008"
         class="w-full object-cover object-top max-h-72"
@@ -64,24 +64,23 @@ const faqs = [
     <div class="space-y-5 text-[1.05rem] leading-[1.7] text-zinc-300 font-serif">
       <p>
         FFL Intel keeps three numbers from becoming one: background checks
-        (NICS), register sell-through (including the RetailBI Firearm Sales
-        Index), and search intent. It is commentary, not a product home and
-        not a character site.
+        (NICS), what sold last month (the RetailBI Firearm Sales Index), and
+        what people asked for (Betsy BI). It is not a store, not a sales
+        pitch, and not a fan site.
       </p>
       <p>
-        Research is by Betsy — the same demand sensors behind
-        GunSearchEngine, GunSearchAgent, Betsy Live, and Enterprise Co-Pilot.
-        She is in the background of this desk on purpose. The notes are
-        written so a brand team or an FFL owner can forward them without an
+        Betsy runs the numbers in the background — GunSearchEngine,
+        GunSearchAgent, Betsy Live, and Enterprise Co-Pilot. These pages are
+        written so a shop owner or a brand owner can forward them without an
         introduction.
       </p>
       <p>
-        {SITE.publisherCredit}. Frozen, for the record: {FROZEN.fflintel}
+        {SITE.publisherCredit}. For the record: {FROZEN.fflintel}
       </p>
       <p>
-        Prints appear only with a date and a source. Live percentages are not
-        invented to sit next to their Index. This desk does not run NICS or
-        process a 4473. How numbers are treated:{" "}
+        Numbers appear only with a date and a source. We do not invent a
+        Betsy percentage to sit next to their Index. This site does not run
+        NICS or process a 4473. How numbers are treated:{" "}
         <a href={withBase("methodology")} class={linkClass}>methodology</a>.
         The archive:{" "}
         <a href={withBase("brief")} class={linkClass}>Notes</a>.

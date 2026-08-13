@@ -2,12 +2,12 @@ export const SITE = {
   name: "FFL Intel",
   legalName: "Coriolis, LLC",
   publisher: "Coriolis, LLC",
-  titleDefault: "FFL Intel — Trade signal",
+  titleDefault: "FFL Intel — Three numbers",
   description:
-    "Trade signal for the firearms industry: NICS, the RetailBI Firearm Sales Index, and search intent. Research by Betsy. Published by Coriolis, LLC. Not a newsroom. Not a product home.",
-  job: "Trade signal. Three numbers.",
+    "Three numbers the firearms trade keeps mixing up: background checks (NICS), what sold last month (RetailBI Index), and what people asked for (Betsy BI). Numbers by Betsy. Published by Coriolis, LLC.",
+  job: "Three numbers. Keep them straight.",
   origin: "https://fflintel.com",
   editor: "FFL Intel",
-  editorRole: "Research: Betsy",
+  editorRole: "Numbers by Betsy",
   publisherCredit: "Coriolis, LLC · Paul Angell, publisher",
 } as const;

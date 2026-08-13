@@ -2,7 +2,7 @@
 
 Source of truth for internal linking and cannibalization rules.
 
-**This site owns commentary.** FFLIntel is the trade signal: notes and literacy that keep three numbers from becoming one (NICS / register sell-through / Betsy ask). Research by Betsy. It is not the product home for Brand Intelligence, GunSearchAgent, or the Betsy character. Not a newsroom.
+**This site owns commentary.** FFLIntel keeps three numbers from becoming one: NICS (background checks), RetailBI Index (what sold), Betsy BI (what people asked for). Numbers by Betsy. Not a product home. Not a character site.
 
 Frozen strings: [GunSearchEngine entity kit](../../gunsearchengine/docs/entity-kit.md).
 
@@ -42,5 +42,5 @@ Frozen strings: [GunSearchEngine entity kit](../../gunsearchengine/docs/entity-k
 3. Never invent Index numbers. Cite date + source on the page, or omit the print.
 4. Never claim 4473 / ATF / POS / NICS-system capability.
 5. Never H1 “RetailBI alternative.”
-6. Soft CTAs only, as **two doors**: brand teams → fortress / Brand Intelligence / Co-Pilot; retailers → GSA. No hard sell. No character door.
+6. Soft CTAs only, as **two doors**: if you make the guns → fortress / Brand Intelligence / Co-Pilot; if you sell them → GSA. No hard sell. No headshot chip.
 7. `sameAs` mesh from the entity kit (Coriolis, LLC).

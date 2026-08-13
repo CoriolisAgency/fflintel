@@ -21,13 +21,13 @@ const path = "/";
   <section class="relative min-h-[70vh] overflow-hidden border-b border-zinc-800/80">
     <img
       src={withBase(CANON_PATHS.copilot)}
-      alt="Betsy — demand research behind the signal"
+      alt="Betsy in the background — she runs the demand numbers"
       width="1792"
       height="1008"
-      class="absolute inset-0 h-full w-full object-cover object-[70%_center]"
+      class="absolute inset-0 h-full w-full object-cover object-[78%_18%]"
     />
     <div
-      class="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/30"
+      class="absolute inset-0 bg-gradient-to-r from-ink from-0% via-ink/70 via-40% to-transparent to-85%"
     >
     </div>
     <div
@@ -44,9 +44,9 @@ const path = "/";
         {FEATURED.title}
       </h1>
       <p class="mt-4 max-w-xl text-base leading-relaxed text-zinc-300 sm:text-lg">
-        Same-store new firearms, Outdoor Wire, 13 April 2026. The print is
-        last month at the register. It cannot see what they typed when the
-        case was empty. That distinction is the whole desk.
+        March: the same stores sold 11.9% fewer new guns than a year ago.
+        That number is real. It is also looking backward. It cannot tell you
+        what people will want next.
       </p>
       <div class="mt-6">
         <Byline dateLabel={FEATURED.dateLabel} read={FEATURED.read} />
@@ -56,7 +56,7 @@ const path = "/";
           href={withBase(FEATURED.path)}
           class="inline-flex rounded-xl bg-sky-500 px-5 py-3 text-sm font-semibold text-slate-950 hover:bg-sky-400"
         >
-          Read the note
+          Read why that matters
         </a>
       </div>
     </div>
@@ -66,7 +66,7 @@ const path = "/";
     <p
       class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-400 mb-3"
     >
-      Three numbers. Do not staple them.
+      Three numbers. Stop mixing these up.
     </p>
     <ThreeNumbersTable />
     <DualDoors />
@@ -81,7 +81,7 @@ const path = "/";
           Notes
         </p>
         <h2 class="mt-2 font-serif text-2xl font-semibold text-white">
-          How to read the market
+          What else to know
         </h2>
       </div>
       <a href={withBase("brief")} class={`${linkClass} text-sm`}>All notes</a>
@@ -106,7 +106,7 @@ const path = "/";
   <section class="border-t border-zinc-800/80 bg-panel/40">
     <div class="mx-auto max-w-6xl px-4 py-10 sm:flex sm:items-center sm:justify-between">
       <p class="max-w-xl text-sm leading-relaxed text-zinc-400">
-        Published by Coriolis, LLC. Research by Betsy. Not affiliated with
+        Published by Coriolis, LLC. Numbers by Betsy. Not affiliated with
         Gearfire or RetailBI. The ranking definition of RetailBI lives on{" "}
         <a href={LINKS.fortress} class={linkClass} target="_blank" rel="noopener noreferrer"
           >GunSearchEngine</a

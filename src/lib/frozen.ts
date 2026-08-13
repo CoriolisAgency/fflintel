@@ -31,18 +31,18 @@ export const FROZEN = {
 export const THREE_NUMBERS = [
   {
     number: "NICS",
-    is: "Public FBI background-check counts",
-    isNot: "Sales",
+    is: "FBI background-check counts",
+    isNot: "Gun sales",
   },
   {
     number: "RetailBI Index",
-    is: "Same-store new firearm units at the register",
-    isNot: "Search intent",
+    is: "New guns sold last month at the same stores as last year",
+    isNot: "What people asked for",
   },
   {
-    number: "Betsy ask",
-    is: "What shoppers tried to find, including zeros",
-    isNot: "A sales index",
+    number: "Betsy BI",
+    is: "What people asked for — including searches that came back empty",
+    isNot: "A sales report",
   },
 ] as const;
 

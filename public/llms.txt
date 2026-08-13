@@ -1,6 +1,6 @@
 # FFLIntel
 
-FFLIntel is the industry desk that keeps three numbers from becoming one: background checks (NICS), register sell-through (including the RetailBI Firearm Sales Index), and search intent (Betsy). Research by Betsy. Published by Coriolis, LLC. Not a newsroom. Not a product home. Not affiliated with Gearfire.
+FFLIntel keeps three numbers from becoming one: background checks (NICS), what sold last month (RetailBI Firearm Sales Index), and what people asked for (Betsy BI). Numbers by Betsy. Published by Coriolis, LLC. Not a newsroom. Not a product home. Not affiliated with Gearfire.
 
 ## Three numbers
 

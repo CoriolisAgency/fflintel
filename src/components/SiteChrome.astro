@@ -1,5 +1,5 @@
 ---
-import { LINKS, CANON_PATHS } from "../lib/links";
+import { LINKS } from "../lib/links";
 import { withBase } from "../lib/base";
 import { SITE } from "../lib/site";
 
@@ -40,20 +40,6 @@ const family = [
     class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-3"
   >
     <div class="flex items-center gap-2.5 min-w-0">
-      <a
-        href={LINKS.betsy}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="shrink-0"
-      >
-        <img
-          src={withBase(CANON_PATHS.headshot)}
-          alt="Betsy AI"
-          width="36"
-          height="36"
-          class="h-9 w-9 rounded-xl object-cover ring-1 ring-sky-500/40 shadow-md shadow-sky-500/20"
-        />
-      </a>
       <a href={withBase("/")} class="min-w-0 group">
         <span
           class="block text-sm font-semibold tracking-wide text-white group-hover:text-sky-100"
@@ -98,7 +84,7 @@ const family = [
     <div class="space-y-1 max-w-sm">
       <p class="font-medium text-zinc-200">FFL Intel · {SITE.job}</p>
       <p class="text-xs leading-relaxed">
-        Research by Betsy. {SITE.publisherCredit}. Not affiliated with
+        Numbers by Betsy. {SITE.publisherCredit}. Not affiliated with
         Gearfire or RetailBI.
       </p>
     </div>

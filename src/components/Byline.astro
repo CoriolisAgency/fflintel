@@ -1,7 +1,5 @@
 ---
-import { CANON_PATHS } from "../lib/links";
 import { SITE } from "../lib/site";
-import { withBase } from "../lib/base";
 
 interface Props {
   dateLabel: string;
@@ -11,21 +9,12 @@ interface Props {
 const { dateLabel, read } = Astro.props;
 ---
 
-<div class="flex flex-wrap items-center gap-3 text-sm text-zinc-400">
-  <img
-    src={withBase(CANON_PATHS.headshot)}
-    alt=""
-    width="28"
-    height="28"
-    class="h-7 w-7 rounded-full object-cover ring-1 ring-zinc-600"
-  />
-  <div>
-    <p class="text-zinc-200 font-medium leading-none">{SITE.editor}</p>
-    <p class="mt-1 text-xs text-zinc-500">
-      {SITE.editorRole}
-      {" · "}
-      {dateLabel}
-      {read ? ` · ${read}` : ""}
-    </p>
-  </div>
+<div class="text-sm text-zinc-400">
+  <p class="text-zinc-200 font-medium leading-none">{SITE.editor}</p>
+  <p class="mt-1 text-xs text-zinc-500">
+    {SITE.editorRole}
+    {" · "}
+    {dateLabel}
+    {read ? ` · ${read}` : ""}
+  </p>
 </div>

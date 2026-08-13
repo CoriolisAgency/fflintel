@@ -11,13 +11,13 @@ import { withBase } from "../lib/base";
 const path = "/retailbi-firearm-sales-index";
 const crumbs = [
   { name: "Home", path: "/" },
-  { name: "How to read the Index", path },
+  { name: "How they count what sold", path },
 ];
 ---
 
 <BaseLayout
-  title="How the Index is built — and how to read it | FFL Intel"
-  description="Gearfire’s monthly Firearm Sales Index is a register series. Same stores. New firearms. Subject to revision. That is a real thing. It is still last month."
+  title="How they count what sold — and what they leave out | FFL Intel"
+  description="Gearfire’s monthly Firearm Sales Index counts new guns sold at the same stores as last year. Useful. It is still last month, and it is still only what sold."
   path={path}
   ogImagePath={CANON_PATHS.copilot}
   breadcrumbs={crumbs}
@@ -28,18 +28,18 @@ const crumbs = [
       The Index
     </p>
     <h1 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-white text-balance mb-4">
-      How the Index is built — and how to read it
+      How they count what sold — and what they leave out
     </h1>
     <p class="text-lg leading-relaxed text-zinc-300 mb-6">
-      Same stores. New firearms. A percent versus last year. Subject to
-      revision. That is a grown-up series. It is not the whole market.
+      Same stores. New guns only. Compared to last year. They revise it when
+      more shops finish sending data. Useful. It is not the whole market.
     </p>
     <Byline dateLabel="August 13, 2026" read="6 min" />
 
     <figure class="mt-8 overflow-hidden rounded-2xl border border-zinc-800">
       <img
         src={withBase(CANON_PATHS.copilot)}
-        alt="Betsy — demand research"
+        alt="Betsy in the background — she runs the demand numbers"
         width="1792"
         height="1008"
         class="w-full object-cover object-top max-h-80"
@@ -49,17 +49,18 @@ const crumbs = [
     <div class="mt-8 space-y-5 text-[1.05rem] leading-[1.7] text-zinc-300 font-serif">
       <p>
         Gearfire put the Index on Outdoor Wire on 3 September 2025. First
-        print scheduled the fifth. Method, from the April 2026 file and every
-        file like it: pull POS and ecommerce from the network, keep new
-        firearms, keep only retailers who reported in both this window and
-        last year’s, print the percent change. Openings and closings do not
-        pose as demand. Used guns do not pose as new.
+        number scheduled the fifth. How they build it, from the April 2026
+        release and every one like it: take sales from the register and the
+        shop website, keep new guns, keep only stores that reported this year
+        and last year, print the percent change. A shop that opened or closed
+        does not pretend to be demand. Used guns do not pretend to be new.
       </p>
       <p>
         Seymour, at launch: the supply chain “deserves a measurement that
         isn’t clouded by irrelevant information, circumstantial influences,
         and unfounded assumptions.” He was talking about NICS. He was not
-        talking about search. Those are different clouds.
+        talking about what people typed on a website. Those are different
+        numbers.
       </p>
     </div>
 
@@ -67,7 +68,7 @@ const crumbs = [
       <p
         class="text-[11px] font-semibold uppercase tracking-[0.14em] text-sky-400 mb-3"
       >
-        The public series
+        The public numbers
       </p>
       <IndexSeriesTable />
     </div>
@@ -75,22 +76,21 @@ const crumbs = [
     <div class="mt-8 space-y-5 text-[1.05rem] leading-[1.7] text-zinc-300 font-serif">
       <p>
         Read it as a year, not a slide. August opened ugly. November was
-        uglier. The December file printed the 2025 year at minus 12.1. The
-        annual called the climate about 13 percent. January’s first print was
-        minus 6.2; February’s file moved it to minus 5.7. March printed minus
-        11.9, year-to-date minus 8.2. Their 2026 outlook, on the NSSF note,
-        was another seven to twelve percent down. March is how an outlook
-        starts to look like a year.
+        uglier. December put the 2025 year at minus 12.1. The annual called it
+        about 13 percent. January first came out at minus 6.2; February’s
+        release moved it to minus 5.7. March: minus 11.9, year-to-date minus
+        8.2. Their 2026 outlook, on the NSSF note, was another seven to twelve
+        percent down. March is how a guess starts to look like a year.
       </p>
       <p>
         As of 13 August 2026 Outdoor Wire’s last monthly is still the April 13
-        file. Samples move. Believe the revision line. A same-store new-gun
-        print is the register talking about last month. It is not NICS. It is
-        not the used-gun aisle. It is not the sentence on a dealer site at
-        9:40 p.m. Definition:{" "}
+        release. Samples move. Believe the revision line. A same-stores
+        new-gun number is last month talking. It is not NICS. It is not the
+        used-gun aisle. It is not the sentence someone typed at 9:40 p.m.
+        Definition:{" "}
         <a href={LINKS.fortress} class={linkClass} {...ext}>RetailBI vs Betsy</a>
         {" · "}
-        <a href={LINKS.gseIndex} class={linkClass} {...ext}>GSE Index spoke</a>.
+        <a href={LINKS.gseIndex} class={linkClass} {...ext}>GSE Index page</a>.
       </p>
     </div>
     <DualDoors />

@@ -15,14 +15,14 @@ export const BRIEFS: Brief[] = [
   {
     slug: "three-numbers",
     path: "/brief/three-numbers",
-    title: "March Index: −11.9% same-store. The print still cannot see the ask.",
-    kicker: "Index note",
-    dek: "Outdoor Wire moved Gearfire’s March print on April 13: new-gun units −11.9% year-over-year, −8.2% on the year. A register series. Not NICS. Not what shoppers typed when the case was empty.",
+    title: "Last month’s sales report does not predict the future.",
+    kicker: "March sales",
+    dek: "March: the same stores sold 11.9% fewer new guns than a year ago (Outdoor Wire, April 13). That number is real. It is also looking backward. It cannot tell you what people will want next.",
     date: "2026-08-13",
     dateLabel: "August 13, 2026",
     read: "8 min",
     image: "betsy/images/betsy-ai-brand-intelligence-enterprise-co-pilot.jpg",
-    imageAlt: "Betsy — demand research behind the signal",
+    imageAlt: "Betsy in the background — she runs the demand numbers",
   },
 ];
 
@@ -32,8 +32,8 @@ export const ESSAYS = [
   {
     href: "/nics-is-not-sales",
     kicker: "Checks",
-    title: "NICS is weather. It is not a sales series.",
-    dek: "Gearfire made the case on Outdoor Wire in 2024: permits, used guns, transfers, denials, multi-gun checks. A POS panel is cleaner. It is still not the ask.",
+    title: "A background check is not a gun sale.",
+    dek: "Gearfire already said this. Counting what rang is better than counting FBI checks. It still will not tell you what people wanted and could not find.",
     dateLabel: "August 13, 2026",
     image: "betsy/images/betsy-at-the-range-work.jpg",
     imageAlt: "Betsy at the range",
@@ -41,8 +41,8 @@ export const ESSAYS = [
   {
     href: "/retailbi-firearm-sales-index",
     kicker: "The Index",
-    title: "How the Index is built — and how to read it",
-    dek: "Same stores. New firearms. A percent versus last year. Subject to revision. That is a grown-up register series. It is not the whole market.",
+    title: "How they count what sold — and what they leave out",
+    dek: "Same stores. New guns only. Compared to last year. They revise it when more shops finish sending data. Useful. It is still last month, and it is still only what sold.",
     dateLabel: "August 13, 2026",
     image: "betsy/images/betsy-ai-brand-intelligence-enterprise-co-pilot.jpg",
     imageAlt: "Betsy — demand research",
@@ -50,8 +50,8 @@ export const ESSAYS = [
   {
     href: "/sell-through-vs-search-intent",
     kicker: "The ask",
-    title: "Sell-through vs search intent",
-    dek: "A same-store unit is true. A zero-hit search is also true. Only one of those is in the monthly print. Research by Betsy is the third sensor — disclosed, not narrated.",
+    title: "What sold is not what people asked for",
+    dek: "A gun that rang is real. A search that came back empty is also real. Only one of those shows up in the monthly Index. Betsy BI is the other number.",
     dateLabel: "August 13, 2026",
     image: "betsy/images/betsy-ai-brand-intelligence-enterprise-co-pilot.jpg",
     imageAlt: "Betsy — demand research",

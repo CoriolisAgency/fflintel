@@ -10,12 +10,12 @@ import { withBase } from "../lib/base";
 const path = "/nics-is-not-sales";
 const crumbs = [
   { name: "Home", path: "/" },
-  { name: "NICS is weather", path },
+  { name: "Background checks", path },
 ];
 ---
 
 <BaseLayout
-  title="NICS is weather. It is not a sales series. | FFL Intel"
+  title="A background check is not a gun sale. | FFL Intel"
   description="Background-check counts mix permits, used guns, and denials. Treating that volume like unit sales is how a forecast goes sideways."
   path={path}
   ogImagePath={CANON_PATHS.range}
@@ -24,14 +24,15 @@ const crumbs = [
   <article class="mx-auto max-w-2xl px-4 py-12 sm:py-14">
     <Breadcrumbs items={crumbs} />
     <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-400 mb-3">
-      Checks
+      NICS
     </p>
     <h1 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-white text-balance mb-4">
-      NICS is weather. It is not a sales series.
+      A background check is not a gun sale.
     </h1>
     <p class="text-lg leading-relaxed text-zinc-300 mb-6">
-      Gearfire made the case on Outdoor Wire in 2024. A POS panel is a better
-      sales series than FBI weather. It is still not the ask.
+      Gearfire already said this. Counting what rang is better than counting
+      FBI checks. It still will not tell you what people wanted and could not
+      find.
     </p>
     <Byline dateLabel="August 13, 2026" read="6 min" />
 
@@ -49,37 +50,37 @@ const crumbs = [
       <p>
         For years the trade treated NICS like a cash register with extra
         steps. A monthly FBI count went up, and a production meeting behaved
-        as if units had already left the dock. The check is weather. Weather
-        is not a ledger.
+        as if guns had already left the dock. A check is not a sale.
       </p>
       <p>
         Gearfire said so, in public, on Outdoor Wire, 6 June 2024. Kaleb
-        Seymour, VP of data analytics: a gap between the volume of background
+        Seymour, their data lead: a gap between the number of background
         checks and the number of firearms sold — “multiple purchases per check
-        or denials, which the NICS reports do not address.” The same file
-        listed permit applications, used firearm sales, and transfers. Every
-        Index release since has restated it. A background check is not a
-        new-gun unit. That is correct.
+        or denials, which the NICS reports do not address.” Same piece:
+        permit applications, used gun sales, transfers. Every Index release
+        since has said it again. A background check is not a new-gun sale.
+        That is correct.
       </p>
       <p>
-        Then they built a same-store register series and asked the trade to
-        retire NICS as the production compass. Fair, as far as the register
-        goes. A POS panel of more than two thousand stores — their About line
-        on the 13 April 2026 file — is a better sales series than FBI weather.
-        It is still a panel. It is still last month. It still cannot see a
-        search that returned nothing.
+        Then they built a monthly count of what sold at the same stores, and
+        asked the trade to stop using NICS as the production compass. Fair,
+        for what sold. A panel of more than two thousand shops — their About
+        line on the 13 April 2026 release — is a better sales number than FBI
+        checks. It is still a sample. It is still last month. It still cannot
+        see a search that came back empty.
       </p>
       <p>
-        Checks are not sales. Units are not asks. A quiet NICS month can sit
-        next to a busy used-gun counter. A down Index — March, minus 11.9
-        percent, Outdoor Wire, 13 April — can sit next to dealer sites full of
-        people typing a model that is not on the shelf. Guns.com, 12 March,
-        claimed local dealer sales on their platform up 46 percent in February
-        with pre-owned about 31 percent of the mix. The Index is new firearms.
-        Both can be true. Stapling them is how a forecast goes sideways.
+        Checks are not sales. Sales are not “what people asked for.” A quiet
+        NICS month can sit next to a busy used-gun counter. A down Index —
+        March, minus 11.9 percent, Outdoor Wire, 13 April — can sit next to
+        shop websites full of people typing a model that is not on the shelf.
+        Guns.com, 12 March, said local dealer sales on their platform were up
+        46 percent in February, with used guns about 31 percent of the mix.
+        The Index is new guns. Both can be true. Mixing them is how a forecast
+        goes sideways.
       </p>
       <p>
-        The honest stack is three files, not two. Platform comparison:{" "}
+        Three numbers, not two. Longer comparison:{" "}
         <a href={LINKS.gseNics} class={linkClass} {...ext}
           >NICS vs firearm sales</a
         >.

@@ -1,17 +1,28 @@
 # Signal register — FFL Intel
 
-Research by Betsy. Not a correspondent. Not a newsroom.
+Numbers by Betsy. Not a correspondent. Not a newsroom. Not Jim Cramer.
 
-**Buyer test:** Can an OEM VP or an FFL owner forward this page without explaining who Betsy the DJ is? If no, rewrite.
+**One-breath test:** Would a shop owner who reads Outdoor Wire once a month get the point without knowing what “the print,” “the ask,” or “same-store” means? If no, rewrite. Hit them over the head.
 
-**Opener:** none. Lead with the print or the distinction.
-**Credit:** “Research: Betsy · Publisher: Coriolis, LLC”
-**Close:** two doors (brand teams → fortress / BI; retailers → GSA). No “That’s the file.”
+**Three signals — name them every time**
 
-**Energy:** Institutional third person. Tables. Source + date. NSSF-note / Axios brevity. Co-Pilot *what it is / is not* plates.
+| Signal | Plain name |
+|--------|------------|
+| NICS | Background checks. Not sales. |
+| RetailBI Index | What sold last month at the same stores. |
+| Betsy BI | What people asked for, including empty searches. |
 
-**Never:** first person, night desk, moonlight, Batchelor, Co-Pilot greeting, Ross origin, Tzu in the lede, “RetailBI alternative,” invented Live/Index percents.
+**Opener:** none. Lead with the point, then the number.
+**Credit:** “Numbers by Betsy” — text only. No headshot chip.
+**Close:** two doors (if you make the guns → fortress / BI; if you sell them → GSA).
 
-**Numbers:** only `docs/wire-file.md`. Print first figures *and* revisions.
+**Energy:** Shop-owner English. Short. Tables. Source + date.
 
-**Betsy:** instrument (hero background, 36px mark, contributor schema). Not the “I.”
+**Never:** the print, the ask, trade signal, brand teams, first person, night desk, moonlight, Batchelor, Co-Pilot greeting, Ross origin, Tzu in the lede, “RetailBI alternative,” invented Live/Index percents.
+
+**Example H1:** Last month’s sales report does not predict the future.
+**Bad H1:** March Index: −11.9% same-store. The print still cannot see the ask.
+
+**Numbers:** only `docs/wire-file.md`. First figures *and* revisions.
+
+**Betsy:** full-bleed hero, visible, behind the type. Not a 36px face on every page.
