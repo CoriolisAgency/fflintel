@@ -1,7 +1,7 @@
 # FFLIntel.com
 
-Industry desk: three numbers (NICS checks, RetailBI sell-through Index, Betsy search intent).  
-Published by **Coriolis, LLC**. Not affiliated with Gearfire.
+Betsy’s night desk. Three numbers (NICS checks, RetailBI sell-through Index, Betsy search intent).  
+Published by **Coriolis, LLC**. Paul Angell, publisher. Not affiliated with Gearfire.
 
 Issue 01: [Three numbers](https://fflintel.com/issues/2026-08-three-numbers).
 

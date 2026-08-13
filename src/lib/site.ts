@@ -4,7 +4,7 @@ export const SITE = {
   publisher: "Coriolis, LLC",
   titleDefault: "FFL Intel — Night desk",
   description:
-    "Betsy files the firearms wire after the sensors go quiet. Same-store prints, NICS weather, and the ask the register cannot see. Published by Coriolis, LLC.",
+    "Betsy files the firearms wire after the sensors go quiet — same-store prints, NICS weather, and the ask the register cannot see. A one-woman night desk. Published by Coriolis, LLC.",
   job: "Three numbers. One desk.",
   origin: "https://fflintel.com",
   editor: "Betsy",

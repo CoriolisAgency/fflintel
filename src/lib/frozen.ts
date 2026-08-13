@@ -48,7 +48,7 @@ export const THREE_NUMBERS = [
 
 /**
  * Cited public Index prints. Use only when date and source are on the page.
- * Do not invent additional figures.
+ * Do not invent additional figures. Source: docs/wire-file.md.
  */
 export const CITED_INDEX = {
   march2026: {
@@ -57,6 +57,13 @@ export const CITED_INDEX = {
     source: "Outdoor Wire, 13 Apr 2026",
     sentence:
       "March 2026 Index: −11.9% YoY; −8.2% YTD — Outdoor Wire, 13 Apr 2026",
+  },
+  jan2026revised: {
+    label: "January 2026 (revised)",
+    print: "−5.7% (was −6.2%)",
+    source: "Outdoor Wire, 10 Mar 2026 footnote",
+    sentence:
+      "January 2026 revised from −6.2% to −5.7% — Outdoor Wire, 10 Mar 2026",
   },
   y2025: {
     label: "2025 same-store new firearms",
@@ -73,3 +80,55 @@ export const CITED_INDEX = {
       "Gearfire 2026 outlook (theirs): −7% to −12% — same NSSF note",
   },
 } as const;
+
+/** Monthly Index series for the desk table. Last public monthly: March 2026. */
+export const INDEX_SERIES = [
+  {
+    period: "Aug 2025",
+    print: "−17%",
+    note: "First monthly",
+    source: "Outdoor Wire, 4 Sep 2025",
+  },
+  {
+    period: "Sep 2025",
+    print: "−10.2%",
+    note: "YTD −11.2%",
+    source: "Outdoor Wire, 6 Oct 2025",
+  },
+  {
+    period: "Oct 2025",
+    print: "−11.6%",
+    note: "YTD −10.8%",
+    source: "Outdoor Wire, 5 Nov 2025",
+  },
+  {
+    period: "Nov 2025",
+    print: "−22.2%",
+    note: "YTD −11.9%",
+    source: "Outdoor Wire, 4 Dec 2025",
+  },
+  {
+    period: "Dec 2025",
+    print: "−16.4%",
+    note: "Full year −12.1% on this file",
+    source: "Dealer Wire, 9 Jan 2026",
+  },
+  {
+    period: "Jan 2026",
+    print: "−5.7%",
+    note: "Revised from −6.2%",
+    source: "Outdoor Wire, 10 Mar 2026 footnote",
+  },
+  {
+    period: "Feb 2026",
+    print: "−6.5%",
+    note: "YTD −6.1%",
+    source: "Outdoor Wire, 10 Mar 2026",
+  },
+  {
+    period: "Mar 2026",
+    print: "−11.9%",
+    note: "YTD −8.2%",
+    source: "Outdoor Wire, 13 Apr 2026",
+  },
+] as const;

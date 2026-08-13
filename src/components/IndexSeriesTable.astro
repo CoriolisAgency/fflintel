@@ -1,0 +1,39 @@
+---
+import { INDEX_SERIES } from "../lib/frozen";
+---
+
+<div class="overflow-x-auto rounded-2xl border border-zinc-800">
+  <table class="w-full min-w-[32rem] text-left text-sm">
+    <caption class="sr-only">
+      RetailBI Firearm Sales Index, same-store new firearm units, public prints
+    </caption>
+    <thead>
+      <tr class="border-b border-zinc-800 bg-[#121a2b]">
+        <th class="px-3 py-3 text-[10px] font-semibold uppercase tracking-wider text-sky-400">
+          Period
+        </th>
+        <th class="px-3 py-3 text-[10px] font-semibold uppercase tracking-wider text-zinc-400">
+          Same-store YoY
+        </th>
+        <th class="px-3 py-3 text-[10px] font-semibold uppercase tracking-wider text-zinc-500">
+          On the file
+        </th>
+        <th class="px-3 py-3 text-[10px] font-semibold uppercase tracking-wider text-zinc-500">
+          Source
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        INDEX_SERIES.map((row) => (
+          <tr class="border-b border-zinc-800/80 last:border-0 align-top">
+            <td class="px-3 py-3 text-xs font-medium text-zinc-100">{row.period}</td>
+            <td class="px-3 py-3 text-xs tabular-nums text-zinc-200">{row.print}</td>
+            <td class="px-3 py-3 text-xs text-zinc-400 leading-relaxed">{row.note}</td>
+            <td class="px-3 py-3 text-xs text-zinc-500 leading-relaxed">{row.source}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
