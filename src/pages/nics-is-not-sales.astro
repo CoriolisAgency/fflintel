@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import Byline from "../components/Byline.astro";
+import DualDoors from "../components/DualDoors.astro";
 import LegalNote from "../components/LegalNote.astro";
 import { LINKS, CANON_PATHS, linkClass, ext } from "../lib/links";
 import { withBase } from "../lib/base";
@@ -14,8 +15,8 @@ const crumbs = [
 ---
 
 <BaseLayout
-  title="They made the NICS case in 2024. Then they stopped the sentence. | FFL Intel"
-  description="Gearfire put it on Outdoor Wire in June 2024: a background check is not a new-gun unit. A POS panel is cleaner. It is still not the ask."
+  title="NICS is weather. It is not a sales series. | FFL Intel"
+  description="Background-check counts mix permits, used guns, and denials. Treating that volume like unit sales is how a forecast goes sideways."
   path={path}
   ogImagePath={CANON_PATHS.range}
   breadcrumbs={crumbs}
@@ -26,13 +27,13 @@ const crumbs = [
       Checks
     </p>
     <h1 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-white text-balance mb-4">
-      They made the NICS case in 2024. Then they stopped the sentence.
+      NICS is weather. It is not a sales series.
     </h1>
     <p class="text-lg leading-relaxed text-zinc-300 mb-6">
-      Gearfire put the rebuttal on the wire. I am not going to pretend I
-      discovered it. I am going to finish the clause they will not write.
+      Gearfire made the case on Outdoor Wire in 2024. A POS panel is a better
+      sales series than FBI weather. It is still not the ask.
     </p>
-    <Byline dateLabel="August 13, 2026" read="8 min" />
+    <Byline dateLabel="August 13, 2026" read="6 min" />
 
     <figure class="mt-8 overflow-hidden rounded-2xl border border-zinc-800">
       <img
@@ -46,59 +47,45 @@ const crumbs = [
 
     <div class="mt-8 space-y-5 text-[1.05rem] leading-[1.7] text-zinc-300 font-serif">
       <p>
-        Betsy — night desk. For years the trade treated NICS like a cash
-        register with extra steps. A monthly FBI count went up, and a
-        production meeting behaved as if units had already left the dock. A
-        monthly count went down, and someone called it a demand crisis. The
-        check is weather. Weather is not a ledger.
+        For years the trade treated NICS like a cash register with extra
+        steps. A monthly FBI count went up, and a production meeting behaved
+        as if units had already left the dock. The check is weather. Weather
+        is not a ledger.
       </p>
       <p>
-        Gearfire said so, in public, on Outdoor Wire, June 6, 2024. They were
-        at the NSSF Marketing & Leadership Summit with a Q1 report. Kaleb
+        Gearfire said so, in public, on Outdoor Wire, 6 June 2024. Kaleb
         Seymour, VP of data analytics: a gap between the volume of background
-        checks and the number of firearms sold. “This discrepancy could be
-        attributed to various factors, including multiple purchases per check
+        checks and the number of firearms sold — “multiple purchases per check
         or denials, which the NICS reports do not address.” The same file
-        listed the rest of the mess: permit applications, used firearm sales,
-        transfers. That report said 2,500 contributing retailers. The Index
-        About line later says more than two thousand. I am not litigating the
-        panel. I am recording that they made the case before they had a
-        monthly to sell.
-      </p>
-      <p>
-        Every Index release since has restated it. Permits. Used guns.
-        Transfers. Denials. Several guns on one check. A background check is
-        not a new-gun unit. They are right.
+        listed permit applications, used firearm sales, and transfers. Every
+        Index release since has restated it. A background check is not a
+        new-gun unit. That is correct.
       </p>
       <p>
         Then they built a same-store register series and asked the trade to
         retire NICS as the production compass. Fair, as far as the register
         goes. A POS panel of more than two thousand stores — their About line
-        on the April 13, 2026 file — is a better sales series than FBI
-        weather. It is still a panel. It is still last month. It still cannot
-        see a search that returned nothing.
+        on the 13 April 2026 file — is a better sales series than FBI weather.
+        It is still a panel. It is still last month. It still cannot see a
+        search that returned nothing.
       </p>
       <p>
-        That is the unfinished sentence. Checks are not sales. Units are not
-        asks. You can have a quiet NICS month and a busy used-gun counter.
-        You can have a down Index — March, minus 11.9 percent, Outdoor Wire,
-        April 13 — and a dealer site at 9:40 p.m. full of people typing a
-        model that is not on the shelf. Guns.com, on March 12, claimed local
-        dealer sales on their platform up 46 percent in February and said
-        pre-owned was about 31 percent of the mix. The Index is new firearms.
+        Checks are not sales. Units are not asks. A quiet NICS month can sit
+        next to a busy used-gun counter. A down Index — March, minus 11.9
+        percent, Outdoor Wire, 13 April — can sit next to dealer sites full of
+        people typing a model that is not on the shelf. Guns.com, 12 March,
+        claimed local dealer sales on their platform up 46 percent in February
+        with pre-owned about 31 percent of the mix. The Index is new firearms.
         Both can be true. Stapling them is how a forecast goes sideways.
       </p>
       <p>
-        So the honest stack is three files, not two. Checks. Units. Asks. I
-        will not run a NICS. I will not sit in their Sisense. I will not call
-        either series “demand” without saying which kind. The rest of that
-        argument, next to the product, is on GunSearchEngine:{" "}
+        The honest stack is three files, not two. Platform comparison:{" "}
         <a href={LINKS.gseNics} class={linkClass} {...ext}
           >NICS vs firearm sales</a
         >.
       </p>
-      <p>That’s the file.</p>
     </div>
+    <DualDoors />
     <p class="mt-10"><LegalNote /></p>
   </article>
 </BaseLayout>

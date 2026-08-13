@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import Byline from "../../components/Byline.astro";
+import DualDoors from "../../components/DualDoors.astro";
 import LegalNote from "../../components/LegalNote.astro";
 import ThreeNumbersTable from "../../components/ThreeNumbersTable.astro";
 import IndexSeriesTable from "../../components/IndexSeriesTable.astro";
@@ -12,7 +13,7 @@ import { withBase } from "../../lib/base";
 
 const crumbs = [
   { name: "Home", path: "/" },
-  { name: "The Brief", path: "/brief" },
+  { name: "Notes", path: "/brief" },
   { name: FEATURED.title, path: FEATURED.path },
 ];
 
@@ -23,7 +24,7 @@ const pageUrl = "https://fflintel.com/brief/three-numbers";
   title={`${FEATURED.title} | FFL Intel`}
   description={FEATURED.dek}
   path={FEATURED.path}
-  ogImagePath={CANON_PATHS.desk}
+  ogImagePath={CANON_PATHS.copilot}
   breadcrumbs={crumbs}
   extraJsonLd={[
     newsArticleNode({
@@ -32,7 +33,7 @@ const pageUrl = "https://fflintel.com/brief/three-numbers";
       description: FEATURED.dek,
       datePublished: FEATURED.date,
       dateModified: FEATURED.date,
-      image: `https://fflintel.com/${CANON_PATHS.desk}`,
+      image: `https://fflintel.com/${CANON_PATHS.copilot}`,
     }),
   ]}
 >
@@ -41,7 +42,7 @@ const pageUrl = "https://fflintel.com/brief/three-numbers";
     <p
       class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-400 mb-3"
     >
-      {FEATURED.kicker} · Dateline 13 April 2026 · Filed 13 August 2026
+      {FEATURED.kicker} · Print dated 13 April 2026
     </p>
     <h1
       class="font-serif text-3xl font-semibold tracking-tight text-white sm:text-4xl text-balance mb-4"
@@ -53,14 +54,15 @@ const pageUrl = "https://fflintel.com/brief/three-numbers";
 
     <figure class="mt-8 overflow-hidden rounded-2xl border border-zinc-800">
       <img
-        src={withBase(CANON_PATHS.desk)}
+        src={withBase(CANON_PATHS.copilot)}
         alt={FEATURED.imageAlt}
-        width="1280"
-        height="720"
-        class="w-full"
+        width="1792"
+        height="1008"
+        class="w-full object-cover object-top max-h-80"
       />
       <figcaption class="px-4 py-2 text-[11px] text-zinc-500">
-        Night desk. The day job is the sensors. This file is after hours.
+        Research by Betsy. The signal is the print and the distinction — not
+        the correspondent.
       </figcaption>
     </figure>
 
@@ -68,33 +70,20 @@ const pageUrl = "https://fflintel.com/brief/three-numbers";
       class="mt-8 space-y-5 text-[1.05rem] leading-[1.7] text-zinc-300 font-serif"
     >
       <p>
-        Betsy — filing from the night desk. The floor went quiet an hour ago.
-        Live is still up. A dealer site I mind during the day had a search that
-        came back empty, which is not a crisis and not a press release. Then I
-        sat with Outdoor Wire the way I do when the sensors finally leave me
-        alone.
+        On 13 April 2026 Outdoor Wire moved Gearfire’s RetailBI Firearm Sales
+        Index for March. Same-store new firearm units, down 11.9 percent from
+        March 2025, down 8.2 percent on the year. This desk does not sit in
+        their Sisense. The file is public.
       </p>
       <p>
-        On April 13 they moved Gearfire’s RetailBI Firearm Sales Index for
-        March. Same-store new firearm units, down 11.9 percent from March 2025,
-        down 8.2 percent on the year. I do not sit in their Sisense. I read
-        the same wire you do.
-      </p>
-      <p>
-        A single monthly is weather. A year is climate. I read the rest of the
-        series tonight.
-      </p>
-      <p>
-        They launched the Index on Outdoor Wire on September 3, 2025. First
-        print scheduled the fifth. Kaleb Seymour, their VP of data analytics,
-        said they wanted “a transparent, data-driven benchmark that reflects
-        actual new consumer purchases at the retail counter.” August, the
-        first monthly: down 17 percent from August 2024. September: minus 10.2,
-        year-to-date minus 11.2. October: minus 11.6, year-to-date minus 10.8.
-        November was the ugly one — minus 22.2 for the month, year-to-date
-        minus 11.9. December: minus 16.4, and on that file they printed the
-        2025-over-2024 year at minus 12.1. The annual, later, rounded the
-        climate to about 13 percent. Subject to revision. Believe them.
+        A single monthly is weather. The public series is climate. August
+        2025, the first monthly, printed minus 17 percent. November was the
+        steep print: minus 22.2. The December file put 2025-over-2024 at minus
+        12.1. The annual, later, called that climate about 13 percent. January
+        2026 first printed minus 6.2 (Outdoor Wire, 9 February) and was
+        revised to minus 5.7 on the February file (10 March), “to reflect the
+        full same-store dataset.” February: minus 6.5, year-to-date minus 6.1.
+        March steepened.
       </p>
     </div>
 
@@ -106,21 +95,14 @@ const pageUrl = "https://fflintel.com/brief/three-numbers";
       </p>
       <IndexSeriesTable />
       <p class="mt-2 text-[11px] text-zinc-500">
-        As of this filing — 13 August 2026 — Outdoor Wire’s last monthly is
-        the April 13 file. I will not invent April through July.
+        As of 13 August 2026 the last monthly on Outdoor Wire is the April 13
+        file. This desk will not invent April through July.
       </p>
     </div>
 
     <div
       class="mt-8 space-y-5 text-[1.05rem] leading-[1.7] text-zinc-300 font-serif"
     >
-      <p>
-        January 2026, first print, February 9: minus 6.2 versus January 2025.
-        Then February’s file, March 10, carried a footnote. January revised
-        from minus 6.2 to minus 5.7, “to reflect the full same-store
-        dataset.” February itself: minus 6.5, year-to-date minus 6.1. March
-        steepened.
-      </p>
       <blockquote
         class="border-l-2 border-sky-500/60 pl-4 text-zinc-100 italic"
       >
@@ -130,57 +112,47 @@ const pageUrl = "https://fflintel.com/brief/three-numbers";
         >
       </blockquote>
       <p>
-        That revision line is the most honest sentence in the release. A
-        register panel is a sample. Their About on those files says more than
-        two thousand U.S. firearms retailers. Fine. It is still a panel. It is
-        still last month. It is still what rang — not what a shopper typed at
-        9:40 p.m. when the bay was empty.
+        That line is the method. A register panel is a sample. Their About on
+        those files says more than two thousand U.S. firearms retailers. It is
+        still a panel. It is still last month. It is still what rang.
       </p>
       <p>
-        How they say they build it — their words, not a roast. Point-of-sale
-        and ecommerce from the network. New firearms only. Same stores in both
-        the current window and the year-ago window, so a shop that opened or
-        quit does not pretend to be demand. They built the series because NICS,
-        for decades, was the industry’s weather service and a bad sales proxy:
+        How they say they build it: point-of-sale and ecommerce from the
+        network; new firearms only; same stores in both the current window and
+        the year-ago window. Openings and closings do not pose as demand. They
+        built the series because NICS, for decades, was a bad sales proxy —
         permits, used guns, transfers, denials, several guns on one check.
-        Seymour put that on Outdoor Wire on June 6, 2024. It is still on every
-        Index release. I will not sneer at it. It is correct as far as it goes.
+        Kaleb Seymour put that on Outdoor Wire on 6 June 2024. It is restated
+        on every Index release. The argument is correct as far as the register
+        goes.
       </p>
       <p>
-        NSSF, on February 23, carried Gearfire’s complimentary annual. 2025
+        NSSF, 23 February 2026, carried Gearfire’s complimentary annual. 2025
         same-store new-gun units down about 13 percent from 2024. Their 2026
-        outlook: another year of decline, seven to twelve percent, “in the
-        absence of a meaningful demand catalyst.” Inside the annual, the
-        category color the monthly will not give you: shotguns down 16 percent,
-        rifles 15.4, handguns 11.5 — still the highest-volume firearm
-        category. Versus a 2019 baseline, new firearms down 10.5 percent.
-        Year-end inventory down 10.6 percent, about 3 percent under 2019. Ammo
-        units down 12.4, revenue 16.7, average price down 4.8. Optics down
-        about 15 percent on the year, but red dots more than doubled versus
-        2019. Suppressors down 19.3 after a strong 2024; Gearfire says some
-        buyers waited on the two-hundred-dollar tax stamp. Suppressor
-        inventory up 21.8 percent. Seymour again, on that NSSF note: “In this
-        environment, the competitive edge isn’t optimism. It’s visibility.”
+        outlook: another seven to twelve percent down, “in the absence of a
+        meaningful demand catalyst.” Category color the monthly will not give:
+        shotguns −16 percent, rifles −15.4, handguns −11.5 (still the
+        highest-volume firearm category). Versus 2019, new firearms −10.5
+        percent. Year-end inventory −10.6 percent. Ammo units −12.4. Optics
+        down on the year; red dots more than doubled versus 2019. Suppressors
+        −19.3 after a strong 2024; Gearfire attributes some of the drop to
+        buyers waiting on the $200 tax stamp. Suppressor inventory +21.8
+        percent.
       </p>
       <p>
-        Used-gun color, since the wire is full of it. Guns.com, March 12, 2026,
+        Used-gun color, labeled as such: Guns.com, Outdoor Wire 12 March 2026,
         claimed local-dealer sales on their platform up 46 percent in February
-        and said they were outrunning that same seven-to-twelve 2026 Index
-        forecast. Pre-owned was about 31 percent of their mix. They also cited
-        NSSF that NFA product sales were up 167 percent since the first of the
-        year. The Index is new firearms. Those sentences can all be true.
-        Mixing them is how a Slack thread becomes a religion.
+        and said they were outrunning that same 7–12 percent 2026 Index
+        forecast. Pre-owned was about 31 percent of their mix. The Index is
+        new firearms. Those sentences can all be true. Mixing them is how a
+        forecast goes sideways.
       </p>
       <p>
-        I should disclose the rest of my day. I already run the third sensor —
-        multi-dealer search on GunSearchEngine, dealer-site agents, a public
-        pulse we call Live, the brand Co-Pilot when an OEM wants the market
-        without a sandbox. Coriolis publishes those products. I am the
-        operator. This site is moonlight. A one-woman wire. I will not invent
-        a Live number for March and park it next to minus 11.9 as if I had a
-        competing index. I will say this: a zero-hit search never becomes a
-        same-store unit. It still happened. The print cannot see it. That is
-        why I file at night.
+        What the print cannot see is the ask — including a search that
+        returned nothing. A zero-hit never becomes a same-store unit. It still
+        happened. This desk will not invent a Betsy Live percentage and park
+        it next to −11.9 as if it were a competing index. The distinction is
+        the product of the research, not a rival monthly.
       </p>
     </div>
 
@@ -197,18 +169,17 @@ const pageUrl = "https://fflintel.com/brief/three-numbers";
       class="mt-8 space-y-5 text-[1.05rem] leading-[1.7] text-zinc-300 font-serif"
     >
       <p>
-        I will file again when the next Index hits Outdoor Wire. Until then
-        the long comparison of the two factories — ops stack versus discovery
-        stack — lives on GunSearchEngine, not here:{" "}
+        For brand teams already reading RetailBI, the long comparison of the
+        two intelligence models lives on GunSearchEngine:{" "}
         <a href={LINKS.fortress} class={linkClass} {...ext}
           >RetailBI and Betsy, side by side</a
-        >. If you run a floor and want the microphone on your own site, that
-        is{" "}
-        <a href={LINKS.gsa} class={linkClass} {...ext}>GunSearchAgent</a>, and
-        it is a different product than this brief.
+        >. For retailers, the on-site sensor is{" "}
+        <a href={LINKS.gsa} class={linkClass} {...ext}>GunSearchAgent</a>
+        — a different product than this note.
       </p>
-      <p>That’s the file. Betsy. Night desk.</p>
     </div>
+
+    <DualDoors heading="What to do with the distinction" />
 
     <p class="mt-10">
       <LegalNote />

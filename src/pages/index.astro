@@ -1,7 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Byline from "../components/Byline.astro";
+import DualDoors from "../components/DualDoors.astro";
 import StoryCard from "../components/StoryCard.astro";
+import ThreeNumbersTable from "../components/ThreeNumbersTable.astro";
 import { FEATURED, ESSAYS } from "../lib/briefs";
 import { LINKS, CANON_PATHS, linkClass } from "../lib/links";
 import { SITE } from "../lib/site";
@@ -14,18 +16,18 @@ const path = "/";
   title={SITE.titleDefault}
   description={SITE.description}
   path={path}
-  ogImagePath={CANON_PATHS.desk}
+  ogImagePath={CANON_PATHS.copilot}
 >
   <section class="relative min-h-[70vh] overflow-hidden border-b border-zinc-800/80">
     <img
-      src={withBase(CANON_PATHS.desk)}
-      alt="Betsy at the desk, reading a market brief under a steel lamp"
-      width="1600"
-      height="900"
+      src={withBase(CANON_PATHS.copilot)}
+      alt="Betsy — demand research behind the signal"
+      width="1792"
+      height="1008"
       class="absolute inset-0 h-full w-full object-cover object-[70%_center]"
     />
     <div
-      class="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/25"
+      class="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/30"
     >
     </div>
     <div
@@ -42,10 +44,9 @@ const path = "/";
         {FEATURED.title}
       </h1>
       <p class="mt-4 max-w-xl text-base leading-relaxed text-zinc-300 sm:text-lg">
-        Betsy — filing from the night desk. I read every Index Outdoor Wire
-        has moved, August through March. Same-store new guns. January was
-        revised. March steepened. The print still cannot see what they typed
-        when the case was empty.
+        Same-store new firearms, Outdoor Wire, 13 April 2026. The print is
+        last month at the register. It cannot see what they typed when the
+        case was empty. That distinction is the whole desk.
       </p>
       <div class="mt-6">
         <Byline dateLabel={FEATURED.dateLabel} read={FEATURED.read} />
@@ -55,25 +56,35 @@ const path = "/";
           href={withBase(FEATURED.path)}
           class="inline-flex rounded-xl bg-sky-500 px-5 py-3 text-sm font-semibold text-slate-950 hover:bg-sky-400"
         >
-          Read the Brief
+          Read the note
         </a>
       </div>
     </div>
   </section>
 
   <section class="mx-auto max-w-6xl px-4 py-14">
+    <p
+      class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-400 mb-3"
+    >
+      Three numbers. Do not staple them.
+    </p>
+    <ThreeNumbersTable />
+    <DualDoors />
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 pb-14">
     <div class="mb-6 flex items-end justify-between gap-4">
       <div>
         <p
           class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-400"
         >
-          On the desk
+          Notes
         </p>
         <h2 class="mt-2 font-serif text-2xl font-semibold text-white">
-          More from the drawer
+          How to read the market
         </h2>
       </div>
-      <a href={withBase("brief")} class={`${linkClass} text-sm`}>All briefs</a>
+      <a href={withBase("brief")} class={`${linkClass} text-sm`}>All notes</a>
     </div>
     <div class="grid gap-5 md:grid-cols-3">
       {
@@ -95,14 +106,14 @@ const path = "/";
   <section class="border-t border-zinc-800/80 bg-panel/40">
     <div class="mx-auto max-w-6xl px-4 py-10 sm:flex sm:items-center sm:justify-between">
       <p class="max-w-xl text-sm leading-relaxed text-zinc-400">
-        Published by Coriolis, LLC. Not affiliated with Gearfire or RetailBI.
-        The ranking definition of RetailBI lives on{" "}
+        Published by Coriolis, LLC. Research by Betsy. Not affiliated with
+        Gearfire or RetailBI. The ranking definition of RetailBI lives on{" "}
         <a href={LINKS.fortress} class={linkClass} target="_blank" rel="noopener noreferrer"
           >GunSearchEngine</a
         >.
       </p>
       <p class="mt-4 text-xs text-zinc-500 sm:mt-0">
-        Night desk · {SITE.publisherCredit}
+        {SITE.job} · {SITE.publisherCredit}
       </p>
     </div>
   </section>

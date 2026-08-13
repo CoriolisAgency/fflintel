@@ -2,12 +2,12 @@ export const SITE = {
   name: "FFL Intel",
   legalName: "Coriolis, LLC",
   publisher: "Coriolis, LLC",
-  titleDefault: "FFL Intel — Night desk",
+  titleDefault: "FFL Intel — Trade signal",
   description:
-    "Betsy files the firearms wire after the sensors go quiet — same-store prints, NICS weather, and the ask the register cannot see. A one-woman night desk. Published by Coriolis, LLC.",
-  job: "Three numbers. One desk.",
+    "Trade signal for the firearms industry: NICS, the RetailBI Firearm Sales Index, and search intent. Research by Betsy. Published by Coriolis, LLC. Not a newsroom. Not a product home.",
+  job: "Trade signal. Three numbers.",
   origin: "https://fflintel.com",
-  editor: "Betsy",
-  editorRole: "Night desk",
+  editor: "FFL Intel",
+  editorRole: "Research: Betsy",
   publisherCredit: "Coriolis, LLC · Paul Angell, publisher",
 } as const;

@@ -91,11 +91,17 @@ export function newsArticleNode(opts: {
     dateModified: opts.dateModified ?? opts.datePublished,
     mainEntityOfPage: { "@id": `${opts.url}#webpage` },
     author: {
+      "@type": "Organization",
+      name: SITE.name,
+      url: LINKS.home,
+      parentOrganization: { "@id": `${LINKS.home}/#organization` },
+    },
+    contributor: {
       "@type": "Person",
       name: "Betsy",
       url: LINKS.betsy,
       sameAs: [LINKS.betsy, LINKS.x, LINKS.youtube],
-      jobTitle: "Night desk",
+      jobTitle: "Demand research",
       worksFor: { "@id": `${LINKS.home}/#organization` },
     },
     publisher: { "@id": `${LINKS.home}/#organization` },

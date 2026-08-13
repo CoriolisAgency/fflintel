@@ -8,15 +8,15 @@ import { CANON_PATHS } from "../../lib/links";
 const path = "/brief";
 const crumbs = [
   { name: "Home", path: "/" },
-  { name: "The Brief", path },
+  { name: "Notes", path },
 ];
 ---
 
 <BaseLayout
-  title="The Brief | FFL Intel"
-  description="The FFL Intel drawer: dated notes on sell-through prints, background-check weather, and what shoppers asked for."
+  title="Notes | FFL Intel"
+  description="Dated notes on sell-through prints, background-check weather, and search intent. Research by Betsy. Published by Coriolis, LLC."
   path={path}
-  ogImagePath={CANON_PATHS.desk}
+  ogImagePath={CANON_PATHS.copilot}
   breadcrumbs={crumbs}
 >
   <div class="mx-auto max-w-6xl px-4 py-12 sm:py-14">
@@ -29,13 +29,12 @@ const crumbs = [
     <h1
       class="font-serif text-4xl font-semibold tracking-tight text-white mb-3"
     >
-      The Brief
+      Notes
     </h1>
     <p class="max-w-2xl text-base leading-relaxed text-zinc-400 mb-10">
-      Dated files from the night desk. I cite a print when I have a date and a
-      source. I do not treat a background-check tally as a cash drawer. As of
-      this filing the last monthly on Outdoor Wire is the April 13 file. I
-      will file again when they move the next one.
+      Cited public prints only. A background-check tally is not a cash drawer.
+      As of this desk the last monthly on Outdoor Wire is the April 13 file.
+      The next note files when they move another Index.
     </p>
 
     <div class="grid gap-5 md:grid-cols-2">

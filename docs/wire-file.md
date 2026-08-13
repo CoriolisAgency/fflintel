@@ -51,4 +51,4 @@ Writer may use a number only if it appears here with a source and date. Do not i
 - Art of Demand: measure before you move; terrain is language; vanity traffic is fog; field report is habit. Last month’s sell-through is last season’s map.
 - Entity kit: RetailBI / Index / Betsy BI frozen strings for About and schema only. Never the lede.
 - She built the third sensor (GSE, GSA, Live). Disclose that. Do not invent what Live showed last Tuesday.
-- Wire register: Betsy files. Paul is publisher/colophon only. Moonlight on top of Live, GSE, GSA, 2aBetsy, Enterprise Co-Pilot.
+- Signal register: institutional third person. Research by Betsy (instrument, not narrator). Paul is publisher/colophon only.

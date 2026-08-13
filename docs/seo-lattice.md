@@ -2,7 +2,7 @@
 
 Source of truth for internal linking and cannibalization rules.
 
-**This site owns commentary.** FFLIntel is the industry desk: issues, methodology, and literacy that keep three numbers from becoming one (NICS / register sell-through / Betsy ask). It is not the product home for Brand Intelligence, GunSearchAgent, or the Betsy character.
+**This site owns commentary.** FFLIntel is the trade signal: notes and literacy that keep three numbers from becoming one (NICS / register sell-through / Betsy ask). Research by Betsy. It is not the product home for Brand Intelligence, GunSearchAgent, or the Betsy character. Not a newsroom.
 
 Frozen strings: [GunSearchEngine entity kit](../../gunsearchengine/docs/entity-kit.md).
 
@@ -25,8 +25,8 @@ Frozen strings: [GunSearchEngine entity kit](../../gunsearchengine/docs/entity-k
 
 | Intent class | Primary URL | Notes |
 |--------------|-------------|-------|
-| Desk home / three numbers | `/` | Thesis |
-| About the desk | `/about` | Publisher: Coriolis, LLC |
+| Signal home / three numbers | `/` | Thesis + two doors |
+| About the desk | `/about` | Research by Betsy. Publisher: Coriolis, LLC |
 | How we treat the numbers | `/methodology` | Cited public Index only |
 | What is RetailBI (spoke) | `/what-is-retailbi` | **canonicalUrl** → GSE fortress |
 | How to read the Index | `/retailbi-firearm-sales-index` | Self canonical |
@@ -42,5 +42,5 @@ Frozen strings: [GunSearchEngine entity kit](../../gunsearchengine/docs/entity-k
 3. Never invent Index numbers. Cite date + source on the page, or omit the print.
 4. Never claim 4473 / ATF / POS / NICS-system capability.
 5. Never H1 “RetailBI alternative.”
-6. Soft CTAs only: Betsy Live, Brand Intelligence, fortress, GSA. No hard sell on the desk.
+6. Soft CTAs only, as **two doors**: brand teams → fortress / Brand Intelligence / Co-Pilot; retailers → GSA. No hard sell. No character door.
 7. `sameAs` mesh from the entity kit (Coriolis, LLC).

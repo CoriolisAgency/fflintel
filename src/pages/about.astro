@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
+import DualDoors from "../components/DualDoors.astro";
 import FaqBlock from "../components/FaqBlock.astro";
 import { FROZEN } from "../lib/frozen";
-import { LINKS, linkClass, ext } from "../lib/links";
+import { LINKS, CANON_PATHS, linkClass, ext } from "../lib/links";
 import { SITE } from "../lib/site";
 import { withBase } from "../lib/base";
 
@@ -15,16 +16,16 @@ const crumbs = [
 
 const faqs = [
   {
-    q: "Who files FFL Intel?",
-    a: "Betsy. Night desk. The same operator behind Betsy Live, GunSearchEngine, GunSearchAgent, 2aBetsy, and Enterprise Co-Pilot. A solo shop. Not a newsroom of twelve.",
-  },
-  {
-    q: "Who publishes it?",
+    q: "Who publishes FFL Intel?",
     a: `${SITE.publisherCredit}. ${FROZEN.fflintel}`,
   },
   {
+    q: "What is Betsy’s role?",
+    a: "Research. Demand sensors on GunSearchEngine, GunSearchAgent, Betsy Live, and Enterprise Co-Pilot. She is the instrument behind the notes, not the narrator.",
+  },
+  {
     q: "Is this Gearfire or RetailBI?",
-    a: "No. Not affiliated. Marks belong to their owners. I read their public wire. I do not sit in their Sisense.",
+    a: "No. Not affiliated. Marks belong to their owners. This desk reads the public wire. It does not sit in their Sisense.",
   },
   {
     q: "Is this 4473 or POS software?",
@@ -34,9 +35,10 @@ const faqs = [
 ---
 
 <BaseLayout
-  title="About the night desk | FFL Intel"
-  description="Betsy files FFL Intel after the sensors go quiet. Coriolis publishes. A one-woman wire for the firearms trade."
+  title="About | FFL Intel"
+  description="FFL Intel is a trade signal: NICS, register sell-through, and search intent. Research by Betsy. Published by Coriolis, LLC."
   path={path}
+  ogImagePath={CANON_PATHS.copilot}
   breadcrumbs={crumbs}
   faqs={faqs}
 >
@@ -46,34 +48,43 @@ const faqs = [
       Masthead
     </p>
     <h1 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-white mb-6">
-      Night desk. One operator.
+      A trade signal. Not a newsroom.
     </h1>
+
+    <figure class="mb-8 overflow-hidden rounded-2xl border border-zinc-800">
+      <img
+        src={withBase(CANON_PATHS.copilot)}
+        alt="Betsy — demand research"
+        width="1792"
+        height="1008"
+        class="w-full object-cover object-top max-h-72"
+      />
+    </figure>
 
     <div class="space-y-5 text-[1.05rem] leading-[1.7] text-zinc-300 font-serif">
       <p>
-        Betsy — filing from the night desk. Daylight I am on Live, on
-        GunSearchEngine, on dealer sites, on 2aBetsy, on the brand Co-Pilot
-        when an OEM wants the market without a sandbox. Then the floor goes
-        dark and I read Outdoor Wire like it is a foreign desk. This site is
-        that second shift. A solo shop. Not a newsroom of twelve.
+        FFL Intel keeps three numbers from becoming one: background checks
+        (NICS), register sell-through (including the RetailBI Firearm Sales
+        Index), and search intent. It is commentary, not a product home and
+        not a character site.
       </p>
       <p>
-        I file it the way a news magazine files — source, date, one judgment.
-        No call-in. No culture war. No origin story unless you ask. I spent
-        the day on the sensors. This is moonlight. Spare time is a joke I tell
-        myself after the second cup.
+        Research is by Betsy — the same demand sensors behind
+        GunSearchEngine, GunSearchAgent, Betsy Live, and Enterprise Co-Pilot.
+        She is in the background of this desk on purpose. The notes are
+        written so a brand team or an FFL owner can forward them without an
+        introduction.
       </p>
       <p>
-        {SITE.publisherCredit}. I am the correspondent. He keeps the lights on
-        and the lawyers calm. Frozen, for the record: {FROZEN.fflintel}
+        {SITE.publisherCredit}. Frozen, for the record: {FROZEN.fflintel}
       </p>
       <p>
-        I cite a print when I have a date and a source. I do not invent Live
-        percentages to sit next to their Index. I do not run NICS. I do not
-        process a 4473. How we cite:{" "}
-        <a href={withBase("methodology")} class={linkClass}>house rules</a>.
-        The drawer:{" "}
-        <a href={withBase("brief")} class={linkClass}>The Brief</a>.
+        Prints appear only with a date and a source. Live percentages are not
+        invented to sit next to their Index. This desk does not run NICS or
+        process a 4473. How numbers are treated:{" "}
+        <a href={withBase("methodology")} class={linkClass}>methodology</a>.
+        The archive:{" "}
+        <a href={withBase("brief")} class={linkClass}>Notes</a>.
       </p>
       <p>
         <a href={LINKS.gse} class={linkClass} {...ext}>GunSearchEngine</a>
@@ -82,14 +93,15 @@ const faqs = [
         {" · "}
         <a href={LINKS.betsyLive} class={linkClass} {...ext}>Betsy Live</a>
         {" · "}
-        <a href={LINKS.betsy} class={linkClass} {...ext}>2aBetsy</a>
-        {" · "}
         <a href={LINKS.copilot} class={linkClass} {...ext}>Co-Pilot</a>
+        {" · "}
+        <a href={LINKS.betsy} class={linkClass} {...ext}>2aBetsy</a>
         {" · "}
         <a href={LINKS.coriolis} class={linkClass} {...ext}>Coriolis</a>.
       </p>
     </div>
 
+    <DualDoors />
     <FaqBlock items={faqs} />
   </article>
 </BaseLayout>

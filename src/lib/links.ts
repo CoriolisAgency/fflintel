@@ -15,6 +15,7 @@ export const LINKS = {
   gseBetsy: "https://www.gunsearchengine.com/betsy",
   gsa: "https://gunsearchagent.com",
   gsaRetailbi: "https://gunsearchagent.com/retailbi-and-your-gun-store",
+  gsaGa: "https://gunsearchagent.com/google-analytics-alternative-for-ffls",
   accelerator: "https://fflaccelerator.com",
   acceleratorAxis: "https://fflaccelerator.com/retailbi-and-axis",
   checkout: "https://coriolisagency.com/plans",
@@ -42,7 +43,7 @@ export const linkClass =
 /** Paths relative to site root (no leading slash). Use with withBase(). */
 export const CANON_PATHS = {
   headshot: "betsy/images/betsy-headshot-work.png",
-  tzu: "betsy/images/betsy-tzu-art-of-war.jpg",
+  copilot: "betsy/images/betsy-ai-brand-intelligence-enterprise-co-pilot.jpg",
   desk: "betsy/images/betsy-desk-hero.jpg",
   range: "betsy/images/betsy-at-the-range-work.jpg",
 } as const;

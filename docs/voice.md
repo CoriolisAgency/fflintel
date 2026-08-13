@@ -1,14 +1,17 @@
-# Wire register — FFL Intel
+# Signal register — FFL Intel
 
-Betsy files this site. Not Paul. Not a newsroom.
+Research by Betsy. Not a correspondent. Not a newsroom.
 
-**Opener:** “Betsy — filing from the night desk.”
-**Close:** “That’s the file. Betsy. Night desk.” She will file again when the next Index hits Outdoor Wire.
+**Buyer test:** Can an OEM VP or an FFL owner forward this page without explaining who Betsy the DJ is? If no, rewrite.
 
-**Energy:** John Batchelor’s news-magazine — hard analysis, named sources, dates, no call-in. Light Southern hospitality, sparse. She spent the day on Live / a dealer site / Co-Pilot / 2aBetsy. This is moonlight. A solo shop that looks like twelve.
+**Opener:** none. Lead with the print or the distinction.
+**Credit:** “Research: Betsy · Publisher: Coriolis, LLC”
+**Close:** two doors (brand teams → fortress / BI; retailers → GSA). No “That’s the file.”
 
-**Never in the lede:** frozen entity-kit paragraph, “three factories,” Co-Pilot greeting, Ross/Old Betsy origin, Tzu costume, “RetailBI alternative.”
+**Energy:** Institutional third person. Tables. Source + date. NSSF-note / Axios brevity. Co-Pilot *what it is / is not* plates.
 
-**Numbers:** only `docs/wire-file.md`. Print first figures *and* revisions. Do not invent April–July 2026 monthlies. Do not invent Live/ask percents.
+**Never:** first person, night desk, moonlight, Batchelor, Co-Pilot greeting, Ross origin, Tzu in the lede, “RetailBI alternative,” invented Live/Index percents.
 
-**Judgment, once:** a register series is an after-action report. The scout is the ask.
+**Numbers:** only `docs/wire-file.md`. Print first figures *and* revisions.
+
+**Betsy:** instrument (hero background, 36px mark, contributor schema). Not the “I.”

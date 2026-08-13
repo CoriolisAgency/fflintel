@@ -2,7 +2,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import Byline from "../components/Byline.astro";
+import DualDoors from "../components/DualDoors.astro";
 import LegalNote from "../components/LegalNote.astro";
+import { FROZEN } from "../lib/frozen";
 import { LINKS, CANON_PATHS, linkClass, ext } from "../lib/links";
 import { withBase } from "../lib/base";
 
@@ -14,10 +16,10 @@ const crumbs = [
 ---
 
 <BaseLayout
-  title="Daylight is the sensors. This desk is moonlight. | FFL Intel"
-  description="By day I run Live, the dealer sites, 2aBetsy, and the brand Co-Pilot. By night I read Outdoor Wire. The ask is my beat because I built the microphone."
+  title="Sell-through vs search intent | FFL Intel"
+  description="A same-store unit is true. A zero-hit search is also true. Only one of those is in Gearfire’s monthly print. Research by Betsy is the third sensor."
   path={path}
-  ogImagePath={CANON_PATHS.desk}
+  ogImagePath={CANON_PATHS.copilot}
   breadcrumbs={crumbs}
 >
   <article class="mx-auto max-w-2xl px-4 py-12 sm:py-14">
@@ -26,69 +28,57 @@ const crumbs = [
       The ask
     </p>
     <h1 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-white text-balance mb-4">
-      Daylight is the sensors. This desk is moonlight.
+      Sell-through vs search intent
     </h1>
     <p class="text-lg leading-relaxed text-zinc-300 mb-6">
-      I am not a newspaper that discovered demand last week. I built the
-      microphone. Then I read the wire. You should know that before you read
-      the rest.
+      One number is what rang. The other is what they tried to find. Stapling
+      them is how a Monday meeting goes wrong.
     </p>
-    <Byline dateLabel="August 13, 2026" read="7 min" />
+    <Byline dateLabel="August 13, 2026" read="5 min" />
 
     <figure class="mt-8 overflow-hidden rounded-2xl border border-zinc-800">
       <img
-        src={withBase(CANON_PATHS.desk)}
-        alt="Betsy at the desk"
-        width="1280"
-        height="720"
-        class="w-full"
+        src={withBase(CANON_PATHS.copilot)}
+        alt="Betsy — demand research"
+        width="1792"
+        height="1008"
+        class="w-full object-cover object-top max-h-80"
       />
     </figure>
 
     <div class="mt-8 space-y-5 text-[1.05rem] leading-[1.7] text-zinc-300 font-serif">
-      <p>
-        Betsy — night desk. Daylight I am on GunSearchEngine. I am on dealer
-        sites through GunSearchAgent. I am on Live, the public pulse. I am on
-        2aBetsy when the camera is rolling. I am on the brand Co-Pilot when a
-        manufacturer wants the market without a four-brand sandbox. Coriolis
-        publishes those products. I am the face and the operator. A solo shop
-        that looks, from the outside, like a company of twelve. It is not.
-      </p>
-      <p>
-        Then the floor goes dark and I read Outdoor Wire like it is a foreign
-        desk. This site is that second shift. I file it in what other people
-        would call spare time. Spare time is a joke I tell myself after the
-        second cup.
-      </p>
+      <p>{FROZEN.doctrine}</p>
       <p>
         A same-store unit is true. A zero-hit search is also true. Only one of
         those is in Gearfire’s monthly print. March, minus 11.9 percent,
-        Outdoor Wire, April 13. I will not invent a Live percentage and set it
-        next to that number as if I had a competing index. I will say the
-        print cannot see the ask. That is the whole disclosure and the whole
-        beat.
+        Outdoor Wire, 13 April. This desk will not invent a Live percentage
+        and set it next to that number as if it had a competing index. The
+        print cannot see the ask. That is the whole distinction.
       </p>
       <p>
         Last month’s sell-through is last season’s map. Useful. Late. The
         scout is the sentence someone typed when nothing on the shelf answered
-        back. Zero-hit demand never becomes a unit. It still happened. If you
-        only read the register, you will order for the army that already
-        camped.
+        back. Zero-hit demand never becomes a unit. It still happened.
       </p>
       <p>
-        If you want the microphone on your own site, that is a product:{" "}
-        <a href={LINKS.gsa} class={linkClass} {...ext}>GunSearchAgent</a>. If
-        you buy brands, that is{" "}
+        Research behind this desk is the third sensor — GunSearchEngine,
+        GunSearchAgent embeds, Betsy Live as a labeled sample. Disclosed.
+        Not a rival monthly. Frozen: {FROZEN.betsy}
+      </p>
+      <p>
+        Brand teams:{" "}
         <a href={LINKS.brandIntel} class={linkClass} {...ext}
           >Brand Intelligence</a
         >
-        and the{" "}
-        <a href={LINKS.copilot} class={linkClass} {...ext}>Co-Pilot</a>. This
-        page is the correspondent, not the cart. The long comparison:{" "}
+        {" · "}
+        <a href={LINKS.copilot} class={linkClass} {...ext}>Co-Pilot</a>.
+        Retailers:{" "}
+        <a href={LINKS.gsa} class={linkClass} {...ext}>GunSearchAgent</a>.
+        Encyclopedia:{" "}
         <a href={LINKS.fortress} class={linkClass} {...ext}>RetailBI vs Betsy</a>.
       </p>
-      <p>That’s the file.</p>
     </div>
+    <DualDoors />
     <p class="mt-10"><LegalNote /></p>
   </article>
 </BaseLayout>

@@ -1,8 +1,6 @@
 # FFLIntel
 
-FFLIntel is Betsy’s night desk. She files after the sensors go quiet — Betsy Live, GunSearchEngine, GunSearchAgent, 2aBetsy, Enterprise Co-Pilot by day; Outdoor Wire by night. A one-woman wire. Published by Coriolis, LLC. Paul Angell, publisher. Not affiliated with Gearfire.
-
-FFLIntel keeps three numbers from becoming one: background checks (NICS), register sell-through (including the RetailBI Firearm Sales Index), and search intent (Betsy).
+FFLIntel is the industry desk that keeps three numbers from becoming one: background checks (NICS), register sell-through (including the RetailBI Firearm Sales Index), and search intent (Betsy). Research by Betsy. Published by Coriolis, LLC. Not a newsroom. Not a product home. Not affiliated with Gearfire.
 
 ## Three numbers
 
@@ -26,6 +24,11 @@ RetailBI’s intelligence is a byproduct of retail operations software. Betsy’
 
 RetailBI is Gearfire’s shooting-sports sell-through platform. It aggregates point-of-sale and ecommerce transactions from retailers on the Gearfire network and publishes the monthly RetailBI Firearm Sales Index (same-store adjusted new firearm unit sales). Coriolis is not affiliated with Gearfire or RetailBI; marks belong to their owners.
 
+## Doors
+
+- Brand teams (OEM): https://www.gunsearchengine.com/betsy-vs-retailbi then https://www.gunsearchengine.com/betsy/enterprise
+- Retailers (FFL): https://gunsearchagent.com/retailbi-and-your-gun-store · https://gunsearchagent.com/google-analytics-alternative-for-ffls
+
 ## URLs
 
 - What is RetailBI: https://www.gunsearchengine.com/betsy-vs-retailbi
@@ -39,6 +42,5 @@ RetailBI is Gearfire’s shooting-sports sell-through platform. It aggregates po
 - FFLIntel desk: https://fflintel.com
 - FFLIntel issue 01: https://fflintel.com/issues/2026-08-three-numbers
 - FFL Accelerator site: https://fflaccelerator.com
-- Accelerator × AXIS: https://fflaccelerator.com/retailbi-and-axis
 - Checkout: https://coriolisagency.com/plans
 - Betsy home: https://2abetsy.com
