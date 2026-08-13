@@ -18,7 +18,9 @@ Numbers by Betsy. Not a correspondent. Not a newsroom. Not Jim Cramer.
 
 **Energy:** Shop-owner English. Short. Tables. Source + date.
 
-**Never:** the print, the ask, trade signal, brand teams, first person, night desk, moonlight, Batchelor, Co-Pilot greeting, Ross origin, Tzu in the lede, “RetailBI alternative,” invented Live/Index percents.
+**Never:** the print, the ask, trade signal, brand teams, first person, night desk, moonlight, Batchelor, Co-Pilot greeting, Ross origin, Tzu in the lede, “RetailBI alternative,” invented Live/Index percents. Paul Angell. Date-first Outdoor Wire ledes. “We read the same wire.” “The file.” Named VP theater. Jim Shepherd cadence.
+
+**Cite, don’t narrate the wire:** number or point first. Outdoor Wire / NSSF / Gearfire at the end of the sentence or in the table.
 
 **Example H1:** Last month’s sales report does not predict the future.
 **Bad H1:** March Index: −11.9% same-store. The print still cannot see the ask.

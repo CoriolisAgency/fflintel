@@ -9,5 +9,5 @@ export const SITE = {
   origin: "https://fflintel.com",
   editor: "FFL Intel",
   editorRole: "Numbers by Betsy",
-  publisherCredit: "Coriolis, LLC · Paul Angell, publisher",
+  publisherCredit: "Coriolis, LLC",
 } as const;

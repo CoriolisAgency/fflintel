@@ -16,11 +16,11 @@ const crumbs = [
 const faqs = [
   {
     q: "Where do Index figures come from?",
-    a: "Cited public prints only — Outdoor Wire, sister wires, NSSF, Tactical Wire. If a date and a source are not on the page, the number does not appear.",
+    a: "Public pages only — Outdoor Wire, NSSF, Gearfire. If a date and a source are not on the page, the number does not appear.",
   },
   {
     q: "How are revisions treated?",
-    a: "The first figure stays on the page with its date, then the revised figure with its date. January 2026 first printed −6.2% (Outdoor Wire, 9 Feb) and was revised to −5.7% on the February file (10 Mar).",
+    a: "The first figure stays on the page with its date, then the revised figure with its date. January 2026 first came out −6.2% and was later moved to −5.7%.",
   },
   {
     q: "How is NICS treated?",
@@ -55,20 +55,19 @@ const faqs = [
 
     <div class="mt-8 space-y-5 text-[1.05rem] leading-[1.7] text-stone-700 font-serif">
       <p>
-        RetailBI numbers are not invented. If Outdoor Wire, a sister site,
-        NSSF, or Gearfire has not put a figure on a dated public page, it does
-        not appear here. Last monthly we will repeat until they publish
-        another: March 2026, minus 11.9 percent versus last March, minus 8.2
-        percent on the year, Outdoor Wire, 13 April 2026.
+        RetailBI numbers are not invented. If Gearfire, Outdoor Wire, or NSSF
+        has not put a figure on a dated public page, it does not appear here.
+        Last monthly we will repeat until they publish another: March 2026,
+        minus 11.9 percent versus last March, minus 8.2 percent on the year.
       </p>
       <p>
         Revisions stay on the page. January 2026 first came out at minus 6.2
-        percent on 9 February. The February release, 10 March, moved it to
-        minus 5.7, “to reflect the full same-store dataset.”
+        percent. They later moved it to minus 5.7 when more shops finished
+        reporting.
       </p>
       <p>
         NICS stays a check count. We will not write “sales” next to it.
-        Gearfire already made that case, 6 June 2024.
+        Gearfire already made that case.
       </p>
       <p>
         Live search demand is sent to{" "}
@@ -77,13 +76,13 @@ const faqs = [
         Index as if this site published a competing monthly.
       </p>
       <p>
-        The ranking encyclopedia for “what is RetailBI” is the{" "}
-        <a href={LINKS.fortress} class={linkClass} {...ext}>GSE fortress</a>.
-        This host’s{" "}
+        The long “what is RetailBI” page is on{" "}
+        <a href={LINKS.fortress} class={linkClass} {...ext}>GunSearchEngine</a>.
+        This site’s{" "}
         <a href={withBase("what-is-retailbi")} class={linkClass}
           >short page</a
         >{" "}
-        canonicals there.
+        points there.
       </p>
     </div>
 

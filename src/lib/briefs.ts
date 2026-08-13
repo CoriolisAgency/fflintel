@@ -17,7 +17,7 @@ export const BRIEFS: Brief[] = [
     path: "/brief/three-numbers",
     title: "Last month’s sales report does not predict the future.",
     kicker: "March sales",
-    dek: "March: the same stores sold 11.9% fewer new guns than a year ago (Outdoor Wire, April 13). That number is real. It is also looking backward. It cannot tell you what people will want next.",
+    dek: "March: the same stores sold 11.9% fewer new guns than a year ago. That number is real. It is also looking backward. It cannot tell you what people will want next.",
     date: "2026-08-13",
     dateLabel: "August 13, 2026",
     read: "8 min",
