@@ -9,16 +9,16 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<nav class="mb-6 text-[11px] text-zinc-500" aria-label="Breadcrumb">
+<nav class="mb-6 text-[11px] text-stone-500" aria-label="Breadcrumb">
   <ol class="flex flex-wrap items-center gap-1.5">
     {
       items.map((item, i) => (
         <li class="flex items-center gap-1.5">
           {i > 0 ? <span aria-hidden="true">/</span> : null}
           {i === items.length - 1 ? (
-            <span class="text-zinc-400">{item.name}</span>
+            <span class="text-stone-400">{item.name}</span>
           ) : (
-            <a href={withBase(item.path)} class="hover:text-sky-300">
+            <a href={withBase(item.path)} class="hover:text-sky-800">
               {item.name}
             </a>
           )}

@@ -38,14 +38,17 @@ export const SAME_AS = [
 
 /** Shared sky link class for inline body copy */
 export const linkClass =
-  "font-medium text-sky-400 hover:underline underline-offset-2";
+  "font-medium text-sky-700 hover:underline underline-offset-2";
 
 /** Paths relative to site root (no leading slash). Use with withBase(). */
 export const CANON_PATHS = {
   headshot: "betsy/images/betsy-headshot-work.png",
   copilot: "betsy/images/betsy-ai-brand-intelligence-enterprise-co-pilot.jpg",
+  hero: "betsy/images/hero-daylight.jpg",
+  register: "betsy/images/shop-register.jpg",
+  search: "betsy/images/empty-search.jpg",
+  range: "betsy/images/range-lane.jpg",
   desk: "betsy/images/betsy-desk-hero.jpg",
-  range: "betsy/images/betsy-at-the-range-work.jpg",
 } as const;
 
 export const ext = { target: "_blank", rel: "noopener noreferrer" } as const;

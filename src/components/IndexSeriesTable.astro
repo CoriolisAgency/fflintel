@@ -2,23 +2,23 @@
 import { INDEX_SERIES } from "../lib/frozen";
 ---
 
-<div class="overflow-x-auto rounded-2xl border border-zinc-800">
+<div class="overflow-x-auto rounded-2xl border border-rule bg-white shadow-sm">
   <table class="w-full min-w-[32rem] text-left text-sm">
     <caption class="sr-only">
       RetailBI Firearm Sales Index, same-store new firearm units, public prints
     </caption>
     <thead>
-      <tr class="border-b border-zinc-800 bg-[#121a2b]">
-        <th class="px-3 py-3 text-[10px] font-semibold uppercase tracking-wider text-sky-400">
+      <tr class="border-b border-rule bg-stone-50">
+        <th class="px-3 py-3 text-[10px] font-semibold uppercase tracking-wider text-sky-800">
           Period
         </th>
-        <th class="px-3 py-3 text-[10px] font-semibold uppercase tracking-wider text-zinc-400">
+        <th class="px-3 py-3 text-[10px] font-semibold uppercase tracking-wider text-stone-500">
           Same-store YoY
         </th>
-        <th class="px-3 py-3 text-[10px] font-semibold uppercase tracking-wider text-zinc-500">
+        <th class="px-3 py-3 text-[10px] font-semibold uppercase tracking-wider text-stone-400">
           On the file
         </th>
-        <th class="px-3 py-3 text-[10px] font-semibold uppercase tracking-wider text-zinc-500">
+        <th class="px-3 py-3 text-[10px] font-semibold uppercase tracking-wider text-stone-400">
           Source
         </th>
       </tr>
@@ -26,11 +26,11 @@ import { INDEX_SERIES } from "../lib/frozen";
     <tbody>
       {
         INDEX_SERIES.map((row) => (
-          <tr class="border-b border-zinc-800/80 last:border-0 align-top">
-            <td class="px-3 py-3 text-xs font-medium text-zinc-100">{row.period}</td>
-            <td class="px-3 py-3 text-xs tabular-nums text-zinc-200">{row.print}</td>
-            <td class="px-3 py-3 text-xs text-zinc-400 leading-relaxed">{row.note}</td>
-            <td class="px-3 py-3 text-xs text-zinc-500 leading-relaxed">{row.source}</td>
+          <tr class="border-b border-rule/80 last:border-0 align-top">
+            <td class="px-3 py-3 text-xs font-medium text-ink">{row.period}</td>
+            <td class="px-3 py-3 text-xs tabular-nums text-ink">{row.print}</td>
+            <td class="px-3 py-3 text-xs text-stone-600 leading-relaxed">{row.note}</td>
+            <td class="px-3 py-3 text-xs text-stone-500 leading-relaxed">{row.source}</td>
           </tr>
         ))
       }

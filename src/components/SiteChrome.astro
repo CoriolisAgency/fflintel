@@ -34,24 +34,23 @@ const family = [
 ---
 
 <header
-  class="sticky top-0 z-40 border-b border-zinc-800/80 bg-[color-mix(in_srgb,#0a1220_92%,transparent)] backdrop-blur-md"
+  class="sticky top-0 z-40 border-b border-rule bg-paper/90 backdrop-blur-md"
 >
   <div
-    class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-3"
+    class="mx-auto flex max-w-6xl flex-wrap items-end justify-between gap-4 px-4 py-5"
   >
-    <div class="flex items-center gap-2.5 min-w-0">
-      <a href={withBase("/")} class="min-w-0 group">
-        <span
-          class="block text-sm font-semibold tracking-wide text-white group-hover:text-sky-100"
-          >FFL Intel</span
-        >
-        <span class="block text-[10px] italic tracking-wide text-sky-400/90"
-          >{SITE.job}</span
-        >
-      </a>
-    </div>
+    <a href={withBase("/")} class="min-w-0 group">
+      <span
+        class="block font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl group-hover:text-sky-800"
+        >FFL Intel</span
+      >
+      <span
+        class="mt-1 block text-sm tracking-wide text-sky-800 sm:text-base"
+        >{SITE.job}</span
+      >
+    </a>
     <nav
-      class="flex flex-wrap items-center justify-end gap-1 sm:gap-1.5"
+      class="flex flex-wrap items-center justify-end gap-1 sm:gap-1.5 pb-1"
       aria-label="Main"
     >
       {
@@ -59,10 +58,10 @@ const family = [
           <a
             href={withBase(item.href)}
             class:list={[
-              "rounded-lg border px-2.5 py-1.5 text-xs font-medium transition-colors",
+              "rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors",
               active(item.href)
-                ? "border-sky-500/50 bg-sky-500/15 text-sky-200"
-                : "border-zinc-700 text-zinc-200 hover:bg-zinc-800",
+                ? "border-sky-600/40 bg-sky-50 text-sky-900"
+                : "border-rule text-ink hover:bg-white",
             ]}
           >
             {item.label}
@@ -77,13 +76,14 @@ const family = [
   <slot />
 </main>
 
-<footer class="border-t border-zinc-800/80 bg-[#0a1220]">
+<footer class="border-t border-rule bg-white">
   <div
-    class="mx-auto flex max-w-5xl flex-col gap-4 px-4 py-8 text-sm text-zinc-400 sm:flex-row sm:items-start sm:justify-between"
+    class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-10 text-sm text-stone-600 sm:flex-row sm:items-start sm:justify-between"
   >
     <div class="space-y-1 max-w-sm">
-      <p class="font-medium text-zinc-200">FFL Intel · {SITE.job}</p>
-      <p class="text-xs leading-relaxed">
+      <p class="font-serif text-xl font-semibold text-ink">FFL Intel</p>
+      <p class="text-sm text-sky-800">{SITE.job}</p>
+      <p class="text-xs leading-relaxed text-stone-500">
         Numbers by Betsy. {SITE.publisherCredit}. Not affiliated with
         Gearfire or RetailBI.
       </p>
@@ -96,7 +96,7 @@ const family = [
         family.map((item) => (
           <a
             href={item.href}
-            class="hover:text-sky-300"
+            class="hover:text-sky-800"
             target="_blank"
             rel="noopener noreferrer"
           >

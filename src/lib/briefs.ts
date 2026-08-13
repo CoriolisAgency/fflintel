@@ -21,8 +21,8 @@ export const BRIEFS: Brief[] = [
     date: "2026-08-13",
     dateLabel: "August 13, 2026",
     read: "8 min",
-    image: "betsy/images/betsy-ai-brand-intelligence-enterprise-co-pilot.jpg",
-    imageAlt: "Betsy in the background — she runs the demand numbers",
+    image: "betsy/images/hero-daylight.jpg",
+    imageAlt: "Betsy in a sunlit office — she runs the demand numbers",
   },
 ];
 
@@ -35,8 +35,8 @@ export const ESSAYS = [
     title: "A background check is not a gun sale.",
     dek: "Gearfire already said this. Counting what rang is better than counting FBI checks. It still will not tell you what people wanted and could not find.",
     dateLabel: "August 13, 2026",
-    image: "betsy/images/betsy-at-the-range-work.jpg",
-    imageAlt: "Betsy at the range",
+    image: "betsy/images/range-lane.jpg",
+    imageAlt: "An empty indoor range lane",
   },
   {
     href: "/retailbi-firearm-sales-index",
@@ -44,8 +44,8 @@ export const ESSAYS = [
     title: "How they count what sold — and what they leave out",
     dek: "Same stores. New guns only. Compared to last year. They revise it when more shops finish sending data. Useful. It is still last month, and it is still only what sold.",
     dateLabel: "August 13, 2026",
-    image: "betsy/images/betsy-ai-brand-intelligence-enterprise-co-pilot.jpg",
-    imageAlt: "Betsy — demand research",
+    image: "betsy/images/shop-register.jpg",
+    imageAlt: "A gun shop counter and register in morning light",
   },
   {
     href: "/sell-through-vs-search-intent",
@@ -53,7 +53,7 @@ export const ESSAYS = [
     title: "What sold is not what people asked for",
     dek: "A gun that rang is real. A search that came back empty is also real. Only one of those shows up in the monthly Index. Betsy BI is the other number.",
     dateLabel: "August 13, 2026",
-    image: "betsy/images/betsy-ai-brand-intelligence-enterprise-co-pilot.jpg",
-    imageAlt: "Betsy — demand research",
+    image: "betsy/images/empty-search.jpg",
+    imageAlt: "A shopper searching a phone in front of an empty case",
   },
 ] as const;

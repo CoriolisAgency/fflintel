@@ -24,7 +24,7 @@ const pageUrl = "https://fflintel.com/brief/three-numbers";
   title={`${FEATURED.title} | FFL Intel`}
   description={FEATURED.dek}
   path={FEATURED.path}
-  ogImagePath={CANON_PATHS.copilot}
+  ogImagePath={CANON_PATHS.hero}
   breadcrumbs={crumbs}
   extraJsonLd={[
     newsArticleNode({
@@ -33,41 +33,41 @@ const pageUrl = "https://fflintel.com/brief/three-numbers";
       description: FEATURED.dek,
       datePublished: FEATURED.date,
       dateModified: FEATURED.date,
-      image: `https://fflintel.com/${CANON_PATHS.copilot}`,
+      image: `https://fflintel.com/${CANON_PATHS.hero}`,
     }),
   ]}
 >
   <article class="mx-auto max-w-2xl px-4 py-12 sm:py-14">
     <Breadcrumbs items={crumbs} />
     <p
-      class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-400 mb-3"
+      class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-800 mb-3"
     >
       {FEATURED.kicker} · Outdoor Wire, 13 April 2026
     </p>
     <h1
-      class="font-serif text-3xl font-semibold tracking-tight text-white sm:text-4xl text-balance mb-4"
+      class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl text-balance mb-4"
     >
       {FEATURED.title}
     </h1>
-    <p class="text-lg leading-relaxed text-zinc-300 mb-6">{FEATURED.dek}</p>
+    <p class="text-lg leading-relaxed text-stone-700 mb-6">{FEATURED.dek}</p>
     <Byline dateLabel={FEATURED.dateLabel} read={FEATURED.read} />
 
-    <figure class="mt-8 overflow-hidden rounded-2xl border border-zinc-800">
+    <figure class="mt-8 overflow-hidden rounded-2xl border border-stone-200">
       <img
-        src={withBase(CANON_PATHS.copilot)}
+        src={withBase(CANON_PATHS.hero)}
         alt={FEATURED.imageAlt}
         width="1792"
         height="1008"
         class="w-full object-cover object-top max-h-80"
       />
-      <figcaption class="px-4 py-2 text-[11px] text-zinc-500">
+      <figcaption class="px-4 py-2 text-[11px] text-stone-500">
         Betsy runs the numbers in the background. The point is the three
         signals — not a personality column.
       </figcaption>
     </figure>
 
     <div
-      class="mt-8 space-y-5 text-[1.05rem] leading-[1.7] text-zinc-300 font-serif"
+      class="mt-8 space-y-5 text-[1.05rem] leading-[1.7] text-stone-700 font-serif"
     >
       <p>
         On 13 April 2026 Outdoor Wire published Gearfire’s RetailBI Firearm
@@ -89,25 +89,25 @@ const pageUrl = "https://fflintel.com/brief/three-numbers";
 
     <div class="mt-8">
       <p
-        class="text-[11px] font-semibold uppercase tracking-[0.14em] text-sky-400 mb-3"
+        class="text-[11px] font-semibold uppercase tracking-[0.14em] text-sky-800 mb-3"
       >
         The public prints
       </p>
       <IndexSeriesTable />
-      <p class="mt-2 text-[11px] text-zinc-500">
+      <p class="mt-2 text-[11px] text-stone-500">
         As of 13 August 2026 the last monthly on Outdoor Wire is still the
         April 13 release. We will not invent April through July.
       </p>
     </div>
 
     <div
-      class="mt-8 space-y-5 text-[1.05rem] leading-[1.7] text-zinc-300 font-serif"
+      class="mt-8 space-y-5 text-[1.05rem] leading-[1.7] text-stone-700 font-serif"
     >
       <blockquote
-        class="border-l-2 border-sky-500/60 pl-4 text-zinc-100 italic"
+        class="border-l-2 border-sky-500/60 pl-4 text-ink italic"
       >
         Figures are subject to revision as retailer data syncs are finalized.
-        <span class="block mt-2 not-italic text-sm text-zinc-400"
+        <span class="block mt-2 not-italic text-sm text-stone-600"
           >— Outdoor Wire, 13 April 2026, RetailBI file</span
         >
       </blockquote>
@@ -156,7 +156,7 @@ const pageUrl = "https://fflintel.com/brief/three-numbers";
 
     <div class="mt-10">
       <p
-        class="text-[11px] font-semibold uppercase tracking-[0.14em] text-sky-400 mb-3"
+        class="text-[11px] font-semibold uppercase tracking-[0.14em] text-sky-800 mb-3"
       >
         Three numbers. Stop mixing these up.
       </p>
@@ -164,7 +164,7 @@ const pageUrl = "https://fflintel.com/brief/three-numbers";
     </div>
 
     <div
-      class="mt-8 space-y-5 text-[1.05rem] leading-[1.7] text-zinc-300 font-serif"
+      class="mt-8 space-y-5 text-[1.05rem] leading-[1.7] text-stone-700 font-serif"
     >
       <p>
         If you already read RetailBI, the side-by-side of the two ways of

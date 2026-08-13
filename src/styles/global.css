@@ -1,25 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0a1220;
-  --color-panel: #121a2b;
-  --color-sky: #0ea5e9;
+  --color-ink: #141820;
+  --color-paper: #f6f3ec;
+  --color-panel: #ffffff;
+  --color-sky: #0284c7;
   --color-sky-soft: #38bdf8;
+  --color-rule: #e4ddd0;
   --font-sans: "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-serif: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino,
     serif;
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
   margin: 0;
   min-height: 100dvh;
   font-family: var(--font-sans);
-  background: var(--color-ink);
-  color: #e4e4e7;
+  background: var(--color-paper);
+  color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -29,5 +31,5 @@ a {
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--color-sky) 40%, transparent);
+  background: color-mix(in srgb, var(--color-sky) 28%, transparent);
 }

@@ -62,7 +62,7 @@ const jsonLd = pageGraph(extras);
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <meta name="theme-color" content="#0a1220" />
+    <meta name="theme-color" content="#f6f3ec" />
     <link rel="icon" type="image/svg+xml" href={withBase("favicon.svg")} />
     <link
       rel="icon"
@@ -96,7 +96,7 @@ const jsonLd = pageGraph(extras);
     <meta name="twitter:image" content={ogAbs} />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
-  <body class="min-h-dvh flex flex-col bg-ink text-zinc-200">
+  <body class="min-h-dvh flex flex-col bg-paper text-ink">
     <SiteChrome>
       <slot />
     </SiteChrome>
