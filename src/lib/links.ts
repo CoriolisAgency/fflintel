@@ -42,6 +42,8 @@ export const linkClass =
 export const CANON_PATHS = {
   headshot: "betsy/images/betsy-headshot-work.png",
   tzu: "betsy/images/betsy-tzu-art-of-war.jpg",
+  desk: "betsy/images/betsy-desk-hero.jpg",
+  range: "betsy/images/betsy-at-the-range-work.jpg",
 } as const;
 
 export const ext = { target: "_blank", rel: "noopener noreferrer" } as const;

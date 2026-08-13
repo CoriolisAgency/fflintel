@@ -2,9 +2,11 @@ export const SITE = {
   name: "FFL Intel",
   legalName: "Coriolis, LLC",
   publisher: "Coriolis, LLC",
-  titleDefault: "FFL Intel — Three numbers. One desk.",
+  titleDefault: "FFL Intel — The desk",
   description:
-    "FFLIntel is the industry desk that keeps three numbers from becoming one: background checks (NICS), register sell-through (including the RetailBI Firearm Sales Index), and search intent (Betsy). Published by Coriolis, LLC. Not affiliated with Gearfire.",
+    "Last month’s print told you what rang. It did not tell you what people asked for when the case was empty. A small desk for firearms numbers, written by Paul Angell.",
   job: "Three numbers. One desk.",
   origin: "https://fflintel.com",
+  editor: "Paul Angell",
+  editorRole: "Desk editor",
 } as const;

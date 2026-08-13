@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import StoryCard from "../../components/StoryCard.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { BRIEFS, ESSAYS } from "../../lib/briefs";
+import { CANON_PATHS } from "../../lib/links";
+
+const path = "/brief";
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "The Brief", path },
+];
+---
+
+<BaseLayout
+  title="The Brief | FFL Intel"
+  description="The FFL Intel drawer: dated notes on sell-through prints, background-check weather, and what shoppers asked for."
+  path={path}
+  ogImagePath={CANON_PATHS.desk}
+  breadcrumbs={crumbs}
+>
+  <div class="mx-auto max-w-6xl px-4 py-12 sm:py-14">
+    <Breadcrumbs items={crumbs} />
+    <p
+      class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-400 mb-3"
+    >
+      Archive
+    </p>
+    <h1
+      class="font-serif text-4xl font-semibold tracking-tight text-white mb-3"
+    >
+      The Brief
+    </h1>
+    <p class="max-w-2xl text-base leading-relaxed text-zinc-400 mb-10">
+      Dated notes. One point of view. We cite a print when we have a date and a
+      source. We do not treat a background-check tally as a cash drawer.
+    </p>
+
+    <div class="grid gap-5 md:grid-cols-2">
+      {
+        BRIEFS.map((b) => (
+          <StoryCard
+            href={b.path}
+            kicker={b.kicker}
+            title={b.title}
+            dek={b.dek}
+            dateLabel={b.dateLabel}
+            image={b.image}
+            imageAlt={b.imageAlt}
+          />
+        ))
+      }
+      {
+        ESSAYS.map((essay) => (
+          <StoryCard
+            href={essay.href}
+            kicker={essay.kicker}
+            title={essay.title}
+            dek={essay.dek}
+            dateLabel={essay.dateLabel}
+            image={essay.image}
+            imageAlt={essay.imageAlt}
+          />
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>

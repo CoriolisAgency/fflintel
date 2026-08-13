@@ -16,6 +16,10 @@ export default defineConfig({
   base,
   trailingSlash: "never",
   integrations: [sitemap()],
+  redirects: {
+    "/issues": "/brief",
+    "/issues/2026-08-three-numbers": "/brief/three-numbers",
+  },
   vite: {
     plugins: [tailwindcss()],
   },

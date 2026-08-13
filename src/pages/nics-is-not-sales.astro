@@ -1,114 +1,80 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import FaqBlock from "../components/FaqBlock.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
-import ThreeNumbersTable from "../components/ThreeNumbersTable.astro";
-import { FROZEN } from "../lib/frozen";
-import { LINKS, linkClass, ext } from "../lib/links";
+import Byline from "../components/Byline.astro";
+import LegalNote from "../components/LegalNote.astro";
+import { LINKS, CANON_PATHS, linkClass, ext } from "../lib/links";
 import { withBase } from "../lib/base";
-import { type Crumb, type FaqItem } from "../lib/schema";
 
 const path = "/nics-is-not-sales";
-const title = "NICS is not sales | FFL Intel";
-const description =
-  "NICS is public FBI background-check counts — not sales. The RetailBI Index is same-store new firearm units at the register. The Betsy ask is what shoppers tried to find, including zeros.";
-
-const crumbs: Crumb[] = [
+const crumbs = [
   { name: "Home", path: "/" },
-  { name: "NICS is not sales", path },
-];
-
-const faqs: FaqItem[] = [
-  {
-    q: "Is NICS the same as firearm sales?",
-    a: "No. NICS is public FBI background-check counts. Checks are not sales.",
-  },
-  {
-    q: "If NICS is not sales, what is the Index?",
-    a: FROZEN.index,
-  },
-  {
-    q: "What is the Betsy ask?",
-    a: "What shoppers tried to find, including zeros. It is not a sales index.",
-  },
-  {
-    q: "Does FFLIntel run NICS checks?",
-    a: "No. Not a NICS system. Not 4473/ATF software. Public FBI counts only, as backdrop.",
-  },
-  {
-    q: "Where is the platform page?",
-    a: "https://www.gunsearchengine.com/nics-vs-firearm-sales",
-  },
+  { name: "NICS is weather", path },
 ];
 ---
 
 <BaseLayout
-  title={title}
-  description={description}
+  title="NICS is weather. It is not the register. | FFL Intel"
+  description="Background-check counts mix permits, used guns, and denials. Treating that volume like unit sales is how a forecast goes sideways."
   path={path}
+  ogImagePath={CANON_PATHS.range}
   breadcrumbs={crumbs}
-  faqs={faqs}
 >
   <article class="mx-auto max-w-2xl px-4 py-12 sm:py-14">
     <Breadcrumbs items={crumbs} />
-    <p
-      class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-400 mb-3"
-    >
-      Checks ≠ units ≠ ask
+    <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-400 mb-3">
+      Checks
     </p>
-    <h1 class="text-3xl font-semibold tracking-tight text-white mb-6">
-      NICS is not sales
+    <h1 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-white text-balance mb-4">
+      NICS is weather. It is not the register.
     </h1>
+    <p class="text-lg leading-relaxed text-zinc-300 mb-6">
+      A public FBI tally of background checks is useful climate. It is a terrible
+      cash drawer.
+    </p>
+    <Byline dateLabel="August 13, 2026" read="6 min" />
 
-    <div class="space-y-4 text-sm leading-relaxed text-zinc-400">
-      <p>
-        <strong class="text-zinc-200">NICS</strong> is public FBI
-        background-check counts — not sales. The{" "}
-        <strong class="text-zinc-200">RetailBI Firearm Sales Index</strong> is
-        same-store new firearm units at the register — not search intent. The{" "}
-        <strong class="text-zinc-200">Betsy ask</strong> is what shoppers tried
-        to find, including zeros — not a sales index. Three numbers. They do
-        not collapse.
-      </p>
-      <p>{FROZEN.fflintel}</p>
-      <p>
-        RetailBI’s public Index thesis is that NICS is a flawed proxy for new
-        firearm sales and that same-store register units are a better
-        sell-through series. That argument is about{" "}
-        <strong class="text-zinc-200">sales measurement</strong>. This desk
-        grants it — and still keeps a third number: search intent.
-      </p>
-    </div>
+    <figure class="mt-8 overflow-hidden rounded-2xl border border-zinc-800">
+      <img
+        src={withBase(CANON_PATHS.range)}
+        alt="Betsy at the range"
+        width="1280"
+        height="720"
+        class="w-full object-cover max-h-80"
+      />
+    </figure>
 
-    <div class="mt-8">
-      <ThreeNumbersTable />
-    </div>
-
-    <div class="mt-8 space-y-4 text-sm leading-relaxed text-zinc-400">
+    <div class="mt-8 space-y-5 text-[1.05rem] leading-[1.7] text-zinc-300 font-serif">
       <p>
-        A NICS line can rise while new-gun sell-through falls, and the reverse.
-        Permits, used guns, transfers, multi-gun checks, and denials live in
-        the check series. The Index, as publicly described, isolates new
-        firearm unit sales from a selected panel. Neither series is what
-        someone typed into search and did not find.
+        Every spring someone pastes a NICS chart into a dealer group and calls it
+        demand. The chart is not lying. It is also not sales. Checks include
+        permits in some states, used guns, transfers, multiple guns on one form,
+        and denials. A hot March on that series can be paperwork. A cold March
+        can hide a store that actually moved new units.
       </p>
       <p>
-        This desk does not invent NICS totals and does not run checks. When we
-        mention NICS, it is backdrop — public FBI counts — labeled as checks,
-        never as sales. See{" "}
-        <a href={withBase("methodology")} class={linkClass}>Methodology</a>.
+        Gearfire’s public case for the Firearm Sales Index is, on this point,
+        fair: if you want to know what new guns rang, count new guns at the
+        register. I will cite that print when Outdoor Wire or NSSF puts a number
+        on a dated page. I will not pretend a check is a unit.
       </p>
       <p>
-        Platform literacy:{" "}
-        <a href={LINKS.gseNics} class={linkClass} {...ext}
-          >GunSearchEngine /nics-vs-firearm-sales</a
-        >. Index reader:{" "}
-        <a href={withBase("retailbi-firearm-sales-index")} class={linkClass}
-          >How to read the Index</a
+        And even a clean register series is still last month. The third number —
+        what people typed and did not find — never shows up in either weather
+        report. That is{" "}
+        <a href={withBase("sell-through-vs-search-intent")} class={linkClass}
+          >the ask</a
         >.
       </p>
+      <p>
+        Longer platform note, if you want the same argument next to Brand
+        Intelligence:{" "}
+        <a href={LINKS.gseNics} class={linkClass} {...ext}
+          >NICS vs firearm sales</a
+        >{" "}
+        on GunSearchEngine.
+      </p>
     </div>
-
-    <FaqBlock items={faqs} />
+    <p class="mt-10"><LegalNote /></p>
   </article>
 </BaseLayout>

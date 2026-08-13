@@ -12,11 +12,9 @@ const path =
   ).replace(/\/$/, "") || "/";
 
 const nav = [
-  { href: "issues", label: "Issues" },
+  { href: "brief", label: "The Brief" },
   { href: "retailbi-firearm-sales-index", label: "Index" },
   { href: "nics-is-not-sales", label: "NICS" },
-  { href: "sell-through-vs-search-intent", label: "Intent" },
-  { href: "methodology", label: "Method" },
   { href: "about", label: "About" },
 ] as const;
 
@@ -100,7 +98,8 @@ const family = [
     <div class="space-y-1 max-w-sm">
       <p class="font-medium text-zinc-200">FFL Intel · {SITE.job}</p>
       <p class="text-xs leading-relaxed">
-        Published by Coriolis, LLC. Not affiliated with Gearfire or RetailBI.
+        {SITE.editor} writes it. Coriolis, LLC publishes it. Not affiliated
+        with Gearfire or RetailBI.
       </p>
     </div>
     <nav
