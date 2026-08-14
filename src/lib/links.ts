@@ -9,7 +9,7 @@ export const LINKS = {
   gseIndex: "https://www.gunsearchengine.com/retailbi-firearm-sales-index",
   gseNics: "https://www.gunsearchengine.com/nics-vs-firearm-sales",
   oemDemand: "https://www.gunsearchengine.com/oem-firearms-demand-analytics",
-  brandIntel: "https://www.gunsearchengine.com/betsy/enterprise",
+  demandIntel: "https://www.gunsearchengine.com/demand-intelligence",
   copilot: "https://www.gunsearchengine.com/betsy/enterprise-copilot",
   betsyLive: "https://www.gunsearchengine.com/betsy-live",
   gseBetsy: "https://www.gunsearchengine.com/betsy",

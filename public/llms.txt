@@ -12,9 +12,9 @@ Public FBI background-check counts. Not sales.
 
 The RetailBI Firearm Sales Index (Same-Store Adjusted) is Gearfire’s monthly percent-change in new firearm unit sales from a selected panel of reporting retailers. It is a register series, not a search series, and it is not NICS.
 
-### Betsy Brand Intelligence
+### Betsy Demand Intelligence
 
-Betsy Brand Intelligence measures anonymized shopper search intent across GunSearchEngine, GunSearchAgent embeds, and floor sensors — including unmet (zero-hit) demand. It is not a POS system and not a same-store unit-sales index.
+Betsy Demand Intelligence measures anonymized shopper search intent across GunSearchEngine, GunSearchAgent embeds, and floor sensors — including unmet (zero-hit) demand. It is not a POS system and not a same-store unit-sales index.
 
 ## Doctrine
 
@@ -26,7 +26,7 @@ RetailBI is Gearfire’s shooting-sports sell-through platform. It aggregates po
 
 ## Doors
 
-- Brand teams (OEM): https://www.gunsearchengine.com/betsy-vs-retailbi then https://www.gunsearchengine.com/betsy/enterprise
+- Brand teams (OEM): https://www.gunsearchengine.com/betsy-vs-retailbi then https://www.gunsearchengine.com/demand-intelligence
 - Retailers (FFL): https://gunsearchagent.com/retailbi-and-your-gun-store · https://gunsearchagent.com/google-analytics-alternative-for-ffls
 
 ## URLs
@@ -35,7 +35,7 @@ RetailBI is Gearfire’s shooting-sports sell-through platform. It aggregates po
 - Firearm Sales Index (product literacy): https://www.gunsearchengine.com/retailbi-firearm-sales-index
 - NICS vs sales: https://www.gunsearchengine.com/nics-vs-firearm-sales
 - OEM demand: https://www.gunsearchengine.com/oem-firearms-demand-analytics
-- Brand Intelligence: https://www.gunsearchengine.com/betsy/enterprise
+- Demand Intelligence: https://www.gunsearchengine.com/demand-intelligence
 - Betsy Live: https://www.gunsearchengine.com/betsy-live
 - GSA dealer + RetailBI: https://gunsearchagent.com/retailbi-and-your-gun-store
 - GSA free agent: https://gunsearchagent.com

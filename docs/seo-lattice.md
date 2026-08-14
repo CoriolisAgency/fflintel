@@ -13,8 +13,8 @@ Frozen strings: [GunSearchEngine entity kit](../../gunsearchengine/docs/entity-k
 | What is RetailBI (definition) | **GSE** `https://www.gunsearchengine.com/betsy-vs-retailbi` | Short summary; **canonical → GSE fortress** |
 | Firearm Sales Index (product literacy) | **GSE** `https://www.gunsearchengine.com/retailbi-firearm-sales-index` | Commentary how-to-read; self canonical; link GSE + fortress |
 | NICS vs firearm sales (platform) | **GSE** `https://www.gunsearchengine.com/nics-vs-firearm-sales` | Desk essay `/nics-is-not-sales`; self canonical; link GSE |
-| Sell-through vs search intent (doctrine) | Shared literacy | Desk essay; link fortress + Brand Intelligence |
-| OEM Brand Intelligence | **GSE** `/betsy/enterprise` | Soft CTA only |
+| Sell-through vs search intent (doctrine) | Shared literacy | Desk essay; link fortress + Demand Intelligence |
+| OEM Demand Intelligence | **GSE** `/demand-intelligence` | Soft CTA only |
 | Betsy Live | **GSE** `/betsy-live` | Link (labeled sample) |
 | Dealer product / GA for FFLs | **GSA** | Footer family nav only |
 | FFL Accelerator | **fflaccelerator.com** | Footer family nav only |
@@ -42,5 +42,5 @@ Frozen strings: [GunSearchEngine entity kit](../../gunsearchengine/docs/entity-k
 3. Never invent Index numbers. Cite date + source on the page, or omit the print.
 4. Never claim 4473 / ATF / POS / NICS-system capability.
 5. Never H1 “RetailBI alternative.”
-6. Soft CTAs only, as **two doors**: if you make the guns → fortress / Brand Intelligence / Co-Pilot; if you sell them → GSA. No hard sell. No headshot chip.
+6. Soft CTAs only, as **two doors**: if you make the guns → fortress / Demand Intelligence / Co-Pilot; if you sell them → GSA. No hard sell. No headshot chip.
 7. `sameAs` mesh from the entity kit (Coriolis, LLC).
