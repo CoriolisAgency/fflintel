@@ -24,6 +24,8 @@ interface Props {
   faqs?: FaqItem[];
   extraJsonLd?: Record<string, unknown>[];
   jsonLdExtra?: Record<string, unknown>[];
+  /** Home sets false and renders DualDoors next to the table. */
+  showDoors?: boolean;
 }
 
 const {
@@ -36,6 +38,7 @@ const {
   faqs,
   extraJsonLd = [],
   jsonLdExtra = [],
+  showDoors = true,
 } = Astro.props;
 
 const siteOrigin = Astro.site ?? new URL("https://fflintel.com");
@@ -97,7 +100,7 @@ const jsonLd = pageGraph(extras);
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body class="min-h-dvh flex flex-col bg-paper text-ink">
-    <SiteChrome>
+    <SiteChrome showDoors={showDoors}>
       <slot />
     </SiteChrome>
   </body>

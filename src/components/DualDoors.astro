@@ -8,7 +8,7 @@ interface Props {
 const { heading = "What to do next" } = Astro.props;
 ---
 
-<section class="mt-12">
+<section class="mt-12" aria-label="Two doors">
   <p
     class="text-[11px] font-semibold uppercase tracking-[0.14em] text-sky-800 mb-4"
   >
@@ -24,12 +24,11 @@ const { heading = "What to do next" } = Astro.props;
         If you make the guns
       </p>
       <h2 class="mt-2 font-serif text-xl font-semibold text-ink group-hover:text-sky-900">
-        OEM / DI
+        OEM
       </h2>
       <p class="mt-2 text-sm leading-relaxed text-stone-600">
-        The Index counts new guns that sold at the same stores. It cannot
-        see a search for a gun that was not on the shelf. Betsy BI sits next
-        to RetailBI. It does not replace it.
+        The Index cannot see a search for a gun that was not on the shelf.
+        Search intent sits next to sell-through. It does not replace it.
       </p>
       <p class="mt-4 text-sm font-medium text-sky-800">
         Demand Intelligence →
@@ -44,14 +43,26 @@ const { heading = "What to do next" } = Astro.props;
         If you sell them
       </p>
       <h2 class="mt-2 font-serif text-xl font-semibold text-ink group-hover:text-sky-900">
-        Dealer / GSA
+        Dealer
       </h2>
       <p class="mt-2 text-sm leading-relaxed text-stone-600">
-        A session is not an empty search. GunSearchAgent sits on your store
-        site, next to Google Analytics or instead of it, and writes the
-        search down. The site you already have. Whatever is ringing the
-        drawer.
+        Those searches happen on the dealer site you already run.
+        GunSearchAgent writes them down, including the empty ones.
+      </p>
+      <p class="mt-4 text-sm font-medium text-sky-800">
+        GunSearchAgent →
       </p>
     </a>
   </div>
+  <p class="mt-4 text-xs leading-relaxed text-stone-500">
+    Doctrine:{" "}
+    <a href={LINKS.fortress} class="text-sky-800 hover:underline" {...ext}
+      >Betsy vs RetailBI</a
+    >
+    {" · "}
+    Live pulse (a sample, not a monthly):{" "}
+    <a href={LINKS.betsyLive} class="text-sky-800 hover:underline" {...ext}
+      >Betsy Live</a
+    >.
+  </p>
 </section>

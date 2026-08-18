@@ -1,0 +1,120 @@
+---
+/**
+ * Optional Company mint. Not a newsletter. Not the identity of the journal.
+ * Posts Form → Lead → Company on the Coriolis spine.
+ */
+---
+
+<section class="mt-10 rounded-2xl border border-rule bg-white p-5 sm:p-6" aria-label="Leave a card">
+  <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-sky-800">
+    Not a newsletter
+  </p>
+  <h2 class="mt-2 font-serif text-xl font-semibold text-ink">
+    Leave a card if you want a follow-up
+  </h2>
+  <p class="mt-2 max-w-xl text-sm leading-relaxed text-stone-600">
+    Name, email, company. Coriolis reads it. This desk stays a journal.
+  </p>
+  <form id="fflintel-mint" class="relative mt-5 grid gap-3 sm:grid-cols-2">
+    <label class="block text-xs font-medium text-stone-600">
+      Name
+      <input
+        name="name"
+        required
+        autocomplete="name"
+        class="mt-1 w-full rounded-lg border border-rule bg-paper px-3 py-2 text-sm text-ink"
+      />
+    </label>
+    <label class="block text-xs font-medium text-stone-600">
+      Company
+      <input
+        name="company"
+        required
+        autocomplete="organization"
+        class="mt-1 w-full rounded-lg border border-rule bg-paper px-3 py-2 text-sm text-ink"
+      />
+    </label>
+    <label class="block text-xs font-medium text-stone-600 sm:col-span-2">
+      Email
+      <input
+        name="email"
+        type="email"
+        required
+        autocomplete="email"
+        class="mt-1 w-full rounded-lg border border-rule bg-paper px-3 py-2 text-sm text-ink"
+      />
+    </label>
+    <fieldset class="sm:col-span-2">
+      <legend class="text-xs font-medium text-stone-600">Which door</legend>
+      <div class="mt-2 flex flex-wrap gap-4 text-sm text-stone-700">
+        <label class="inline-flex items-center gap-2">
+          <input type="radio" name="intent" value="make" required class="accent-sky-700" />
+          I make the guns
+        </label>
+        <label class="inline-flex items-center gap-2">
+          <input type="radio" name="intent" value="sell" required class="accent-sky-700" />
+          I sell them
+        </label>
+      </div>
+    </fieldset>
+    <label class="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+      Company URL
+      <input name="company_url" tabindex="-1" autocomplete="off" />
+    </label>
+    <div class="sm:col-span-2 flex flex-wrap items-center gap-3">
+      <button
+        id="fflintel-mint-submit"
+        type="submit"
+        class="btn"
+      >
+        Send to Coriolis
+      </button>
+      <p id="fflintel-mint-status" class="text-sm text-stone-500" role="status"></p>
+    </div>
+  </form>
+</section>
+
+<script>
+  const form = document.getElementById("fflintel-mint");
+  const statusEl = document.getElementById("fflintel-mint-status");
+  const submitBtn = document.getElementById("fflintel-mint-submit");
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!(event.target instanceof HTMLFormElement)) return;
+    if (!(submitBtn instanceof HTMLButtonElement)) return;
+
+    const data = new FormData(event.target);
+    const payload = {
+      name: String(data.get("name") || ""),
+      company: String(data.get("company") || ""),
+      email: String(data.get("email") || ""),
+      intent: String(data.get("intent") || ""),
+      company_url: String(data.get("company_url") || ""),
+    };
+
+    submitBtn.disabled = true;
+    if (statusEl) statusEl.textContent = "Sending…";
+
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const json = (await res.json()) as { ok?: boolean; error?: string };
+      if (!res.ok || !json.ok) {
+        throw new Error(json.error || "Could not send.");
+      }
+      if (statusEl) statusEl.textContent = "Received. Coriolis will follow up.";
+      event.target.reset();
+      submitBtn.disabled = true;
+    } catch (err) {
+      submitBtn.disabled = false;
+      if (statusEl) {
+        statusEl.textContent =
+          err instanceof Error ? err.message : "Could not send. Try again.";
+      }
+    }
+  });
+</script>

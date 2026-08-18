@@ -37,11 +37,11 @@ export const THREE_NUMBERS = [
   {
     number: "RetailBI Index",
     is: "New guns sold last month at the same stores as last year",
-    isNot: "What people asked for",
+    isNot: "What people searched for",
   },
   {
     number: "Search intent",
-    is: "What people asked for — including searches that came back empty",
+    is: "What people searched for — including searches that came back empty",
     isNot: "A sales report",
   },
 ] as const;
