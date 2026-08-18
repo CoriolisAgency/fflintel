@@ -108,7 +108,7 @@
         json = JSON.parse(raw) as { ok?: boolean; error?: string };
       } catch {
         throw new Error(
-          "This desk could not reach Coriolis from this host. Try again after the Vercel flip.",
+          "This host cannot run the card (need Vercel). Try the preview URL, or wait for DNS.",
         );
       }
       if (!res.ok || !json.ok) {

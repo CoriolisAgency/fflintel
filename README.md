@@ -7,9 +7,10 @@ Issue 01: [Three numbers](https://fflintel.com/issues/2026-08-three-numbers).
 
 ## Stack
 
-- [Astro](https://astro.build) 7 (static) + Tailwind CSS v4  
-- Host: **GitHub Pages**  
-- Custom domain: `public/CNAME` = `fflintel.com`
+- [Astro](https://astro.build) 7 (static) + Tailwind CSS v4
+- Host: **Vercel** (`CoriolisAgency/fflintel`). GitHub Pages was the first origin — do not leave both live.
+- Custom domain: `fflintel.com` (apex). `www` 301s here.
+- Journal card: `POST /api/lead` → Ops `POST /api/forms/lead`
 
 ## Local
 
@@ -19,17 +20,20 @@ npm run dev
 npm run build
 ```
 
-Requires Node >= 22.12.
+Requires Node >= 22.12. `/api/lead` only runs on Vercel, not `astro preview`.
 
-## Deploy (GitHub Pages)
+## Deploy (Vercel)
 
-1. Create GitHub repo (e.g. `CoriolisAgency/fflintel`), push `main`
-2. Settings → Pages → Source: **GitHub Actions**
-3. DNS for `fflintel.com`:
-   - Apex: GitHub Pages A records (or Cloudflare)
-   - `www` CNAME → `<org>.github.io`
-4. Repo `public/CNAME` is already `fflintel.com`
-5. Workflow sets `ASTRO_SITE=https://fflintel.com` and `ASTRO_BASE=/`
+1. Import `CoriolisAgency/fflintel`. Framework Astro, output `dist`.
+2. Env (same pair as coriolisagency `/contact`):
+   - `CORIOLIS_OS_URL=https://ops.coriolisagency.com`
+   - `FORM_INTAKE_SECRET` — same secret Ops `/api/forms/lead` checks
+3. Preview URL: submit the journal card. Expect `{ ok: true }` and a Lead in Ops (`door=fflintel`).
+4. Domains: add `fflintel.com`. Do not add `www` as a second production host.
+5. DNS: apex CNAME to the Vercel target, **DNS-only**. `www` CNAME to the apex.
+6. After the cert is valid, turn off `.github/workflows/deploy.yml`.
+
+See `docs/dns-cutover.md`.
 
 ## Docs
 
