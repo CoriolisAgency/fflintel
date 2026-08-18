@@ -13,6 +13,19 @@ export type Brief = {
 
 export const BRIEFS: Brief[] = [
   {
+    slug: "new-register",
+    path: "/brief/new-register",
+    title: "A New Register Still Can’t See Demand.",
+    kicker: "Three numbers",
+    dek: "The register sees what sold. It does not see what shoppers wanted.",
+    date: "2026-08-18",
+    dateLabel: "August 18, 2026",
+    read: "5 min",
+    image: "betsy/images/hero-gearfire-gpos.png",
+    imageAlt:
+      "Gearfire Point of Sale terminal on a cash drawer, handheld scanner, live checkout on screen.",
+  },
+  {
     slug: "three-numbers",
     path: "/brief/three-numbers",
     title: "Last month’s sales report does not predict the future.",
