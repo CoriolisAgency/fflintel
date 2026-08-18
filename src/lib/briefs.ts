@@ -61,9 +61,9 @@ export const ESSAYS = [
   },
   {
     href: "/sell-through-vs-search-intent",
-    kicker: "Betsy BI",
+    kicker: "Search intent",
     title: "What sold is not what people asked for",
-    dek: "A gun that rang is real. A search that came back empty is also real. Only one of those shows up in the monthly Index. Betsy BI is the other number.",
+    dek: "A gun that rang is real. A search that came back empty is also real. Only one of those shows up in the monthly Index. Search intent is the other number.",
     dateLabel: "August 13, 2026",
     image: "betsy/images/empty-search.jpg",
     imageAlt: "A shopper searching a phone in front of an empty case",

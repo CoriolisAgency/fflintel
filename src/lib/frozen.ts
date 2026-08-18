@@ -40,7 +40,7 @@ export const THREE_NUMBERS = [
     isNot: "What people asked for",
   },
   {
-    number: "Betsy BI",
+    number: "Search intent",
     is: "What people asked for — including searches that came back empty",
     isNot: "A sales report",
   },
