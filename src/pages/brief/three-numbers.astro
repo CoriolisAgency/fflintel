@@ -7,33 +7,35 @@ import PillarLinks from "../../components/PillarLinks.astro";
 import LegalNote from "../../components/LegalNote.astro";
 import ThreeNumbersTable from "../../components/ThreeNumbersTable.astro";
 import IndexSeriesTable from "../../components/IndexSeriesTable.astro";
-import { FEATURED } from "../../lib/briefs";
+import { BRIEFS } from "../../lib/briefs";
 import { CANON_PATHS } from "../../lib/links";
 import { newsArticleNode } from "../../lib/schema";
 import { withBase } from "../../lib/base";
 
+const brief = BRIEFS.find((b) => b.slug === "three-numbers")!;
+
 const crumbs = [
   { name: "Home", path: "/" },
   { name: "Notes", path: "/brief" },
-  { name: FEATURED.title, path: FEATURED.path },
+  { name: brief.title, path: brief.path },
 ];
 
 const pageUrl = "https://fflintel.com/brief/three-numbers";
 ---
 
 <BaseLayout
-  title={`${FEATURED.title} | FFL Intel`}
-  description={FEATURED.dek}
-  path={FEATURED.path}
+  title={`${brief.title} | FFL Intel`}
+  description={brief.dek}
+  path={brief.path}
   ogImagePath={CANON_PATHS.hero}
   breadcrumbs={crumbs}
   extraJsonLd={[
     newsArticleNode({
       url: pageUrl,
-      headline: FEATURED.title,
-      description: FEATURED.dek,
-      datePublished: FEATURED.date,
-      dateModified: FEATURED.date,
+      headline: brief.title,
+      description: brief.dek,
+      datePublished: brief.date,
+      dateModified: brief.date,
       image: `https://fflintel.com/${CANON_PATHS.hero}`,
     }),
   ]}
@@ -43,20 +45,20 @@ const pageUrl = "https://fflintel.com/brief/three-numbers";
     <p
       class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-800 mb-3"
     >
-      {FEATURED.kicker}
+      {brief.kicker}
     </p>
     <h1
       class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl text-balance mb-4"
     >
-      {FEATURED.title}
+      {brief.title}
     </h1>
-    <p class="text-lg leading-relaxed text-stone-700 mb-6">{FEATURED.dek}</p>
-    <Byline dateLabel={FEATURED.dateLabel} read={FEATURED.read} />
+    <p class="text-lg leading-relaxed text-stone-700 mb-6">{brief.dek}</p>
+    <Byline dateLabel={brief.dateLabel} read={brief.read} />
 
     <figure class="mt-8 overflow-hidden rounded-2xl border border-stone-200">
       <img
         src={withBase(CANON_PATHS.hero)}
-        alt={FEATURED.imageAlt}
+        alt={brief.imageAlt}
         width="1792"
         height="1008"
         class="w-full object-cover object-top max-h-80"
