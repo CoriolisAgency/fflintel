@@ -99,8 +99,8 @@ export function newsArticleNode(opts: {
     contributor: {
       "@type": "Person",
       name: "Betsy",
-      url: LINKS.betsy,
-      sameAs: [LINKS.betsy, LINKS.x, LINKS.youtube],
+      url: LINKS.gseBetsy,
+      sameAs: [LINKS.gseBetsy, LINKS.x, LINKS.youtube],
       jobTitle: "Demand research",
       worksFor: { "@id": `${LINKS.home}/#organization` },
     },

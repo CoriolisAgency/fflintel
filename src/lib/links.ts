@@ -30,9 +30,7 @@ export const SAME_AS = [
   LINKS.coriolis,
   LINKS.gse,
   LINKS.gsa,
-  LINKS.betsy,
   LINKS.home,
-  LINKS.accelerator,
   LINKS.x,
   LINKS.youtube,
 ] as const;
