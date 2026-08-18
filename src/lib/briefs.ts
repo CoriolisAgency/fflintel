@@ -21,9 +21,8 @@ export const BRIEFS: Brief[] = [
     date: "2026-08-18",
     dateLabel: "August 18, 2026",
     read: "5 min",
-    image: "betsy/images/hero-gearfire-gpos.png",
-    imageAlt:
-      "Gearfire Point of Sale terminal on a cash drawer, handheld scanner, live checkout on screen.",
+    image: "betsy/images/hero-gearfire-gpos-counter.png",
+    imageAlt: "Gearfire Point of Sale on a gun store counter.",
   },
   {
     slug: "three-numbers",

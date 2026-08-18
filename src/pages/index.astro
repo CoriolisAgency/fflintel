@@ -6,7 +6,7 @@ import PillarLinks from "../components/PillarLinks.astro";
 import StoryCard from "../components/StoryCard.astro";
 import ThreeNumbersTable from "../components/ThreeNumbersTable.astro";
 import { FEATURED, ESSAYS } from "../lib/briefs";
-import { LINKS, CANON_PATHS, linkClass } from "../lib/links";
+import { LINKS, linkClass } from "../lib/links";
 import { SITE } from "../lib/site";
 import { withBase } from "../lib/base";
 
@@ -17,7 +17,7 @@ const path = "/";
   title={SITE.titleDefault}
   description={SITE.description}
   path={path}
-  ogImagePath={CANON_PATHS.hero}
+  ogImagePath={FEATURED.image}
 >
   <section class="border-b border-rule">
     <div class="mx-auto max-w-6xl px-4 pt-12 pb-8 sm:pt-16">
@@ -48,10 +48,10 @@ const path = "/";
     </div>
     <figure class="mx-auto max-w-6xl px-4 pb-12">
       <img
-        src={withBase(CANON_PATHS.hero)}
-        alt="Betsy in a sunlit office — she runs the demand numbers"
-        width="1792"
-        height="1008"
+        src={withBase(FEATURED.image)}
+        alt={FEATURED.imageAlt}
+        width="1536"
+        height="1024"
         class="w-full rounded-2xl object-cover object-[70%_center] shadow-md ring-1 ring-black/5"
       />
     </figure>
