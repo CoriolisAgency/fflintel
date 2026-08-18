@@ -105,8 +105,13 @@ const family = [
       <p class="font-serif text-xl font-semibold text-ink">FFL Intel</p>
       <p class="text-sm text-sky-800">{SITE.job}</p>
       <p class="text-xs leading-relaxed text-stone-500">
-        Numbers by Betsy AI. {SITE.publisherCredit}. Not affiliated with
-        Gearfire or RetailBI.
+        Numbers by Betsy AI.{" "}
+        <a
+          href={LINKS.coriolis}
+          class="hover:text-sky-800"
+          target="_blank"
+          rel="noopener noreferrer">{SITE.publisherCredit}</a
+        >. Not affiliated with Gearfire or RetailBI.
       </p>
     </div>
     <nav
