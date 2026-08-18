@@ -4,7 +4,7 @@ export const SITE = {
   publisher: "Coriolis, LLC",
   titleDefault: "FFL Intel — Three numbers",
   description:
-    "Three numbers the firearms trade keeps mixing up: background checks (NICS), what sold last month (RetailBI Index), and what people asked for (Betsy BI). Numbers by Betsy. Published by Coriolis, LLC.",
+    "Three numbers the firearms trade keeps mixing up: background checks (NICS), what sold last month (RetailBI Index), and what people searched for, including empty searches (Betsy BI). Numbers by Betsy. Published by Coriolis, LLC.",
   job: "Three numbers. Keep them straight.",
   origin: "https://fflintel.com",
   editor: "FFL Intel",

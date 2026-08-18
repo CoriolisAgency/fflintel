@@ -1,6 +1,6 @@
 # FFLIntel.com
 
-Three numbers (NICS checks, RetailBI what-sold Index, Betsy BI what people asked for).  
+Three numbers (NICS checks, RetailBI what-sold Index, Betsy BI what people searched for, including empty searches).  
 Numbers by Betsy. Published by **Coriolis, LLC**. Not affiliated with Gearfire.
 
 Issue 01: [Three numbers](https://fflintel.com/issues/2026-08-three-numbers).

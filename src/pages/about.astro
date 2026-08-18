@@ -4,8 +4,7 @@ import Breadcrumbs from "../components/Breadcrumbs.astro";
 import DualDoors from "../components/DualDoors.astro";
 import PillarLinks from "../components/PillarLinks.astro";
 import FaqBlock from "../components/FaqBlock.astro";
-import { FROZEN } from "../lib/frozen";
-import { LINKS, CANON_PATHS, linkClass, ext } from "../lib/links";
+import { CANON_PATHS, linkClass } from "../lib/links";
 import { SITE } from "../lib/site";
 import { withBase } from "../lib/base";
 
@@ -18,26 +17,26 @@ const crumbs = [
 const faqs = [
   {
     q: "Who publishes FFL Intel?",
-    a: `${SITE.publisherCredit}. ${FROZEN.fflintel}`,
+    a: "Coriolis, LLC. Numbers by Betsy. Not a newsroom. Not a product home. Not affiliated with Gearfire.",
   },
   {
     q: "What is Betsy’s role?",
-    a: "She runs the numbers — GunSearchEngine, GunSearchAgent, Betsy Live, and Enterprise Co-Pilot. She is in the background on purpose. These pages are written so a shop owner can forward them.",
+    a: "She runs the numbers behind the journal. The byline is Numbers by Betsy.",
   },
   {
     q: "Is this Gearfire or RetailBI?",
-    a: "No. Not affiliated. Marks belong to their owners. Public Index numbers are cited with a date and a source.",
+    a: "No. Not affiliated. Public Index numbers are cited with a date and a source.",
   },
   {
     q: "Is this 4473 or POS software?",
-    a: "No. Not 4473, not ATF automation, not a POS, not a NICS system.",
+    a: "No.",
   },
 ];
 ---
 
 <BaseLayout
   title="About | FFL Intel"
-  description="FFL Intel keeps three numbers apart: background checks (NICS), what sold last month (RetailBI Index), and what people asked for (Betsy BI). Numbers by Betsy. Published by Coriolis, LLC."
+  description="FFL Intel is the industry journal of three numbers: background checks (NICS), what sold last month (RetailBI Index), and what people searched for, including empty searches (Betsy BI). Numbers by Betsy. Published by Coriolis, LLC."
   path={path}
   ogImagePath={CANON_PATHS.hero}
   breadcrumbs={crumbs}
@@ -55,7 +54,7 @@ const faqs = [
     <figure class="mb-8 overflow-hidden rounded-2xl border border-stone-200">
       <img
         src={withBase(CANON_PATHS.hero)}
-        alt="Betsy in a sunlit office — she runs the demand numbers"
+        alt="Betsy in a sunlit office"
         width="1792"
         height="1008"
         class="w-full object-cover object-top max-h-72"
@@ -64,40 +63,23 @@ const faqs = [
 
     <div class="space-y-5 text-[1.05rem] leading-[1.7] text-stone-700 font-serif">
       <p>
-        FFL Intel keeps three numbers from becoming one: background checks
-        (NICS), what sold last month (the RetailBI Firearm Sales Index), and
-        what people asked for (Betsy BI). It is not a store, not a sales
-        pitch, and not a fan site.
+        FFL Intel is the industry journal of three numbers the firearms trade
+        keeps mixing up: FBI background checks (NICS), what sold last month
+        (the RetailBI Firearm Sales Index), and what people searched for,
+        including empty searches (Betsy BI). It is not a store, not a sales
+        pitch, and not a newsroom.
       </p>
       <p>
-        Betsy runs the numbers in the background — GunSearchEngine,
-        GunSearchAgent, Betsy Live, and Enterprise Co-Pilot. These pages are
-        written so a shop owner or a brand owner can forward them without an
-        introduction.
-      </p>
-      <p>
-        Published by {SITE.publisherCredit}. For the record: {FROZEN.fflintel}
+        Published by {SITE.publisherCredit}. Numbers by Betsy. Not affiliated
+        with Gearfire or RetailBI. Marks belong to their owners.
       </p>
       <p>
         Numbers appear only with a date and a source. We do not invent a
-        Betsy percentage to sit next to their Index. This site does not run
+        Betsy percentage to sit next to the Index. This site does not run
         NICS or process a 4473. How numbers are treated:{" "}
         <a href={withBase("methodology")} class={linkClass}>methodology</a>.
         The archive:{" "}
         <a href={withBase("brief")} class={linkClass}>Notes</a>.
-      </p>
-      <p>
-        <a href={LINKS.gse} class={linkClass} {...ext}>GunSearchEngine</a>
-        {" · "}
-        <a href={LINKS.gsa} class={linkClass} {...ext}>GunSearchAgent</a>
-        {" · "}
-        <a href={LINKS.betsyLive} class={linkClass} {...ext}>Betsy Live</a>
-        {" · "}
-        <a href={LINKS.copilot} class={linkClass} {...ext}>Co-Pilot</a>
-        {" · "}
-        <a href={LINKS.betsy} class={linkClass} {...ext}>2aBetsy</a>
-        {" · "}
-        <a href={LINKS.coriolis} class={linkClass} {...ext}>Coriolis</a>.
       </p>
     </div>
 

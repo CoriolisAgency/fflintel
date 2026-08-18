@@ -5,7 +5,7 @@ import Byline from "../../components/Byline.astro";
 import LegalNote from "../../components/LegalNote.astro";
 import ThreeNumbersTable from "../../components/ThreeNumbersTable.astro";
 import { FEATURED } from "../../lib/briefs";
-import { linkClass, ext } from "../../lib/links";
+import { LINKS, linkClass, ext } from "../../lib/links";
 import { newsArticleNode } from "../../lib/schema";
 import { withBase } from "../../lib/base";
 
@@ -55,8 +55,8 @@ const hero = FEATURED.image;
       <img
         src={withBase(hero)}
         alt={FEATURED.imageAlt}
-        width="800"
-        height="793"
+        width="1536"
+        height="1024"
         class="w-full object-cover object-top max-h-80"
       />
       <figcaption class="px-4 py-2 text-[11px] text-stone-500">
@@ -84,8 +84,8 @@ const hero = FEATURED.image;
       <p>
         A register is for ringing what sold. It is good at that. It is supposed
         to be. A better register is still a register. It sees the gun that went
-        out the door. It does not see the search that came back empty. Call that
-        the miss if you want: an empty search. Empty never rings.
+        out the door. It does not see the search that came back empty. Empty
+        never rings.
       </p>
       <p>That is not a knock. It is the job.</p>
       <p>
@@ -103,27 +103,23 @@ const hero = FEATURED.image;
         month. We see what they searched, including empty. We will not park a
         made-up Betsy percentage next to the Index and pretend they are the same
         job. How the two sit side by side lives on{" "}
-        <a
-          href="https://www.gunsearchengine.com/betsy-vs-retailbi"
-          class={linkClass}
-          {...ext}>Betsy vs RetailBI</a
+        <a href={LINKS.fortress} class={linkClass} {...ext}>Betsy vs RetailBI</a>.
+        Manufacturers:{" "}
+        <a href={LINKS.demandIntel} class={linkClass} {...ext}
+          >Demand Intelligence</a
         >.
       </p>
       <p>
         Betsy is a byproduct of product discovery. Someone hunted a gun on a
         store site. They found it, or they did not. Both happened. Only one of
         those becomes a unit sold. Google Analytics never named the empty
-        search. A session is not “they hunted a model you did not have.”
+        search. A session is not a model they could not find.
       </p>
       <p>
-        The sensor sits on the site the dealer already has. Including a Gearfire
-        storefront. It does not replace the register. It does not replace the
-        Index. It writes down the search.
-      </p>
-      <p>
-        This is not a POS recap. It is not a scorecard of who rings faster. It
-        is not gossip about which stack a shop should buy. Demand is a different
-        number.
+        <a href={LINKS.gsa} class={linkClass} {...ext}>GunSearchAgent</a> sits
+        on the dealer site they already run. Including a Gearfire storefront.
+        It does not replace the register. It does not replace the Index. It
+        writes down the search.
       </p>
     </div>
 
@@ -150,11 +146,11 @@ const hero = FEATURED.image;
       <p
         class="text-[11px] font-semibold uppercase tracking-[0.14em] text-sky-800 mb-4"
       >
-        What to do next
+        Two doors
       </p>
       <div class="grid gap-4 md:grid-cols-2">
         <a
-          href="https://www.gunsearchengine.com/demand-intelligence"
+          href={LINKS.demandIntel}
           class="group rounded-2xl border border-rule bg-white p-5 shadow-sm hover:border-sky-600/30 hover:shadow-md transition-all"
           {...ext}
         >
@@ -173,9 +169,12 @@ const hero = FEATURED.image;
             see a search for a gun that was not on the shelf. Betsy BI sits next
             to RetailBI. It does not replace it.
           </p>
+          <p class="mt-4 text-sm font-medium text-sky-800">
+            Demand Intelligence
+          </p>
         </a>
         <a
-          href="https://gunsearchagent.com"
+          href={LINKS.gsa}
           class="group rounded-2xl border border-rule bg-white p-5 shadow-sm hover:border-sky-600/30 hover:shadow-md transition-all"
           {...ext}
         >
@@ -187,13 +186,15 @@ const hero = FEATURED.image;
           <h2
             class="mt-2 font-serif text-xl font-semibold text-ink group-hover:text-sky-900"
           >
-            Put the sensor on the site you already have
+            Analytics never named the empty search
           </h2>
           <p class="mt-2 text-sm leading-relaxed text-stone-600">
-            A session is not an empty search. GunSearchAgent sits on your store
-            site, next to Google Analytics or instead of it, and writes the
-            search down. The site you already have. Whatever is ringing the
-            drawer.
+            A session is not a model they could not find. GunSearchAgent sits on
+            the dealer site they already run and records the search, including
+            empty.
+          </p>
+          <p class="mt-4 text-sm font-medium text-sky-800">
+            GunSearchAgent
           </p>
         </a>
       </div>

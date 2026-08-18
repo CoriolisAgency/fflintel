@@ -1,6 +1,6 @@
 # FFLIntel
 
-FFLIntel keeps three numbers from becoming one: background checks (NICS), what sold last month (RetailBI Firearm Sales Index), and what people asked for (Betsy BI). Numbers by Betsy. Published by Coriolis, LLC. Not a newsroom. Not a product home. Not affiliated with Gearfire.
+FFLIntel keeps three numbers from becoming one: background checks (NICS), what sold last month (RetailBI Firearm Sales Index), and what people searched for, including empty searches (Betsy BI). Numbers by Betsy. Published by Coriolis, LLC. Not a newsroom. Not a product home. Not affiliated with Gearfire.
 
 ## Three numbers
 
@@ -26,8 +26,10 @@ RetailBI is Gearfire’s shooting-sports sell-through platform. It aggregates po
 
 ## Doors
 
-- Brand teams (OEM): https://www.gunsearchengine.com/betsy-vs-retailbi then https://www.gunsearchengine.com/demand-intelligence
-- Retailers (FFL): https://gunsearchagent.com/retailbi-and-your-gun-store · https://gunsearchagent.com/google-analytics-alternative-for-ffls
+- Manufacturers (OEM): https://www.gunsearchengine.com/demand-intelligence
+- Retail groups (dealer): https://gunsearchagent.com
+- Doctrine (not a third door): https://www.gunsearchengine.com/betsy-vs-retailbi
+- Journal: https://fflintel.com
 
 ## URLs
 
@@ -37,10 +39,5 @@ RetailBI is Gearfire’s shooting-sports sell-through platform. It aggregates po
 - OEM demand: https://www.gunsearchengine.com/oem-firearms-demand-analytics
 - Demand Intelligence: https://www.gunsearchengine.com/demand-intelligence
 - Betsy Live: https://www.gunsearchengine.com/betsy-live
-- GSA dealer + RetailBI: https://gunsearchagent.com/retailbi-and-your-gun-store
 - GSA free agent: https://gunsearchagent.com
-- FFLIntel desk: https://fflintel.com
-- FFLIntel issue 01: https://fflintel.com/issues/2026-08-three-numbers
-- FFL Accelerator site: https://fflaccelerator.com
-- Checkout: https://coriolisagency.com/plans
-- Betsy home: https://2abetsy.com
+- FFLIntel journal: https://fflintel.com

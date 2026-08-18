@@ -1,65 +1,43 @@
 ---
 import { LINKS, ext } from "../lib/links";
+import { withBase } from "../lib/base";
 
 interface Props {
   heading?: string;
 }
 
-const { heading = "More on RetailBI and Betsy" } = Astro.props;
+const { heading = "Keep reading" } = Astro.props;
 
-const brands = [
-  {
-    href: LINKS.fortress,
-    label: "What RetailBI is",
-    note: "GunSearchEngine — the long definition",
-  },
-  {
-    href: LINKS.gseIndex,
-    label: "How the Index is counted",
-    note: "GunSearchEngine",
-  },
-  {
-    href: LINKS.gseNics,
-    label: "NICS is not sales",
-    note: "GunSearchEngine",
-  },
-  {
-    href: LINKS.oemDemand,
-    label: "Demand numbers for brands",
-    note: "GunSearchEngine",
-  },
+const items = [
   {
     href: LINKS.demandIntel,
-    label: "Demand Intelligence",
-    note: "GunSearchEngine",
-  },
-] as const;
-
-const shops = [
-  {
-    href: LINKS.gsaRetailbi,
-    label: "RetailBI and your gun store",
-    note: "GunSearchAgent",
-  },
-  {
-    href: LINKS.gsaGa,
-    label: "Google Analytics for FFLs",
-    note: "GunSearchAgent",
+    label: "OEM / Demand Intelligence",
+    external: true,
   },
   {
     href: LINKS.gsa,
-    label: "Put Betsy on your site",
-    note: "GunSearchAgent",
+    label: "Dealer / GunSearchAgent",
+    external: true,
   },
   {
-    href: LINKS.acceleratorAxis,
-    label: "RetailBI and AXIS",
-    note: "FFL Accelerator",
+    href: LINKS.fortress,
+    label: "Doctrine: Betsy vs RetailBI",
+    external: true,
   },
   {
-    href: LINKS.artOfDemand,
-    label: "Art of Demand",
-    note: "2aBetsy",
+    href: withBase("/"),
+    label: "Journal: FFL Intel",
+    external: false,
+  },
+  {
+    href: withBase("retailbi-firearm-sales-index"),
+    label: "How the Index is counted",
+    external: false,
+  },
+  {
+    href: withBase("nics-is-not-sales"),
+    label: "NICS is not sales",
+    external: false,
   },
 ] as const;
 ---
@@ -70,36 +48,21 @@ const shops = [
   >
     {heading}
   </p>
-  <div class="grid gap-8 md:grid-cols-2">
-    <div>
-      <p class="text-sm font-semibold text-ink mb-3">If you make the guns</p>
-      <ul class="space-y-2">
-        {
-          brands.map((item) => (
-            <li>
-              <a href={item.href} class="text-sm text-sky-800 hover:underline" {...ext}>
-                {item.label}
-              </a>
-              <span class="block text-xs text-stone-500">{item.note}</span>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-    <div>
-      <p class="text-sm font-semibold text-ink mb-3">If you sell them</p>
-      <ul class="space-y-2">
-        {
-          shops.map((item) => (
-            <li>
-              <a href={item.href} class="text-sm text-sky-800 hover:underline" {...ext}>
-                {item.label}
-              </a>
-              <span class="block text-xs text-stone-500">{item.note}</span>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </div>
+  <ul class="space-y-2">
+    {
+      items.map((item) => (
+        <li>
+          {item.external ? (
+            <a href={item.href} class="text-sm text-sky-800 hover:underline" {...ext}>
+              {item.label}
+            </a>
+          ) : (
+            <a href={item.href} class="text-sm text-sky-800 hover:underline">
+              {item.label}
+            </a>
+          )}
+        </li>
+      ))
+    }
+  </ul>
 </section>

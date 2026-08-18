@@ -6,7 +6,6 @@ import LegalNote from "../components/LegalNote.astro";
 import PillarLinks from "../components/PillarLinks.astro";
 import { FROZEN } from "../lib/frozen";
 import { LINKS, linkClass, ext } from "../lib/links";
-import { withBase } from "../lib/base";
 import { type Crumb, type FaqItem } from "../lib/schema";
 
 const path = "/what-is-retailbi";
@@ -34,7 +33,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: "Where is the long definition?",
-    a: "The ranking definition lives on GunSearchEngine: https://www.gunsearchengine.com/betsy-vs-retailbi. This page is a short desk summary and canonicals there.",
+    a: "The ranking definition lives on GunSearchEngine: https://www.gunsearchengine.com/betsy-vs-retailbi. This page is a short summary and canonicals there.",
   },
 ];
 ---
@@ -67,16 +66,14 @@ const faqs: FaqItem[] = [
       <p>{FROZEN.index}</p>
       <p>
         <a href={LINKS.fortress} class={linkClass} {...ext}
-          >What is RetailBI</a
+          >Betsy vs RetailBI</a
         >
         {" · "}
-        <a href={LINKS.gseIndex} class={linkClass} {...ext}
-          >How the Index is counted</a
+        <a href={LINKS.demandIntel} class={linkClass} {...ext}
+          >Demand Intelligence</a
         >
         {" · "}
-        <a href={LINKS.gsaRetailbi} class={linkClass} {...ext}
-          >RetailBI and your gun store</a
-        >.
+        <a href={LINKS.gsa} class={linkClass} {...ext}>GunSearchAgent</a>.
       </p>
     </div>
 

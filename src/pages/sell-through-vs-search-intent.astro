@@ -6,7 +6,7 @@ import DualDoors from "../components/DualDoors.astro";
 import PillarLinks from "../components/PillarLinks.astro";
 import LegalNote from "../components/LegalNote.astro";
 import { FROZEN } from "../lib/frozen";
-import { CANON_PATHS } from "../lib/links";
+import { CANON_PATHS, LINKS, linkClass, ext } from "../lib/links";
 import { withBase } from "../lib/base";
 
 const path = "/sell-through-vs-search-intent";
@@ -52,10 +52,9 @@ const crumbs = [
       <p>
         A gun that sold at the same stores is real. A search that came back
         empty is also real. Only one of those is in Gearfire’s monthly number.
-        March, minus 11.9 percent. We will not invent
-        a Betsy Live percentage and set it next to that number as if it were
-        their Index. Last month’s sales cannot see what people asked for.
-        That is the whole point.
+        March, minus 11.9 percent. We will not invent a Betsy Live percentage
+        and set it next to that number as if it were their Index. Last month’s
+        sales cannot see what people searched for. That is the whole point.
       </p>
       <p>
         Last month’s sales report is last season’s map. Useful. Late. The
@@ -64,13 +63,15 @@ const crumbs = [
         happened.
       </p>
       <p>
-        Betsy BI is that third number — GunSearchEngine, dealer-site
-        GunSearchAgent, Betsy Live as a labeled sample. Not a rival monthly.
-        {FROZEN.betsy}
-      </p>
-      <p>
-        The cards below send you to the right next page. This one is just
-        the explanation.
+        Betsy BI is that third number. Not a rival monthly. Manufacturers:{" "}
+        <a href={LINKS.demandIntel} class={linkClass} {...ext}
+          >Demand Intelligence</a
+        >. Dealer groups:{" "}
+        <a href={LINKS.gsa} class={linkClass} {...ext}>GunSearchAgent</a>.
+        How the two sit next to sell-through:{" "}
+        <a href={LINKS.fortress} class={linkClass} {...ext}
+          >Betsy vs RetailBI</a
+        >.
       </p>
     </div>
     <DualDoors />

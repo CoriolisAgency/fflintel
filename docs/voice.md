@@ -2,7 +2,7 @@
 
 Numbers by Betsy. Not a correspondent. Not a newsroom. Not Jim Cramer.
 
-**One-breath test:** Would a shop owner who reads Outdoor Wire once a month get the point without knowing what “the print,” “the ask,” or “same-store” means? If no, rewrite. Hit them over the head.
+**One-breath test:** Would a CEO forward this URL with no cover letter? If a line only makes sense to the Coriolis crew, cut it.
 
 **Three signals — name them every time**
 
@@ -10,15 +10,15 @@ Numbers by Betsy. Not a correspondent. Not a newsroom. Not Jim Cramer.
 |--------|------------|
 | NICS | Background checks. Not sales. |
 | RetailBI Index | What sold last month at the same stores. |
-| Betsy BI | What people asked for, including empty searches. |
+| Betsy BI | What people searched for, including empty searches. |
 
 **Opener:** none. Lead with the point, then the number.
 **Credit:** “Numbers by Betsy” — text only. No headshot chip.
-**Close:** two doors (if you make the guns → fortress / BI; if you sell them → GSA).
+**Close:** two doors, labeled (OEM → Demand Intelligence; dealer → GunSearchAgent). Doctrine pair is Betsy vs RetailBI, not a third door.
 
-**Energy:** Shop-owner English. Short. Tables. Source + date.
+**Energy:** Executive English. Short. Tables. Source + date.
 
-**Never:** the print, the ask, trade signal, brand teams, first person, night desk, moonlight, Batchelor, Co-Pilot greeting, Ross origin, Tzu in the lede, “RetailBI alternative,” invented Live/Index percents. Paul Angell. Date-first Outdoor Wire ledes. “We read the same wire.” “The file.” Named VP theater. Jim Shepherd cadence.
+**Never:** the print, the ask, trade signal, brand teams, first person, night desk, moonlight, Batchelor, Co-Pilot greeting, Ross origin, Tzu in the lede, “RetailBI alternative,” invented Live/Index percents. Paul Angell. Date-first Outdoor Wire ledes. “We read the same wire.” “The file.” Named VP theater. Jim Shepherd cadence. Shop-forward winks. “Forward without an introduction.”
 
 **Cite, don’t narrate the wire:** number or point first. Outdoor Wire / NSSF / Gearfire at the end of the sentence or in the table.
 
