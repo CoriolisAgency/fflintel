@@ -1,3 +1,5 @@
+# Pages origin. Turn this workflow off after fflintel.com is on Vercel
+# (see docs/dns-cutover.md). Two production origins will drift.
 name: Deploy to GitHub Pages
 
 on:

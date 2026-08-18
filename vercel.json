@@ -1,3 +1,15 @@
 {
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/issues",
+      "destination": "/brief",
+      "permanent": true
+    },
+    {
+      "source": "/issues/2026-08-three-numbers",
+      "destination": "/brief/three-numbers",
+      "permanent": true
+    }
+  ]
 }

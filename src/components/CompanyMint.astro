@@ -102,9 +102,21 @@
         headers: { "content-type": "application/json" },
         body: JSON.stringify(payload),
       });
-      const json = (await res.json()) as { ok?: boolean; error?: string };
+      const raw = await res.text();
+      let json: { ok?: boolean; error?: string } = {};
+      try {
+        json = JSON.parse(raw) as { ok?: boolean; error?: string };
+      } catch {
+        throw new Error(
+          "This desk could not reach Coriolis from this host. Try again after the Vercel flip.",
+        );
+      }
       if (!res.ok || !json.ok) {
-        throw new Error(json.error || "Could not send.");
+        const msg = json.error || "Could not send.";
+        if (res.status >= 500) {
+          throw new Error("Coriolis did not take the card. Try again in a minute.");
+        }
+        throw new Error(msg);
       }
       if (statusEl) statusEl.textContent = "Received. Coriolis will follow up.";
       event.target.reset();
