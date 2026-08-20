@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import IntelEmailCapture from "../components/IntelEmailCapture.astro";
 import SiteChrome from "../components/SiteChrome.astro";
 import { SITE } from "../lib/site";
 import { CANON_PATHS } from "../lib/links";
@@ -26,6 +27,8 @@ interface Props {
   jsonLdExtra?: Record<string, unknown>[];
   /** Home sets false and renders DualDoors next to the table. */
   showDoors?: boolean;
+  /** Email capture modal. Off for confirm. @default true */
+  emailCapture?: boolean;
 }
 
 const {
@@ -39,6 +42,7 @@ const {
   extraJsonLd = [],
   jsonLdExtra = [],
   showDoors = true,
+  emailCapture = true,
 } = Astro.props;
 
 const siteOrigin = Astro.site ?? new URL("https://fflintel.com");
@@ -103,5 +107,6 @@ const jsonLd = pageGraph(extras);
     <SiteChrome showDoors={showDoors}>
       <slot />
     </SiteChrome>
+    {emailCapture ? <IntelEmailCapture /> : null}
   </body>
 </html>

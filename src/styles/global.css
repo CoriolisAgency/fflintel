@@ -53,3 +53,225 @@ a {
   border-color: var(--color-sky);
   color: #fff;
 }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.intel-capture {
+  position: fixed;
+  inset: 0;
+  z-index: 220;
+  display: flex;
+  align-items: safe center;
+  justify-content: center;
+  padding: 1rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  pointer-events: none;
+}
+.intel-capture > * {
+  pointer-events: auto;
+}
+.intel-capture__scrim {
+  position: fixed;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background: rgba(20, 24, 32, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.intel-capture--in .intel-capture__scrim {
+  opacity: 1;
+}
+.intel-capture__stage {
+  position: relative;
+  z-index: 1;
+  margin: auto;
+  width: 100%;
+  max-width: 26rem;
+  transform: translateY(14px);
+  opacity: 0;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.intel-capture--in .intel-capture__stage {
+  transform: translateY(0);
+  opacity: 1;
+}
+.intel-capture__card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #fff;
+  border: 1px solid var(--color-rule);
+  box-shadow: 0 28px 64px rgba(20, 24, 32, 0.18);
+}
+.intel-capture__x {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--color-rule);
+  background: transparent;
+  color: #78716c;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.intel-capture__x:hover {
+  color: var(--color-ink);
+  border-color: #d6d3d1;
+}
+.intel-capture__copy {
+  padding: 1.5rem 1.5rem 1.6rem;
+}
+.intel-capture__eyebrow {
+  margin: 0 0 0.45rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #075985;
+}
+.intel-capture__headline {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 3.4vw, 1.55rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+.intel-capture__lede {
+  margin: 0.65rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: #57534e;
+}
+.intel-capture__form {
+  margin-top: 1.25rem;
+}
+.intel-capture__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+@media (min-width: 420px) {
+  .intel-capture__field {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+.intel-capture__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-rule);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  padding: 0.7rem 0.85rem;
+  font-size: 0.875rem;
+  outline: none;
+}
+.intel-capture__input:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.16);
+}
+.intel-capture__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.7rem 1.15rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  background: #0c4a6e;
+}
+.intel-capture__cta--done {
+  display: flex;
+  width: fit-content;
+  margin-top: 1.15rem;
+}
+.intel-capture__cta:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+.intel-capture__cta--inline {
+  flex: 0 0 auto;
+  width: 100%;
+  white-space: nowrap;
+}
+@media (min-width: 420px) {
+  .intel-capture__cta--inline {
+    width: auto;
+  }
+}
+.intel-capture__error {
+  margin: 0.6rem 0 0;
+  font-size: 0.8rem;
+  color: #be123c;
+}
+.intel-capture__fine {
+  margin: 0.95rem 0 0;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: #78716c;
+}
+.intel-capture__skip {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #57534e;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.intel-capture-chip {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 230;
+  border-radius: 0.125rem;
+  border: 1px solid #0c4a6e;
+  background: #0c4a6e;
+  color: #fff;
+  font: 600 0.75rem/1 var(--font-sans);
+  padding: 0.55rem 0.8rem;
+  cursor: pointer;
+}
+
+@media print {
+  .intel-capture,
+  .intel-capture-chip {
+    display: none !important;
+  }
+}

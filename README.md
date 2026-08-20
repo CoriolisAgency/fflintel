@@ -10,7 +10,8 @@ Issue 01: [Three numbers](https://fflintel.com/issues/2026-08-three-numbers).
 - [Astro](https://astro.build) 7 (static) + Tailwind CSS v4
 - Host: **Vercel** (`CoriolisAgency/fflintel`). GitHub Pages was the first origin — do not leave both live.
 - Custom domain: `fflintel.com` (apex). `www` 301s here.
-- Journal card: `POST /api/lead` → Ops `POST /api/forms/lead`
+- Journal card: `POST /api/lead` → Ops `POST /api/forms/lead` (immediate mint)
+- Email popup: `POST /api/subscribe` → Ops `POST /api/forms/subscribe` (confirm link, then Lead)
 
 ## Local
 
