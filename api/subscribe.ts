@@ -47,6 +47,12 @@ async function postOsSubscribe(
     if (res.status === 400) {
       return { ok: false, error: "Enter a valid email address." };
     }
+    if (res.status === 502) {
+      return {
+        ok: false,
+        error: "Could not send confirmation email. Try again.",
+      };
+    }
     return { ok: false, error: "Could not subscribe. Try again." };
   } catch (err) {
     console.error("subscribe: OS failed", err);
