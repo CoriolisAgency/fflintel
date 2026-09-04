@@ -1,0 +1,238 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import Byline from "../../components/Byline.astro";
+import DualDoors from "../../components/DualDoors.astro";
+import CompanyMint from "../../components/CompanyMint.astro";
+import { BRIEFS } from "../../lib/briefs";
+import { LINKS, linkClass, ext } from "../../lib/links";
+import { newsArticleNode } from "../../lib/schema";
+import { withBase } from "../../lib/base";
+
+const brief = BRIEFS.find((b) => b.slug === "nics-is-not-consumer-demand")!;
+
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "Notes", path: "/brief" },
+  { name: brief.title, path: brief.path },
+];
+
+const pageUrl = "https://fflintel.com/brief/nics-is-not-consumer-demand";
+const hero = brief.image;
+const sourceUrl =
+  "https://www.theoutdoorwire.com/releases/2026/09/nssf-adjusted-nics-background-checks-for-august-2026/";
+---
+
+<BaseLayout
+  title={`${brief.title} | FFL Intel`}
+  description={brief.dek}
+  path={brief.path}
+  ogImagePath={hero}
+  breadcrumbs={crumbs}
+  showDoors={false}
+  extraJsonLd={[
+    newsArticleNode({
+      url: pageUrl,
+      headline: brief.title,
+      description: brief.dek,
+      datePublished: brief.date,
+      dateModified: brief.date,
+      image: `https://fflintel.com/${hero}`,
+    }),
+  ]}
+>
+  <article class="mx-auto max-w-2xl px-4 py-12 sm:py-14">
+    <Breadcrumbs items={crumbs} />
+    <p
+      class="text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-800 mb-3"
+    >
+      {brief.kicker}
+    </p>
+    <h1
+      class="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl text-balance mb-4"
+    >
+      {brief.title}
+    </h1>
+    <p class="text-lg leading-relaxed text-stone-700 mb-6">{brief.dek}</p>
+    <Byline dateLabel={brief.dateLabel} read={brief.read} />
+
+    <figure class="mt-8 overflow-hidden rounded-2xl border border-stone-200">
+      <img
+        src={withBase(hero)}
+        alt={brief.imageAlt}
+        width="1280"
+        height="720"
+        class="w-full object-cover max-h-80"
+      />
+      <figcaption class="px-4 py-2 text-[11px] text-stone-500">
+        An empty indoor range lane.
+      </figcaption>
+    </figure>
+
+    <div
+      class="mt-8 space-y-5 text-[1.05rem] leading-[1.7] text-stone-700 font-serif"
+    >
+      <p>
+        NSSF published its August 2026 adjusted NICS figure this week (<a
+          href={sourceUrl}
+          class={linkClass}
+          {...ext}>Outdoor Wire, September 2026</a
+        >). The adjusted count is 1,115,410, up 2.2 percent from 1,091,342 in
+        August 2025. The unadjusted FBI NICS print for August 2026 is
+        1,917,379, up 10.0 percent from 1,743,509 a year earlier.
+      </p>
+      <p>
+        Those two lines already disagree with each other. That is the first
+        warning. The second is what NSSF itself subtracts, and what it refuses
+        to claim.
+      </p>
+      <p>
+        NSSF builds the adjusted series by removing purpose-code permit checks
+        and permit rechecks. States use those codes for CCW applications and
+        for sweeps of active permit databases. They are not a sale at the
+        counter. Starting in February 2016, NSSF also subtracts permit
+        rechecks. That cleanup is real. It still leaves a check count, not a
+        sales count.
+      </p>
+      <p>
+        Twenty-eight states run at least one qualified alternative permit under
+        the Brady Act. A permit holder who already cleared a background check
+        to get that permit can buy from a licensed dealer without a separate
+        NICS check on that transfer. Those legal transfers never appear as NICS
+        checks. NSSF does not adjust for them. In those states, the print
+        understates how many guns moved.
+      </p>
+      <p>
+        New for 2026, NSSF is also publishing monthly NFA Form 1 and Form 4
+        checks. August printed 185,744, up 201.6 percent from 61,594 in August
+        2025. Texas led the month at 28,030, then Florida, Georgia, North
+        Carolina, and Pennsylvania. That is market insight on NFA paperwork. It
+        is still not retail sales demand. It does not say which models sold, at
+        what price, or whether a shopper who typed a name ever found one.
+      </p>
+      <p>
+        NSSF’s own line is the one to keep. The adjusted series is not a
+        direct correlation to firearms sales. The statistics are checks
+        initiated. They are not guns sold. They are not sales dollars. State
+        law, local conditions, and purchase scenarios break any one-to-one
+        link between a background check and a firearm sale. Used guns, multiple
+        guns on one check, denials, and the twenty-eight-state permit path are
+        why a rising Monday print can still leave a manufacturer guessing what
+        to build and a retailer guessing what to put on the wall.
+      </p>
+      <p>
+        A better NICS series still cannot see the search that never rang.
+        Someone opened a dealer site, typed a model, and got nothing back.
+        Empty never becomes a check. Empty never becomes a unit. It is still
+        demand.
+      </p>
+      <p>
+        We will not invent a search-intent print to set beside 1,115,410. If a
+        Betsy line belongs next to this Note, that is a verified ask later.
+        Sell-through and search are different jobs. Keep the series apart.
+      </p>
+    </div>
+
+    <div class="mt-10">
+      <p
+        class="text-[11px] font-semibold uppercase tracking-[0.14em] text-sky-800 mb-3"
+      >
+        Three numbers. Keep them apart.
+      </p>
+      <div
+        class="overflow-x-auto rounded-2xl border border-rule bg-white shadow-sm"
+      >
+        <table class="w-full min-w-[28rem] text-left text-sm">
+          <thead>
+            <tr class="border-b border-rule bg-stone-50">
+              <th
+                class="px-3 py-3 text-[10px] font-semibold uppercase tracking-wider text-sky-800"
+              >
+                Number
+              </th>
+              <th
+                class="px-3 py-3 text-[10px] font-semibold uppercase tracking-wider text-stone-500"
+              >
+                What it is
+              </th>
+              <th
+                class="px-3 py-3 text-[10px] font-semibold uppercase tracking-wider text-stone-400"
+              >
+                What it is not
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-rule/80 align-top">
+              <td class="px-3 py-3 text-xs font-medium text-ink">
+                NICS (FBI or NSSF-adjusted)
+              </td>
+              <td class="px-3 py-3 text-xs text-stone-700 leading-relaxed">
+                Firearm background checks initiated
+              </td>
+              <td class="px-3 py-3 text-xs text-stone-500 leading-relaxed">
+                Guns sold, or sales dollars
+              </td>
+            </tr>
+            <tr class="border-b border-rule/80 align-top">
+              <td class="px-3 py-3 text-xs font-medium text-ink">
+                Sell-through
+              </td>
+              <td class="px-3 py-3 text-xs text-stone-700 leading-relaxed">
+                New guns that left the same stores as last year
+              </td>
+              <td class="px-3 py-3 text-xs text-stone-500 leading-relaxed">
+                What people searched for
+              </td>
+            </tr>
+            <tr class="align-top">
+              <td class="px-3 py-3 text-xs font-medium text-ink">
+                Search intent
+              </td>
+              <td class="px-3 py-3 text-xs text-stone-700 leading-relaxed">
+                What people typed, including empty results
+              </td>
+              <td class="px-3 py-3 text-xs text-stone-500 leading-relaxed">
+                A sales report
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div
+      class="mt-8 space-y-5 text-[1.05rem] leading-[1.7] text-stone-700 font-serif"
+    >
+      <p>
+        If you make the guns →{" "}
+        <a href={LINKS.demandIntel} class={linkClass} {...ext}
+          >Demand Intelligence</a
+        >
+      </p>
+      <p>
+        If you sell them →{" "}
+        <a href={LINKS.gsa} class={linkClass} {...ext}>GunSearchAgent</a>
+      </p>
+    </div>
+
+    <DualDoors />
+    <CompanyMint />
+
+    <div
+      class="mt-8 space-y-5 text-[1.05rem] leading-[1.7] text-stone-700 font-serif"
+    >
+      <p>
+        <a href="https://fflintel.com" class={linkClass}>FFL Intel</a> is the
+        journal of these three numbers.
+      </p>
+    </div>
+
+    <p class="mt-10 text-xs leading-relaxed text-stone-500">
+      NSSF-Adjusted NICS Background Checks for August 2026,{" "}
+      <a href={sourceUrl} class={linkClass} {...ext}>The Outdoor Wire</a>.
+      Marks of their owners. Not affiliated with NSSF. Published by Coriolis,
+      LLC. Numbers by Betsy.
+    </p>
+  </article>
+</BaseLayout>
