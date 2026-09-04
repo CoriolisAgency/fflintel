@@ -13,6 +13,18 @@ export type Brief = {
 
 export const BRIEFS: Brief[] = [
   {
+    slug: "nics-is-not-consumer-demand",
+    path: "/brief/nics-is-not-consumer-demand",
+    title: "NICS Is Not Consumer Demand. Adjusted NICS Isn’t Either.",
+    kicker: "Three numbers",
+    dek: "A Monday print that goes up still leaves the same hole. Background checks are not sales. Adjusted checks are still checks.",
+    date: "2026-09-04",
+    dateLabel: "September 4, 2026",
+    read: "6 min",
+    image: "betsy/images/range-lane.jpg",
+    imageAlt: "An empty indoor range lane",
+  },
+  {
     slug: "new-register",
     path: "/brief/new-register",
     title: "A New Register Still Can’t See Demand.",
