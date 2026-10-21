@@ -1,6 +1,6 @@
 # SEO content lattice (FFLIntel)
 
-> **Governed by `CoriolisAgency/coriolis` `docs/seo/`** (ARCHITECTURE.md, PAGE-MAP.md, LINK-PLAN.md). This file is FFLIntel's own page table. When this file and `docs/seo/` disagree, `docs/seo/` wins. Pointer header added Wed Oct 21, 2026 (Sprint 0, DC-5). Doc only. Two rows corrected to match LINK-PLAN §3 (FFL Accelerator and GSA: no link). The link rules below are quoted from LINK-PLAN §3 on coriolis `main` at `e101d52` (D-N3, Paul 4:47 PM ET; locked by Karp in `docs/decisions/2026-10-21-ffl-intel-content-links.md`).
+> **Governed by `CoriolisAgency/coriolis` `docs/seo/`** (ARCHITECTURE.md, PAGE-MAP.md, LINK-PLAN.md). This file is FFLIntel's own page table. When this file and `docs/seo/` disagree, `docs/seo/` wins. Pointer header added Wed Oct 21, 2026 (Sprint 0, DC-5). Doc only. Three rows corrected to match LINK-PLAN §3 and D-N16 (FFL Accelerator and GSA: no link; Demand Intelligence moved to the agency). The link rules below are quoted from LINK-PLAN §3 on coriolis `main` at `e101d52` (D-N3, Paul 4:47 PM ET; locked by Karp in `docs/decisions/2026-10-21-ffl-intel-content-links.md`).
 >
 > **Link rules (D-N3), quoted from `docs/seo/LINK-PLAN.md`:**
 > - Locked rule 2: "FFLIntel is now an exception (D-N3, Paul 4:47 PM ET; locked by Karp in `2026-10-21-ffl-intel-content-links`): its content may link to CoriolisAgency.com and GSE, under the rules in §3. It still never links to FFLAccelerator.com, to the retired sister domain (gunsearchagent.com), or to client sites that sell guns."
@@ -26,7 +26,7 @@ Frozen strings: [GunSearchEngine entity kit](../../gunsearchengine/docs/entity-k
 | Firearm Sales Index (product literacy) | **GSE** `https://www.gunsearchengine.com/retailbi-firearm-sales-index` | Commentary how-to-read; self canonical; link GSE + fortress |
 | NICS vs firearm sales (platform) | **GSE** `https://www.gunsearchengine.com/nics-vs-firearm-sales` | Desk essay `/nics-is-not-sales`; self canonical; link GSE |
 | Sell-through vs search intent (doctrine) | Shared literacy | Desk essay; link fortress + Demand Intelligence |
-| OEM Demand Intelligence | **GSE** `/demand-intelligence` | Soft CTA only |
+| OEM Demand Intelligence | **CoriolisAgency.com** `https://www.coriolisagency.com/demand-intelligence` (moved to the agency, D-N16) | Soft CTA only |
 | Betsy Live | **GSE** `/betsy-live` | Link (labeled sample) |
 | Dealer product / GA for FFLs | **None** (GunSearchAgent is retired) | **No link.** Never link to the retired sister domain (gunsearchagent.com); remove the 3 home-page links to it, or point them straight at GSE `/for-dealers/feed`, where that domain already 301s (LINK-PLAN §3; fix in SEO-U15) |
 | FFL Accelerator | **fflaccelerator.com** | **No link** (LINK-PLAN §3: FFLIntel → FFLAccelerator.com is not allowed; keeps FFLA's link profile ad-safe) |
