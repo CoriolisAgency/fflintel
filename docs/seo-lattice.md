@@ -1,16 +1,16 @@
 # SEO content lattice (FFLIntel)
 
-> **Governed by `CoriolisAgency/coriolis` `docs/seo/`** (ARCHITECTURE.md, PAGE-MAP.md, LINK-PLAN.md). This file is FFLIntel's own page table. When this file and `docs/seo/` disagree, `docs/seo/` wins. Pointer header added Wed Oct 21, 2026 (Sprint 0, DC-5); link rules below are copied from LINK-PLAN §3 (D-N3, Paul 4:47 PM ET; locked by Karp in `docs/decisions/2026-10-21-ffl-intel-content-links.md`). No other content change.
+> **Governed by `CoriolisAgency/coriolis` `docs/seo/`** (ARCHITECTURE.md, PAGE-MAP.md, LINK-PLAN.md). This file is FFLIntel's own page table. When this file and `docs/seo/` disagree, `docs/seo/` wins. Pointer header added Wed Oct 21, 2026 (Sprint 0, DC-5). Doc only. Two rows corrected to match LINK-PLAN §3 (FFL Accelerator and GSA: no link). The link rules below are quoted from LINK-PLAN §3 on coriolis `main` at `e101d52` (D-N3, Paul 4:47 PM ET; locked by Karp in `docs/decisions/2026-10-21-ffl-intel-content-links.md`).
 >
 > **Link rules (D-N3), quoted from `docs/seo/LINK-PLAN.md`:**
 > - Locked rule 2: "FFLIntel is now an exception (D-N3, Paul 4:47 PM ET; locked by Karp in `2026-10-21-ffl-intel-content-links`): its content may link to CoriolisAgency.com and GSE, under the rules in §3. It still never links to FFLAccelerator.com, to the retired sister domain (gunsearchagent.com), or to client sites that sell guns."
-> - FFLIntel data notes → GSE data pages (`/nics-vs-firearm-sales`, `/retailbi-firearm-sales-index`, `/betsy-live`, `/demand-intelligence`, `/oem-firearms-demand-analytics`, `/betsy-vs-retailbi`): "Keep the links that are live today. Use descriptive anchors that name the topic, such as "NICS checks vs firearm sales" or "the live demand map". At most 2 links per note to the same GSE page."
+> - FFLIntel data notes → GSE data pages (`/nics-vs-firearm-sales`, `/retailbi-firearm-sales-index`, `/betsy-live`, `/oem-firearms-demand-analytics`, `/betsy-vs-retailbi`). "**`/demand-intelligence` moves to the agency (D-N16),** so FFLIntel's 3 links to it point at `https://www.coriolisagency.com/demand-intelligence` with `utm_source=fflintel`." Rule: "Keep the links that are live today. Use descriptive anchors that name the topic, such as "NICS checks vs firearm sales" or "the live demand map". At most 2 links per note to the same GSE page."
 > - FFLIntel notes that mention a caliber or product type → the matching GSE money hub (`/ammo/{cal}`, `/guns/{type}/{cal}`): "Plain anchor naming the hub, such as "9mm ammo in stock". Only to URLs that return 200 and are listed in GSE `sitemap-hubs.xml` (blog guardrail G6)."
 > - FFLIntel notes about how dealers sell or get found → CoriolisAgency.com owner pages (`/ffl-analytics` for site-search and demand, `/ffl-seo` once it ships in SEO-U32, `/ecommerce` for selling online): "Descriptive anchors, one agency link per note, using the PAGE-MAP owner term (for example "FFL SEO", "FFL website")." UTM `utm_source=fflintel&utm_medium=referral&utm_campaign=fflintel-{note-slug}`.
 > - FFLIntel footer (sitewide) → agency `/`: "Brand anchor "A Coriolis publication" (or "Coriolis"), **one** sitewide link, to `https://www.coriolisagency.com/`, not the bare domain, which 308s."
 > - FFLIntel → the retired sister domain: "**Remove them**, or point them straight at GSE `/for-dealers/feed`, where that domain already 301s" (fix in SEO-U15).
 > - FFLIntel → FFLAccelerator.com: "**None**". Not allowed.
-> - Guardrails: plain links, no nofollow; never link from FFLIntel to `/ecommerce` pricing with a sales anchor; never link to noindex, 404 or redirected URLs; no sameAs from the agency to FFLIntel.
+> - Satellite guardrails (D-N3 and D-N3b): plain links, no nofollow; never link from FFLIntel to `/ecommerce` pricing with a sales anchor; never link to noindex, 404 or redirected URLs; no sameAs from the agency to FFLIntel.
 
 Source of truth for internal linking and cannibalization rules.
 
