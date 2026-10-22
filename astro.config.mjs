@@ -14,7 +14,9 @@ const site = process.env.ASTRO_SITE || "https://fflintel.com";
 export default defineConfig({
   site,
   base,
-  trailingSlash: "never",
+  // GitHub Pages serves /page/ and 301s /page, so emit the slash form.
+  trailingSlash: "always",
+  build: { format: "directory" },
   integrations: [sitemap()],
   redirects: {
     "/issues": "/brief",

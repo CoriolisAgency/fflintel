@@ -8,7 +8,7 @@ export function withBase(path = ""): string {
   if (!base.endsWith("/")) base = `${base}/`;
 
   if (!path || path === "/") {
-    // Prefer no trailing slash on root (trailingSlash: "never")
+    // Root href stays bare; canonical/sitemap add the slash elsewhere
     return base === "/" ? "/" : base.slice(0, -1);
   }
 
