@@ -55,7 +55,7 @@ export function breadcrumbJsonLd(items: Crumb[]) {
       name: it.name,
       item: it.path.startsWith("http")
         ? it.path
-        : `${LINKS.home}${it.path === "/" ? "" : it.path}`,
+        : `${LINKS.home}${it.path === "/" ? "" : it.path.replace(/\/?$/, "/")}`,
     })),
   };
 }

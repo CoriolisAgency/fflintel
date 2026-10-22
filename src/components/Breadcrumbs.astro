@@ -1,5 +1,5 @@
 ---
-import { withBase } from "../lib/base";
+import { pageHref } from "../lib/base";
 import type { Crumb } from "../lib/schema";
 
 interface Props {
@@ -18,7 +18,7 @@ const { items } = Astro.props;
           {i === items.length - 1 ? (
             <span class="text-stone-400">{item.name}</span>
           ) : (
-            <a href={withBase(item.path)} class="hover:text-sky-800">
+            <a href={pageHref(item.path)} class="hover:text-sky-800">
               {item.name}
             </a>
           )}

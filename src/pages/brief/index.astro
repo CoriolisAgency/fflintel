@@ -5,6 +5,7 @@ import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { BRIEFS, ESSAYS } from "../../lib/briefs";
 import PillarLinks from "../../components/PillarLinks.astro";
 import { CANON_PATHS } from "../../lib/links";
+import { pageHref } from "../../lib/base";
 
 const path = "/brief";
 const crumbs = [
@@ -42,7 +43,7 @@ const crumbs = [
       {
         BRIEFS.map((b) => (
           <StoryCard
-            href={b.path}
+            href={pageHref(b.path)}
             kicker={b.kicker}
             title={b.title}
             dek={b.dek}
@@ -55,7 +56,7 @@ const crumbs = [
       {
         ESSAYS.map((essay) => (
           <StoryCard
-            href={essay.href}
+            href={pageHref(essay.href)}
             kicker={essay.kicker}
             title={essay.title}
             dek={essay.dek}

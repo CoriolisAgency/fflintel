@@ -2,7 +2,7 @@
 import CompanyMint from "./CompanyMint.astro";
 import DualDoors from "./DualDoors.astro";
 import { LINKS } from "../lib/links";
-import { withBase } from "../lib/base";
+import { withBase, pageHref } from "../lib/base";
 import { SITE } from "../lib/site";
 
 interface Props {
@@ -65,7 +65,7 @@ const family = [
       {
         nav.map((item) => (
           <a
-            href={withBase(item.href)}
+            href={pageHref(item.href)}
             class:list={[
               "rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors",
               active(item.href)
