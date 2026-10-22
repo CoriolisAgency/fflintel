@@ -39,4 +39,4 @@ RetailBI is Gearfire’s shooting-sports sell-through platform. It aggregates po
 - Demand Intelligence: https://www.coriolisagency.com/demand-intelligence
 - Betsy Live: https://www.gunsearchengine.com/betsy-live
 - FFLIntel desk: https://fflintel.com
-- FFLIntel issue 01: https://fflintel.com/issues/2026-08-three-numbers
+- FFLIntel issue 01: https://fflintel.com/brief/three-numbers/
