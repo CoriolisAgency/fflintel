@@ -65,7 +65,7 @@ export const ESSAYS = [
   {
     href: "/retailbi-firearm-sales-index",
     kicker: "The Index",
-    title: "How they count what sold — and what they leave out",
+    title: "How they count what sold, and what they leave out",
     dek: "Same stores. New guns only. Compared to last year. They revise it when more shops finish sending data. Useful. It is still last month, and it is still only what sold.",
     dateLabel: "August 13, 2026",
     image: "betsy/images/shop-register.jpg",
