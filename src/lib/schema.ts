@@ -14,7 +14,7 @@ export function organizationNode() {
     url: LINKS.coriolis,
     sameAs: [...SAME_AS],
     description:
-      "Coriolis, LLC publishes FFLIntel and builds Betsy AI — demand intelligence for lawful 2A commerce.",
+      "Coriolis, LLC publishes FFLIntel and builds Betsy AI: demand intelligence for lawful 2A commerce.",
   };
 }
 

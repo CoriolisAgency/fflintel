@@ -46,7 +46,7 @@ export const BRIEFS: Brief[] = [
     dateLabel: "August 13, 2026",
     read: "8 min",
     image: "betsy/images/hero-daylight.jpg",
-    imageAlt: "Betsy in a sunlit office — she runs the demand numbers",
+    imageAlt: "Betsy in a sunlit office. She runs the demand numbers.",
   },
 ];
 
