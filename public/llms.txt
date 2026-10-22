@@ -14,7 +14,7 @@ The RetailBI Firearm Sales Index (Same-Store Adjusted) is Gearfire’s monthly p
 
 ### Betsy Demand Intelligence
 
-Betsy Demand Intelligence measures anonymized shopper search intent across GunSearchEngine, its dealer embeds, and floor sensors — including unmet (zero-hit) demand. It is not a POS system and not a same-store unit-sales index.
+Betsy Demand Intelligence measures anonymized shopper search intent across GunSearchEngine, its dealer embeds, and floor sensors, including unmet (zero-hit) demand. It is not a POS system and not a same-store unit-sales index.
 
 ## Doctrine
 
