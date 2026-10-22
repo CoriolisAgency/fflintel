@@ -6,7 +6,7 @@ import FaqBlock from "../components/FaqBlock.astro";
 import LegalNote from "../components/LegalNote.astro";
 import PillarLinks from "../components/PillarLinks.astro";
 import { LINKS, linkClass, ext } from "../lib/links";
-import { withBase } from "../lib/base";
+import { pageHref } from "../lib/base";
 
 const path = "/methodology";
 const crumbs = [
@@ -80,7 +80,7 @@ const faqs = [
         The long “what is RetailBI” page is on{" "}
         <a href={LINKS.fortress} class={linkClass} {...ext}>GunSearchEngine</a>.
         This site’s{" "}
-        <a href={withBase("what-is-retailbi")} class={linkClass}
+        <a href={pageHref("what-is-retailbi")} class={linkClass}
           >short page</a
         >{" "}
         points there.

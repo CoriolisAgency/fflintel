@@ -1,5 +1,5 @@
 ---
-import { withBase } from "../lib/base";
+import { withBase, pageHref } from "../lib/base";
 
 interface Props {
   href: string;
@@ -15,7 +15,7 @@ const { href, kicker, title, dek, dateLabel, image, imageAlt } = Astro.props;
 ---
 
 <a
-  href={withBase(href)}
+  href={pageHref(href)}
   class="group flex flex-col overflow-hidden rounded-2xl border border-rule bg-white shadow-sm hover:border-sky-600/30 hover:shadow-md transition-all"
 >
   <div class="aspect-video overflow-hidden bg-stone-100">

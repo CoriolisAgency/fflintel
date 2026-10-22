@@ -15,3 +15,16 @@ export function withBase(path = ""): string {
   const clean = path.replace(/^\/+/, "");
   return `${base}${clean}`;
 }
+
+/**
+ * Internal page link in slash form, to match trailingSlash: "always".
+ * Files (last segment has an extension), bare #anchors and ?queries keep their shape.
+ */
+export function pageHref(path = ""): string {
+  const [, route = "", tail = ""] = path.match(/^([^?#]*)(.*)$/) ?? [];
+  if (!route) return path;
+  const href = withBase(route);
+  const last = href.split("/").pop() ?? "";
+  if (href.endsWith("/") || last.includes(".")) return `${href}${tail}`;
+  return `${href}/${tail}`;
+}

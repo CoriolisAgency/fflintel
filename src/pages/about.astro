@@ -6,7 +6,7 @@ import FaqBlock from "../components/FaqBlock.astro";
 import { FROZEN } from "../lib/frozen";
 import { LINKS, CANON_PATHS, linkClass, ext } from "../lib/links";
 import { SITE } from "../lib/site";
-import { withBase } from "../lib/base";
+import { withBase, pageHref } from "../lib/base";
 
 const path = "/about";
 const crumbs = [
@@ -81,9 +81,9 @@ const faqs = [
         Numbers appear only with a date and a source. We do not invent a
         Betsy percentage to sit next to their Index. This site does not run
         NICS or process a 4473. How numbers are treated:{" "}
-        <a href={withBase("methodology")} class={linkClass}>methodology</a>.
+        <a href={pageHref("methodology")} class={linkClass}>methodology</a>.
         The archive:{" "}
-        <a href={withBase("brief")} class={linkClass}>Notes</a>.
+        <a href={pageHref("brief")} class={linkClass}>Notes</a>.
       </p>
       <p>
         <a href={LINKS.gse} class={linkClass} {...ext}>GunSearchEngine</a>

@@ -9,7 +9,7 @@ import ThreeNumbersTable from "../components/ThreeNumbersTable.astro";
 import { FEATURED, ESSAYS } from "../lib/briefs";
 import { LINKS, linkClass } from "../lib/links";
 import { SITE } from "../lib/site";
-import { withBase } from "../lib/base";
+import { withBase, pageHref } from "../lib/base";
 
 const path = "/";
 ---
@@ -41,7 +41,7 @@ const path = "/";
       </div>
       <div class="mt-8">
         <a
-          href={withBase(FEATURED.path)}
+          href={pageHref(FEATURED.path)}
           class="btn"
         >
           Read the note
@@ -83,13 +83,13 @@ const path = "/";
           What else to know
         </h2>
       </div>
-      <a href={withBase("brief")} class={`${linkClass} text-sm`}>All notes</a>
+      <a href={pageHref("brief")} class={`${linkClass} text-sm`}>All notes</a>
     </div>
     <div class="grid gap-5 md:grid-cols-3">
       {
         ESSAYS.map((essay) => (
           <StoryCard
-            href={essay.href}
+            href={pageHref(essay.href)}
             kicker={essay.kicker}
             title={essay.title}
             dek={essay.dek}
