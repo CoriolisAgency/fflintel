@@ -22,7 +22,7 @@
 <g transform="translate(101.28,149.20) rotate(304.62)"><path d="M 0.00 -26.00 L 5.81 -7.99 L 24.73 -8.03 L 9.40 3.05 L 15.28 21.03 L 0.00 9.88 L -15.28 21.03 L -9.40 3.05 L -24.73 -8.03 L -5.81 -7.99 Z" fill="#f5f5f5"/></g>
 <g transform="translate(168.63,89.53) rotate(332.31)"><path d="M 0.00 -26.00 L 5.81 -7.99 L 24.73 -8.03 L 9.40 3.05 L 15.28 21.03 L 0.00 9.88 L -15.28 21.03 L -9.40 3.05 L -24.73 -8.03 L -5.81 -7.99 Z" fill="#f5f5f5"/></g>
 
-  <!-- Bold italic year — size tuned for tab favicons after downscale -->
+  <!-- Bold italic year: size tuned for tab favicons after downscale -->
   <text x="256" y="262" text-anchor="middle" dominant-baseline="middle"
     font-family="Georgia, 'Times New Roman', Times, serif" font-style="italic" font-weight="700"
     font-size="128" fill="#f8f8f8" letter-spacing="-4">1776</text>
