@@ -54,5 +54,5 @@ Frozen strings: [GunSearchEngine entity kit](../../gunsearchengine/docs/entity-k
 3. Never invent Index numbers. Cite date + source on the page, or omit the print.
 4. Never claim 4473 / ATF / POS / NICS-system capability.
 5. Never H1 “RetailBI alternative.”
-6. Soft CTAs only, as **two doors**: if you make the guns → fortress / Demand Intelligence / Co-Pilot; if you sell them → GSA. No hard sell. No headshot chip.
+6. Soft CTAs only, as **two doors**: if you make the guns → fortress / Demand Intelligence / Co-Pilot; if you sell them → GunSearchEngine for dealers. No hard sell. No headshot chip.
 7. `sameAs` mesh from the entity kit (Coriolis, LLC).
