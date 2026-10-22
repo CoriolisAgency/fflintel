@@ -31,16 +31,13 @@ const brands = [
   {
     href: LINKS.demandIntel,
     label: "Demand Intelligence",
-    note: "GunSearchEngine",
+    note: "CoriolisAgency.com",
   },
 ] as const;
 
 const shops = [
-  {
-    href: LINKS.gsa,
-    label: "GunSearchAgent",
-    note: "Dealer / GSA",
-  },
+  { href: LINKS.gseDealers, label: "GunSearchEngine for dealers" },
+  { href: LINKS.agencyEcommerce, label: "A gun store website you own" },
 ] as const;
 ---
 
@@ -75,7 +72,9 @@ const shops = [
               <a href={item.href} class="text-sm text-sky-800 hover:underline" {...ext}>
                 {item.label}
               </a>
-              <span class="block text-xs text-stone-500">{item.note}</span>
+              {"note" in item && (
+                <span class="block text-xs text-stone-500">{item.note}</span>
+              )}
             </li>
           ))
         }

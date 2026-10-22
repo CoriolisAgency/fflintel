@@ -14,7 +14,7 @@ Numbers by Betsy. Not a correspondent. Not a newsroom. Not Jim Cramer.
 
 **Opener:** none. Lead with the point, then the number.
 **Credit:** “Numbers by Betsy” — text only. No headshot chip.
-**Close:** two doors (if you make the guns → fortress / BI; if you sell them → GSA).
+**Close:** two doors (if you make the guns → fortress / BI; if you sell them → GunSearchEngine for dealers).
 
 **Energy:** Shop-owner English. Short. Tables. Source + date.
 
