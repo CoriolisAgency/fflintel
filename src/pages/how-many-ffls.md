@@ -64,11 +64,11 @@ We refresh this page each quarter, or sooner when we can open a newer ATF listin
 
 ## What this means for a shop
 
-If you hold one of the 45,172 Type 01 licenses (dealers, including gunsmiths) on the July 2026 file, this count tells you how big the group is and nothing about how it's doing. The file doesn't show which dealers have an open storefront, how large they are or what they sold this year.
+The July 2026 file lists 45,172 Type 01 licenses (dealers, including gunsmiths), and that's about all the count can tell you. The file has no field for whether a licensee has an open storefront, how big the business is or whether it sold anything this month. So the count can't tell you which of those dealers are open for business, or which of them sell online.
 
 Not affiliated with Gearfire, RetailBI or NSSF. Marks belong to their owners. This is not legal advice. This desk does not run NICS, 4473, or the bound book.
 
-If you hold one of those licenses and want shoppers to see what's in your case before they drive over, Coriolis [builds gun store websites that list your real inventory](https://www.coriolisagency.com/ecommerce?utm_source=fflintel&utm_medium=referral&utm_campaign=fflintel-how-many-ffls).
+If you hold one of those licenses and you want shoppers to see what's actually in your case before they drive over, that's the job of [putting a gun store's inventory on a website it owns](https://www.coriolisagency.com/ecommerce?utm_source=fflintel&utm_medium=referral&utm_campaign=fflintel-how-many-ffls).
 
 ## Sources
 
