@@ -75,6 +75,8 @@ If the FBI revises a cell, we add a revision line and keep the first figure; tha
 
 Not affiliated with NSSF, Gearfire or RetailBI. Marks belong to their owners. This is not legal advice. This desk does not run NICS, 4473, or the bound book.
 
+NICS totals count checks, not the guns in a dealer's case; Coriolis has a page on [putting a gun store's inventory on a website it owns](https://www.coriolisagency.com/ecommerce?utm_source=fflintel&utm_medium=referral&utm_campaign=fflintel-nssf-adjusted-nics-october-2026).
+
 ## Sources
 
 1. FBI, NICS Firearm Background Checks: Month/Year, January 1, 2020 to October 31, 2026. PDF created November 2, 2026, 7:25 AM ET. <https://www.fbi.gov/file-repository/cjis/nics_firearm_checks_-_month_year.pdf>

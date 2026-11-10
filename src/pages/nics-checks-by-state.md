@@ -82,6 +82,8 @@ When the FBI posts the next state file, we refresh the table and change the "as 
 
 Not affiliated with NSSF, Gearfire or RetailBI. Marks belong to their owners. This is not legal advice. This desk does not run NICS, 4473, or the bound book.
 
+State ranks on this table aren't a sales report for any one dealer. Coriolis has a page on [putting a gun store's inventory on a website it owns](https://www.coriolisagency.com/ecommerce?utm_source=fflintel&utm_medium=referral&utm_campaign=fflintel-nics-checks-by-state).
+
 ## Sources
 
 1. FBI, NICS Firearm Background Checks: Month/Year by State. Year 2026 page (Jan 1 to Oct 31, 2026) and Year 2025 page (Jan 1 to Dec 31, 2025). PDF modified November 2, 2026, 9:07 AM ET. <https://www.fbi.gov/file-repository/cjis/nics_firearm_checks_-_month_year_by_state.pdf>
