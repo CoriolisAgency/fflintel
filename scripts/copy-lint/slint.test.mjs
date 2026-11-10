@@ -84,4 +84,68 @@ test("ffli: one agency link in the final paragraph passes; earlier or a second o
   assert.ok(ids(two).includes("agency-link-count"));
 });
 
+
+test("Paul's SEO is dead opening and Gold Jerry payoff do not flag staccato-run", () => {
+  const md = [
+    "So WTF is SEO anyway? You think you know. But do you?",
+    "SEO stands for search engine optimization. It is a critical component of any effective digital marketing plan.",
+    "The most basic version of SEO is you creating a page or post on your website that targets a specific keyword or phrase and getting links to that content, using the same keywords, placed on high quality websites that already have a high authority on those keywords. That bit about high quality and authority is important. More on that later. These links are called backlinks, and they're gold.",
+    "Gold Jerry, gold.",
+    LONG[0], LONG[1], LONG[2], LONG[3], LONG[4], LONG[5], LONG[6], LONG[7],
+  ].join("\n\n");
+  const r = lintText(md, "gse", { raw: true });
+  assert.ok(!ids(r).includes("staccato-run"), `staccato-run on Paul's opening: ${ids(r)}`);
+  assert.ok(!ids(r).includes("rhythm"), `rhythm on Paul's opening: ${ids(r)}`);
+});
+
+test("DP-1 closer is exempt from question-cta; any other question CTA still flags", () => {
+  const closer = "**Run a gun store? [List it on GunSearchEngine free.](/for-dealers/feed?utm_source=gse-blog&utm_medium=internal&utm_campaign=dealer-path&utm_content=dropship-items-without-confusing-walk-ins)** GSE Basic, feed sync included, is free for every FFL.";
+  const ok = lintText(LONG.join(" ") + "\n\n" + closer, "gse", { raw: true });
+  assert.ok(!ids(ok).includes("question-cta"), `locked closer flagged: ${ok.hits.filter((h) => h.id === "question-cta").map((h) => h.match)}`);
+  const other = lintText(LONG.join(" ") + "\n\nOwn a range? Book a walkthrough this week.", "gse", { raw: true });
+  assert.ok(ids(other).includes("question-cta"), "other question CTA must still flag");
+  const mixed = lintText(LONG.join(" ") + "\n\nWant a demo?\n\n" + closer, "gse", { raw: true });
+  const q = mixed.hits.filter((h) => h.id === "question-cta");
+  assert.equal(q.length, 1, `expected one question-cta, got ${q.length}: ${q.map((h) => h.match)}`);
+  assert.match(q[0].match, /Want a demo\?/);
+});
+
+test("D4 keyword in opening, one H2 and one FAQ is exempt from stamped-phrase", () => {
+  const md = [
+    "The honest way to show dropship items on a gun store site is to say so: put those dropship or catalog products in their own clearly marked area.",
+    LONG[0],
+    "### How to show dropship items on a gun store site",
+    LONG[1] + " " + LONG[2],
+    "### Quick answers",
+    "**How do I show dropship items on a gun store website without confusing walk-in customers?** Put those items in their own clearly marked area.",
+    LONG[3] + " " + LONG[4],
+  ].join("\n\n");
+  const raw = lintText(md, "gse", { raw: true });
+  assert.equal(raw.keywordSource, "derived-title-h2-faq", raw.keywordSource);
+  assert.match(raw.keyword, /show dropship items on a gun store/);
+  assert.ok(!ids(raw).includes("stamped-phrase"), `exempt placement flagged: ${raw.hits.filter((h) => h.id === "stamped-phrase").map((h) => h.match)}`);
+
+  const withQuery = [
+    "- **Target query:** show dropship items on a gun store site",
+    "",
+    "## Body",
+    "",
+    md,
+  ].join("\n");
+  const fromQuery = lintText(withQuery, "gse");
+  assert.equal(fromQuery.keywordSource, "target-query", fromQuery.keywordSource);
+  assert.equal(fromQuery.keyword, "show dropship items on a gun store site");
+  assert.ok(!ids(fromQuery).includes("stamped-phrase"), "target-query path should also be exempt");
+
+  const extra = lintText(md + "\n\nStaff should also show dropship items on a gun store homepage the same way.", "gse", { raw: true });
+  assert.ok(ids(extra).includes("stamped-phrase"), "a fourth body repeat must still flag");
+
+  const otherGram = [
+    "The caveat about stale listings on a product page is the same caveat about stale listings on a product page, and then the caveat about stale listings on a product page appears again.",
+    LONG.join(" "),
+  ].join("\n\n");
+  const other = lintText(otherGram, "gse", { raw: true });
+  assert.ok(ids(other).includes("stamped-phrase"), "a non-keyword 7-gram x3 must still flag");
+});
+
 if (failed) { console.error(`slint.test: ${failed} failed`); process.exitCode = 1; } else console.log("ok: slint.test");

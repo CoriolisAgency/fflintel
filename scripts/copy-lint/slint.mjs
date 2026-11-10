@@ -5,6 +5,13 @@
  * (slop_lint.py), with Paul's WRITING-FIX changes (10:02 AM ET lock, via Chief 10:03 and 10:07 AM ET).
  * FFLI notes may carry exactly one agency link, and only in the final paragraph of the note.
  *
+ * Calibration (SLOP-LINT-CALIBRATE, Chief 2026-11-10 10:44 AM ET): staccato-run and rhythm
+ * thresholds follow Paul's own writing, so the "SEO is dead" opening and his punch-line
+ * short sentences do not BLOCK. Exemptions (Chief 10:49 AM ET): the locked GSE DP-1 closer
+ * is exempt from question-cta (exact-line match, same idea as the FFLI final-paragraph
+ * agency-line exemption); a post's target keyword may appear in the opening paragraph,
+ * one H2 and one FAQ question without tripping stamped-phrase. Every other hit still flags.
+ *
  * One file, no dependencies, Node 18+. The same file lives in:
  *   gunsearchengine  scripts/copy-lint/slint.mjs   (CI: scripts/test-slop-lint.ts, quality job)
  *   fflintel         scripts/copy-lint/slint.mjs   (CI: npm run build, next to the hero gate)
@@ -31,7 +38,35 @@ export const SLINT_MODE = "warn";
 export const BLOCK = "BLOCK";
 export const WARN = "WARN";
 
+/**
+ * Staccato-run and rhythm thresholds (SLOP-LINT-CALIBRATE, Chief 2026-11-10 10:44 AM ET).
+ * Was: 3+ sentences of 9 words or fewer; rhythm mean < 13 or short-share > 0.35.
+ * Paul's "SEO is dead" opening ("So WTF is SEO anyway? You think you know. But do you?")
+ * and the "Gold Jerry, gold." payoff are short on purpose and must not BLOCK.
+ * A run of 3+ very short punch lines (4 words or fewer) still BLOCKs. Rhythm only
+ * BLOCKs when the mean is under 10 or more than half the sentences are 8 words or fewer.
+ */
+export const STACCATO_MAX_WORDS = 4;
+export const STACCATO_RUN = 3;
+export const RHYTHM_MIN_SENTENCES = 8;
+export const RHYTHM_MIN_MEAN = 10;
+export const RHYTHM_MAX_SHORT = 0.50;
+export const RHYTHM_SHORT_WORDS = 8;
+
+/**
+ * Locked GSE DP-1 closer, as plain text (Chief 2026-11-10 10:49 AM ET).
+ * Source: /workspace/copy-desk/locks/DP-1-dealer-path-line.md and the Nov 10 GSE sprint drafts.
+ * After markdown links and emphasis are stripped, every draft closer reduces to this exact line.
+ * question-cta ignores a line that equals this; any other question-led CTA still flags.
+ */
+export const DP1_CLOSER_PLAIN =
+  "Run a gun store? List it on GunSearchEngine free. GSE Basic, feed sync included, is free for every FFL.";
+
+const QUESTION_CTA_SRC = String.raw`(?:^|\n)\**(?:Run|Own|Have|Need|Want) a [^?]{1,40}\?`;
+const QUESTION_CTA_MSG = "Question-led CTA. Fine once per post (DP-1), flagged so it is not repeated.";
+
 // [id, level, regex source, regex flags, message]. Rule list owner: SERP (changes go through Chief).
+// question-cta is applied in lintText so the DP-1 closer can be exempted by exact line.
 export const RULES = [
   ["neg-parallel-bare-aux", BLOCK, String.raw`\b(?:doesn't|does not|isn't|is not|can't|won't|don't)\b[^.!?]{0,120}[.!?]\s+[^.!?]{0,80}\b(?:does|do|is|will|can|did)\.(?=\s|$)`, "",
     "'X doesn't ... Y does.' contrast. State what Y does, with the specific."],
@@ -49,7 +84,6 @@ export const RULES = [
   ["fake-depth", WARN, String.raw`,\s+(?:highlighting|underscoring|showcasing|reflecting|ensuring|signaling|demonstrating)\b`, "", "Trailing -ing 'analysis' clause."],
   ["source-hedge-body", WARN, String.raw`\b(?:wasn't|was not|weren't) reachable|from our desk|we haven't opened|could not be (?:retrieved|opened)|returned (?:an )?(?:error|403)\b`, "i",
     "Source-availability hedge in body. Say it once, near the number, or put it in Sources."],
-  ["question-cta", WARN, String.raw`(?:^|\n)\**(?:Run|Own|Have|Need|Want) a [^?]{1,40}\?`, "", "Question-led CTA. Fine once per post (DP-1), flagged so it is not repeated."],
 ];
 
 const AGENCY = /coriolisagency\.com|fflaccelerator\.com/gi;
@@ -93,6 +127,10 @@ function plain(t) {
     .replace(/^\s*\|.*\|\s*$/gm, "") // tables
     .replace(/\]\([^)]*\)/g, "]") // md links -> text
     .replace(/[\[\]*_`>#]/g, "");
+}
+
+function wordsOf(t) {
+  return (plain(t).toLowerCase().match(/[a-z0-9']+/g) || []);
 }
 
 function sentences(t) {
@@ -150,32 +188,254 @@ export function proseForStats(md) {
 
 const clip = (s) => s.slice(0, 110).replace(/\n/g, " ");
 
+function normalizePhrase(s) {
+  return wordsOf(s);
+}
+
+function yamlValue(fm, keys) {
+  for (const key of keys) {
+    const re = new RegExp(`^${key}:\\s*["']?(.+?)["']?\\s*$`, "im");
+    const m = fm.match(re);
+    if (m) return m[1].trim();
+  }
+  return "";
+}
+
+const FAQ_HEADING = /^(quick answers|faq|frequently asked|questions)\b/i;
+
+/** A leading markdown-bold question, with or without an answer on the same line. */
+function faqQuestionFromLine(line) {
+  const m = line.trim().match(/^\*\*(.+?\?)\*\*/);
+  return m ? plain(m[1]).trim() : "";
+}
+
+/** Pull title, H2 texts and FAQ question lines out of markdown (and an optional title option). */
+export function headingParts(md, opts = {}) {
+  const titles = [];
+  if (opts.title) titles.push(String(opts.title));
+  const h2s = [];
+  const faqs = [];
+  let inFaq = false;
+  let faqLevel = 0;
+  for (const raw of md.replace(HTML_HEADING, (m) => `\n\n${m}\n\n`).split(/\n\s*\n/)) {
+    const block = raw.trim();
+    if (!block) continue;
+    const hm = block.match(/^(#{1,6})\s+(.*)$/);
+    const html = block.match(/^<h([1-6])\b[^>]*>([\s\S]*?)<\/h[1-6]>$/i);
+    if (hm || html) {
+      const level = hm ? hm[1].length : Number(html[1]);
+      const text = plain(hm ? hm[2] : html[2]).trim();
+      if (inFaq && level <= faqLevel) inFaq = false;
+      if (FAQ_HEADING.test(text)) { inFaq = true; faqLevel = level; continue; }
+      if (level === 1 && text) titles.push(text);
+      if (level >= 2 && text) h2s.push(text);
+      if (text.endsWith("?")) faqs.push(text);
+      continue;
+    }
+    if (block.split("\n").length === 1 && isHeadingLine(block)) {
+      const text = plain(block).trim();
+      if (FAQ_HEADING.test(text)) { inFaq = true; faqLevel = 2; continue; }
+      h2s.push(text);
+      if (text.endsWith("?")) faqs.push(text);
+      continue;
+    }
+    // Bold question line, typical of the GSE "Quick answers" FAQ (answer may follow on the same line).
+    for (const line of block.split("\n")) {
+      const q = faqQuestionFromLine(line);
+      if (q && (inFaq || q)) faqs.push(q);
+    }
+  }
+  return { titles, h2s, faqs };
+}
+
+/**
+ * Longest word sequence (at least 4 words) shared by the title (if any), an H2, and an FAQ question.
+ * If there is no title, the longest phrase shared by an H2 and an FAQ question is used.
+ */
+export function deriveKeywordFromHeadings(md, opts = {}) {
+  const { titles, h2s, faqs } = headingParts(md, opts);
+  if (!h2s.length || !faqs.length) return [];
+  const pools = [h2s.map(normalizePhrase), faqs.map(normalizePhrase)];
+  if (titles.length) pools.unshift(titles.map(normalizePhrase));
+  let best = [];
+  const first = pools[0];
+  for (const words of first) {
+    for (let n = words.length; n >= 4; n--) {
+      if (n <= best.length) break;
+      for (let i = 0; i + n <= words.length; i++) {
+        const gram = words.slice(i, i + n);
+        const ok = pools.every((pool) => pool.some((w) => containsGram(w, gram)));
+        if (ok) { best = gram; break; }
+      }
+    }
+  }
+  return best;
+}
+
+function containsGram(words, gram) {
+  if (gram.length > words.length) return false;
+  for (let i = 0; i + gram.length <= words.length; i++) {
+    if (gram.every((g, j) => words[i + j] === g)) return true;
+  }
+  return false;
+}
+
+/**
+ * Target keyword for the stamped-phrase exemption (Chief 2026-11-10 10:49 AM ET).
+ * Preference: opts.keyword, then a YAML keyword/target_query field, then a draft
+ * "- Target query:" bullet, then a phrase derived from title, H2s and FAQ questions.
+ * Returns { words, source } where source is "opts" | "yaml" | "target-query" | "derived-title-h2-faq" | "".
+ */
+export function extractTargetKeyword(fullText, opts = {}) {
+  if (opts.keyword) return { words: normalizePhrase(opts.keyword), source: "opts" };
+  const text = String(fullText || "").replace(/\r\n?/g, "\n");
+  const yaml = text.match(/^---\n([\s\S]*?)\n---/);
+  if (yaml) {
+    const v = yamlValue(yaml[1], ["keyword", "keywords", "target_query", "targetQuery", "target-query"]);
+    if (v) return { words: normalizePhrase(v), source: "yaml" };
+  }
+  const bullet = text.match(/^\s*[-*]\s+\*{0,2}Target query:?\*{0,2}\s+(.+)$/im);
+  if (bullet) return { words: normalizePhrase(bullet[1]), source: "target-query" };
+  const md = opts.raw ? text : extractBody(text);
+  const words = deriveKeywordFromHeadings(md, opts);
+  return { words, source: words.length ? "derived-title-h2-faq" : "" };
+}
+
+function isKeywordGram(keywordWords, gram) {
+  return keywordWords.length && containsGram(keywordWords, gram);
+}
+
+/**
+ * Walk the body into labeled blocks so a target-keyword 7-gram can be checked for
+ * the allowed placement: opening paragraph, one H2, one FAQ question.
+ */
+export function locatePhrase(md, gram) {
+  const locs = [];
+  let inFaq = false;
+  let faqLevel = 0;
+  let seenProse = false;
+  const chunks = md.replace(HTML_HEADING, (m) => `\n\n${m}\n\n`).split(/\n\s*\n/);
+  for (const raw of chunks) {
+    const block = raw.trim();
+    if (!block) continue;
+    const hm = block.match(/^(#{1,6})\s+(.*)$/);
+    const html = block.match(/^<h([1-6])\b[^>]*>([\s\S]*?)<\/h[1-6]>$/i);
+    if (hm || html) {
+      const level = hm ? hm[1].length : Number(html[1]);
+      const text = hm ? hm[2] : html[2];
+      const label = plain(text).trim();
+      if (inFaq && level <= faqLevel) inFaq = false;
+      if (FAQ_HEADING.test(label)) { inFaq = true; faqLevel = level; continue; }
+      const kind = label.endsWith("?") ? "faq-q" : "h2";
+      if (containsGram(wordsOf(text), gram)) locs.push({ kind, text: label });
+      continue;
+    }
+    if (block.split("\n").length === 1 && isHeadingLine(block)) {
+      const label = plain(block).trim();
+      if (FAQ_HEADING.test(label)) { inFaq = true; faqLevel = 2; continue; }
+      const kind = label.endsWith("?") ? "faq-q" : "h2";
+      if (containsGram(wordsOf(block), gram)) locs.push({ kind, text: label });
+      continue;
+    }
+    // Line-level FAQ questions inside a section (GSE Quick answers).
+    let flagged = false;
+    for (const line of block.split("\n")) {
+      const q = faqQuestionFromLine(line);
+      if (q && containsGram(wordsOf(q), gram)) {
+        locs.push({ kind: "faq-q", text: q });
+        flagged = true;
+      }
+    }
+    if (flagged) continue;
+    if (/^[-\d]/.test(block)) continue; // list block
+    if (containsGram(wordsOf(block), gram)) {
+      const kind = seenProse ? "other" : "opening";
+      locs.push({ kind, text: clip(plain(block).trim()) });
+    }
+    if (!/^>/.test(block)) seenProse = true;
+  }
+  return locs;
+}
+
+function keywordPlacementOk(locs) {
+  if (!locs.length) return false;
+  const h2 = new Set();
+  const faq = new Set();
+  let opening = 0;
+  for (const l of locs) {
+    if (l.kind === "opening") opening++;
+    else if (l.kind === "h2") h2.add(l.text);
+    else if (l.kind === "faq-q") faq.add(l.text);
+    else return false;
+  }
+  return opening <= 1 && h2.size <= 1 && faq.size <= 1;
+}
+
+function isDp1CloserLine(line) {
+  return plain(line).replace(/\s+/g, " ").trim() === DP1_CLOSER_PLAIN;
+}
+
 /**
  * Lint Markdown text. `kind`: "gse" | "ffli" | "news". `opts.raw`: pass true when `text` is already
- * the body (no extraction). Returns { hits: [{level, id, match, message}], sentenceLengths }.
+ * the body (no extraction). `opts.keyword` / `opts.title` feed the stamped-phrase exemption.
+ * Returns { hits, sentenceLengths, keyword, keywordSource }.
  */
 export function lintText(text, kind = "gse", opts = {}) {
-  const md = opts.raw ? text.replace(/\r\n?/g, "\n") : extractBody(text);
+  const original = text.replace(/\r\n?/g, "\n");
+  const md = opts.raw ? original : extractBody(original);
   const t = plain(md);
+  const kw = extractTargetKeyword(opts.raw ? original : original, { ...opts, raw: !!opts.raw });
+  // When raw, extractTargetKeyword already used the body; still try opts/title derivation.
   const hits = [];
   for (const [id, level, src, flags, message] of RULES) {
     for (const m of t.matchAll(new RegExp(src, flags + "g"))) hits.push({ level, id, match: clip(m[0]), message });
   }
+  // question-cta, with the locked DP-1 closer exempted by exact line (Chief 10:49 AM ET).
+  const lines = t.split("\n");
+  for (const line of lines) {
+    const m = line.match(new RegExp(QUESTION_CTA_SRC));
+    if (m && !isDp1CloserLine(line)) {
+      hits.push({ level: WARN, id: "question-cta", match: clip(m[0]), message: QUESTION_CTA_MSG });
+    }
+  }
   const L = sentences(proseForStats(md)).map((s) => s.trim().split(/\s+/).length);
   let run = 0, best = 0;
-  for (const n of L) { run = n <= 9 ? run + 1 : 0; best = Math.max(best, run); }
-  if (best >= 3) hits.push({ level: BLOCK, id: "staccato-run", match: `${best} sentences in a row of 9 words or fewer`, message: "Join them into full sentences with the specific first." });
-  if (L.length >= 8) {
+  for (const n of L) { run = n <= STACCATO_MAX_WORDS ? run + 1 : 0; best = Math.max(best, run); }
+  if (best >= STACCATO_RUN) {
+    hits.push({
+      level: BLOCK,
+      id: "staccato-run",
+      match: `${best} sentences in a row of ${STACCATO_MAX_WORDS} words or fewer`,
+      message: "Join them into full sentences with the specific first.",
+    });
+  }
+  if (L.length >= RHYTHM_MIN_SENTENCES) {
     const mean = L.reduce((a, b) => a + b, 0) / L.length;
     const sd = Math.sqrt(L.reduce((a, b) => a + (b - mean) ** 2, 0) / L.length);
-    const short = L.filter((n) => n <= 8).length / L.length;
-    if (mean < 13 || short > 0.35) hits.push({ level: BLOCK, id: "rhythm", match: `mean ${mean.toFixed(1)} words, sd ${sd.toFixed(1)}, ${Math.round(short * 100)}% of sentences 8 words or fewer`, message: "Monotone short rhythm. Target mean 14-22, short share under 35%." });
+    const short = L.filter((n) => n <= RHYTHM_SHORT_WORDS).length / L.length;
+    if (mean < RHYTHM_MIN_MEAN || short > RHYTHM_MAX_SHORT) {
+      hits.push({
+        level: BLOCK,
+        id: "rhythm",
+        match: `mean ${mean.toFixed(1)} words, sd ${sd.toFixed(1)}, ${Math.round(short * 100)}% of sentences ${RHYTHM_SHORT_WORDS} words or fewer`,
+        message: `Monotone short rhythm. Block when mean is under ${RHYTHM_MIN_MEAN} or more than ${Math.round(RHYTHM_MAX_SHORT * 100)}% of sentences are ${RHYTHM_SHORT_WORDS} words or fewer.`,
+      });
+    }
   }
-  // Repeated 7-word strings (stamped caveats).
+  // Repeated 7-word strings (stamped caveats). A post's target keyword is allowed when it
+  // appears only in the opening paragraph, one H2 and one FAQ question (Chief 10:49 AM ET).
   const w = t.toLowerCase().match(/[a-z0-9']+/g) || [];
   const grams = new Map();
   for (let i = 0; i + 7 <= w.length; i++) { const g = w.slice(i, i + 7).join(" "); grams.set(g, (grams.get(g) || 0) + 1); }
-  for (const [g, c] of grams) if (c >= 3) hits.push({ level: BLOCK, id: "stamped-phrase", match: `x${c}: ${g}`, message: "Same phrase 3+ times. Say the caveat once." });
+  for (const [g, c] of grams) {
+    if (c < 3) continue;
+    const gram = g.split(" ");
+    if (isKeywordGram(kw.words, gram)) {
+      const locs = locatePhrase(md, gram);
+      if (keywordPlacementOk(locs)) continue;
+    }
+    hits.push({ level: BLOCK, id: "stamped-phrase", match: `x${c}: ${g}`, message: "Same phrase 3+ times. Say the caveat once." });
+  }
   // FFLI reference notes (Paul 10:02 AM ET lock, Chief 10:07 AM ET): one soft agency line is allowed, and only
   // as the final paragraph of the note body (Sources excluded). An agency link anywhere earlier, including
   // elsewhere in the closing paragraphs, flags, and so does a second agency link.
@@ -189,7 +449,7 @@ export function lintText(text, kind = "gse", opts = {}) {
     });
     if (total > 1) hits.push({ level: BLOCK, id: "agency-link-count", match: `${total} agency links`, message: "One agency link per note, in the final paragraph. Cut the others." });
   }
-  return { hits, sentenceLengths: L };
+  return { hits, sentenceLengths: L, keyword: kw.words.join(" "), keywordSource: kw.source };
 }
 
 export function lintFile(file, kind = "gse") {
