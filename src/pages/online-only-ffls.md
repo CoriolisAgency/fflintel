@@ -33,7 +33,7 @@ Knowing a group exists isn't the same as having an official count of it. No publ
 
 ## If you don't have a storefront
 
-The business problem doesn't go away without a counter. Inventory still has to come from somewhere the law allows. Shoppers still have to find you, and for a dealer without a storefront that usually means a website. Here's [how distributor dropshipping works for an FFL without a storefront](https://www.coriolisagency.com/firearms-dropshipping?utm_source=fflintel&utm_medium=referral&utm_campaign=fflintel-online-only-ffls).
+A dealer without a counter still has to source inventory through channels the law allows, and still has to be found by shoppers, which for a dealer without a storefront usually means a website.
 
 ## Short answers
 
@@ -48,6 +48,8 @@ The business problem doesn't go away without a counter. Inventory still has to c
 If ATF ever adds a field that answers this question, this page changes. Until then the answer stays "the file can't tell you." The countable series live on [how many FFLs are there](/how-many-ffls/). If that page moves to a newer ATF month, this one gets checked too. That's [how we cite](/methodology/).
 
 Not affiliated with Gearfire, RetailBI or NSSF. Marks belong to their owners. This is not legal advice. This desk does not run NICS, 4473, or the bound book.
+
+Coriolis has a page on [how distributor dropshipping works for an FFL without a storefront](https://www.coriolisagency.com/firearms-dropshipping?utm_source=fflintel&utm_medium=referral&utm_campaign=fflintel-online-only-ffls).
 
 ## Sources
 
