@@ -1,0 +1,204 @@
+[
+  {
+    "id": "N1",
+    "slug": "nssf-adjusted-nics-october-2026",
+    "path": "/brief/nssf-adjusted-nics-october-2026/",
+    "kicker": "NICS",
+    "title": "NSSF-Adjusted NICS, October 2026: Checks, Not Sales | FFL Intel",
+    "h1": "NSSF-adjusted NICS, October 2026: what the checks say, and what they don't",
+    "description": "The FBI logged 2,221,553 NICS checks in October 2026. NSSF's adjusted figure is 1,402,422. Both count checks, not gun sales. Dated and sourced.",
+    "schema": "NewsArticle",
+    "dataset": true,
+    "datePublished": "2026-11-10",
+    "dateModified": "2026-11-10",
+    "dateLabel": "November 10, 2026",
+    "hero": {
+      "src": "notes/nssf-adjusted-nics-october-2026-hero-1600x900.webp",
+      "fallback": "notes/nssf-adjusted-nics-october-2026-hero-1600x900.png",
+      "width": 1600,
+      "height": 900,
+      "alt": "Slope chart: October 2026 NICS checks, FBI table 2,221,553 vs NSSF's unadjusted FBI 2,104,063, with October 2025.",
+      "og": {
+        "src": "notes/nssf-adjusted-nics-october-2026-og-1200x630.jpg",
+        "width": 1200,
+        "height": 630
+      }
+    },
+    "faqs": []
+  },
+  {
+    "id": "N2",
+    "slug": "nics-checks-by-state",
+    "path": "/nics-checks-by-state/",
+    "kicker": "NICS by state",
+    "title": "NICS Checks by State: How to Read the FBI Table | FFL Intel",
+    "h1": "NICS checks by state: how to read the FBI table",
+    "description": "Illinois led raw FBI NICS checks in October 2026 at 213,360. A state rank is not a sales rank. Here is how to read the official table.",
+    "schema": "WebPage",
+    "dataset": true,
+    "datePublished": "2026-11-10",
+    "dateModified": "2026-11-10",
+    "dateLabel": "November 10, 2026",
+    "hero": {
+      "src": "notes/nics-checks-by-state-hero-1600x900.webp",
+      "fallback": "notes/nics-checks-by-state-hero-1600x900.png",
+      "width": 1600,
+      "height": 900,
+      "alt": "Bar chart of raw October 2026 NICS checks by state: Illinois 213,360 leads; Kentucky 31,007 vs 297,083 a year earlier.",
+      "og": {
+        "src": "notes/nics-checks-by-state-og-1200x630.jpg",
+        "width": 1200,
+        "height": 630
+      }
+    },
+    "faqs": []
+  },
+  {
+    "id": "N3",
+    "slug": "retailbi-firearm-sales-index",
+    "path": "/retailbi-firearm-sales-index/",
+    "kicker": "The Index",
+    "title": "RetailBI Firearm Sales Index: Public Monthly Prints | FFL Intel",
+    "h1": "RetailBI Firearm Sales Index: every public monthly print",
+    "description": "Every public RetailBI Firearm Sales Index print we can source, with dates. September was a 15.8% same-store decline on Gearfire's page as of Nov 10.",
+    "schema": "WebPage",
+    "dataset": true,
+    "datePublished": "2026-11-10",
+    "dateModified": "2026-11-10",
+    "dateLabel": "November 10, 2026",
+    "hero": {
+      "src": "notes/retailbi-firearm-sales-index-hero-1600x900.webp",
+      "fallback": "notes/retailbi-firearm-sales-index-hero-1600x900.png",
+      "width": 1600,
+      "height": 900,
+      "alt": "Lollipop chart of RetailBI monthly same-store declines, Aug 2025 to Sep 2026; September 2026 down 15.8%.",
+      "og": {
+        "src": "notes/retailbi-firearm-sales-index-og-1200x630.jpg",
+        "width": 1200,
+        "height": 630
+      }
+    },
+    "faqs": []
+  },
+  {
+    "id": "N4",
+    "slug": "how-many-ffls",
+    "path": "/how-many-ffls/",
+    "kicker": "Licensees",
+    "title": "How Many FFLs Are There? ATF Licensee Counts | FFL Intel",
+    "h1": "How many FFLs are there?",
+    "description": "77,485 FFLs, counted from ATF's July 2026 file, as of ATF's July 2026 listing, excludes Type 03. Counts by type, and what the file omits.",
+    "schema": "WebPage",
+    "dataset": true,
+    "datePublished": "2026-11-10",
+    "dateModified": "2026-11-10",
+    "dateLabel": "November 10, 2026",
+    "hero": {
+      "src": "notes/how-many-ffls-hero-1600x900.webp",
+      "fallback": "notes/how-many-ffls-hero-1600x900.png",
+      "width": 1600,
+      "height": 900,
+      "alt": "Treemap of 77,485 FFLs by license type on ATF's July 2026 file; Type 01 dealers lead at 45,172. Excludes Type 03.",
+      "og": {
+        "src": "notes/how-many-ffls-og-1200x630.jpg",
+        "width": 1200,
+        "height": 630
+      }
+    },
+    "faqs": []
+  },
+  {
+    "id": "N5",
+    "slug": "firearms-ammo-excise-tax-collections",
+    "path": "/firearms-ammo-excise-tax-collections/",
+    "kicker": "Excise tax",
+    "title": "Firearms and Ammunition Excise Tax Collections | FFL Intel",
+    "h1": "Firearms and ammunition excise tax collections, explained",
+    "description": "TTB's firearms and ammo excise tax collections through March 31, 2026, plus the FY2025 final, in thousands of dollars. A tax total is not a unit count.",
+    "schema": "WebPage",
+    "dataset": true,
+    "datePublished": "2026-11-10",
+    "dateModified": "2026-11-10",
+    "dateLabel": "November 10, 2026",
+    "hero": {
+      "src": "notes/firearms-ammo-excise-tax-collections-hero-1600x900.webp",
+      "fallback": "notes/firearms-ammo-excise-tax-collections-hero-1600x900.png",
+      "width": 1600,
+      "height": 900,
+      "alt": "Column chart of TTB firearms and ammo excise tax by quarter; FY2026 through Mar 31, 2026 is $366,601 thousand.",
+      "og": {
+        "src": "notes/firearms-ammo-excise-tax-collections-og-1200x630.jpg",
+        "width": 1200,
+        "height": 630
+      }
+    },
+    "faqs": []
+  },
+  {
+    "id": "N6",
+    "slug": "afmer-2024",
+    "path": "/brief/afmer-2024/",
+    "kicker": "Manufacturing",
+    "title": "AFMER 2024: Reading ATF's Manufacturing Report | FFL Intel",
+    "h1": "AFMER 2024: how many guns U.S. makers built, and what the report counts",
+    "description": "ATF's AFMER 2024 Final: 9,474,540 firearms manufactured and 399,902 exported, as of Jan 30, 2026. What the report counts. Not retail sales.",
+    "schema": "NewsArticle",
+    "dataset": true,
+    "datePublished": "2026-11-10",
+    "dateModified": "2026-11-10",
+    "dateLabel": "November 10, 2026",
+    "hero": {
+      "src": "notes/afmer-2024-hero-1600x900.webp",
+      "fallback": "notes/afmer-2024-hero-1600x900.png",
+      "width": 1600,
+      "height": 900,
+      "alt": "Stacked bar of AFMER 2024: 9,474,540 firearms manufactured by type, pistols 4,025,829; 399,902 exported.",
+      "og": {
+        "src": "notes/afmer-2024-og-1200x630.jpg",
+        "width": 1200,
+        "height": 630
+      }
+    },
+    "faqs": []
+  },
+  {
+    "id": "N7",
+    "slug": "online-only-ffls",
+    "path": "/online-only-ffls/",
+    "kicker": "Licensees",
+    "title": "Online-Only and Home-Based FFLs: What ATF Files Show | FFL Intel",
+    "h1": "Online-only FFLs: what the licensee files can and cannot tell you",
+    "description": "There is no official ATF count of online-only or home-based FFLs. The public listing is a license file, not a business-model file. Here's what it shows.",
+    "schema": "WebPage",
+    "dataset": false,
+    "datePublished": "2026-11-10",
+    "dateModified": "2026-11-10",
+    "dateLabel": "November 10, 2026",
+    "hero": {
+      "src": "notes/online-only-ffls-hero-1600x900.webp",
+      "fallback": "notes/online-only-ffls-hero-1600x900.png",
+      "width": 1600,
+      "height": 900,
+      "alt": "Graphic of the columns on ATF's July 2026 FFL file; no field flags online-only or home-based. 77,485 licenses.",
+      "og": {
+        "src": "notes/online-only-ffls-og-1200x630.jpg",
+        "width": 1200,
+        "height": 630
+      }
+    },
+    "faqs": [
+      {
+        "q": "How many home-based FFLs are there?",
+        "a": "There's no official count. ATF's public listing has no field that flags a licensee as home-based. We won't build one from address guesses. The official figures are license counts by type and state, from a named month's ATF file. See how many FFLs are there."
+      },
+      {
+        "q": "How many online-only FFLs are there?",
+        "a": "There's no official count. The same file has no field that flags a licensee as online-only. A Type 01 license at a given address isn't a statement about how that licensee sells."
+      },
+      {
+        "q": "What can the official file tell you?",
+        "a": "For a named month, how many licenses were listed, of what type, and the information ATF publishes for each one. It can't tell you who made a sale that month, who sells only online, or who works from a home."
+      }
+    ]
+  }
+]

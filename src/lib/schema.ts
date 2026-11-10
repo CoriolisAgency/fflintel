@@ -34,6 +34,7 @@ export function webPageNode(opts: {
   url: string;
   name: string;
   description: string;
+  image?: Record<string, unknown>[];
 }) {
   return {
     "@type": "WebPage",
@@ -43,6 +44,7 @@ export function webPageNode(opts: {
     description: opts.description,
     isPartOf: { "@id": `${LINKS.home}/#website` },
     publisher: { "@id": `${LINKS.home}/#organization` },
+    ...(opts.image?.length ? { primaryImageOfPage: opts.image[0], image: opts.image } : {}),
   };
 }
 
@@ -80,7 +82,7 @@ export function newsArticleNode(opts: {
   description: string;
   datePublished: string;
   dateModified?: string;
-  image?: string;
+  image?: string | Record<string, unknown>[];
 }) {
   return {
     "@type": "NewsArticle",
@@ -105,7 +107,7 @@ export function newsArticleNode(opts: {
       worksFor: { "@id": `${LINKS.home}/#organization` },
     },
     publisher: { "@id": `${LINKS.home}/#organization` },
-    ...(opts.image ? { image: [opts.image] } : {}),
+    ...(opts.image ? { image: Array.isArray(opts.image) ? opts.image : [opts.image] } : {}),
   };
 }
 
