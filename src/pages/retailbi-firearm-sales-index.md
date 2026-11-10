@@ -33,7 +33,7 @@ A note on the last two rows. Gearfire's page labels them "September," "August" a
 
 Gearfire describes the method on its RetailBI page. RetailBI pulls point-of-sale and ecommerce transactions from a subset of retailers in its network. It keeps new firearm sales only. Then it compares unit sales for the same period, month or year to date, against the prior year at the same stores. The result is a percent change.
 
-So the Index is built from two places a dealer sells: the register and the website. For a lot of shops, those are two systems that don't talk to each other. Here's [how a shop connects the POS it already runs to its website](https://www.coriolisagency.com/gun-store-pos?utm_source=fflintel&utm_medium=referral&utm_campaign=fflintel-retailbi-firearm-sales-index).
+So the Index is built from the two places a dealer sells, the register and the website, and in a lot of shops those are two systems that don't share inventory.
 
 Same stores means a shop that opened or closed doesn't show up as demand. New guns only means the used-gun case doesn't count. Both choices make the number cleaner. Both make it narrower.
 
@@ -69,6 +69,8 @@ That 7.8 percent covers a quarter. It doesn't fill in July, August or September 
 As of November 10, 2026. The latest public monthly print we can source is September 2026, a 15.8 percent same-store decline, on Gearfire's RetailBI page. We update this page when a new public print appears on Gearfire's page or in a dated Outdoor Wire release.
 
 Not affiliated with Gearfire, RetailBI or NSSF. Marks belong to their owners. This is not legal advice. This desk does not run NICS, 4473, or the bound book.
+
+Coriolis builds, hosts and supports WooCommerce websites for gun stores; the e-commerce page lays out [what that includes and what it costs](https://www.coriolisagency.com/ecommerce?utm_source=fflintel&utm_medium=referral&utm_campaign=fflintel-retailbi-firearm-sales-index).
 
 ## Sources
 

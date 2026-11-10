@@ -64,9 +64,11 @@ We refresh this page each quarter, or sooner when we can open a newer ATF listin
 
 ## What this means for a shop
 
-Most licensees on a dealer file sell from a counter. Their shoppers look before they drive. A license number doesn't put a single gun in front of those shoppers. A website with the shop's real inventory does. Here's what [putting a gun store's inventory on a website it owns](https://www.coriolisagency.com/ecommerce?utm_source=fflintel&utm_medium=referral&utm_campaign=fflintel-how-many-ffls) looks like.
+If you hold one of the 45,172 Type 01 licenses (dealers, including gunsmiths) on the July 2026 file, this count tells you how big the group is and nothing about how it's doing. The file doesn't show which dealers have an open storefront, how large they are or what they sold this year.
 
 Not affiliated with Gearfire, RetailBI or NSSF. Marks belong to their owners. This is not legal advice. This desk does not run NICS, 4473, or the bound book.
+
+If you hold one of those licenses and want shoppers to see what's in your case before they drive over, Coriolis [builds gun store websites that list your real inventory](https://www.coriolisagency.com/ecommerce?utm_source=fflintel&utm_medium=referral&utm_campaign=fflintel-how-many-ffls).
 
 ## Sources
 
