@@ -9,13 +9,14 @@
  *   gunsearchengine  scripts/copy-lint/slint.mjs   (CI: scripts/test-slop-lint.ts, quality job)
  *   fflintel         scripts/copy-lint/slint.mjs   (CI: npm run build, next to the hero gate)
  *   box              /workspace/copy-desk/slint/slint.mjs  (Brandy and SERP, before handoff)
+ * Tests: slint.test.mjs next to this file (node slint.test.mjs); CI runs it before linting.
  *
  * Usage: node slint.mjs [--kind gse|ffli|news] <file-or-dir>...
- *   Directories are walked for .md/.mdx/.markdown files; *.pre-neo.md files are skipped.
+ *   Directories are walked for .md/.mdx/.markdown files; *.pre-neo.md files and dot-folders are skipped.
  *
  * What is read: the text between <!-- BODY START --> and <!-- BODY END --> when present; else the
  * "## Body" section of a draft when present; else the whole file minus YAML front matter. Any
- * "Sources" section is dropped. Tables are skipped, and list blocks are skipped for rhythm.
+ * "Sources" section is dropped. Tables are skipped, and list blocks and headings are skipped for rhythm.
  *
  * Enforcement switch: SLINT_MODE below. "warn" prints findings and always exits 0. "block" exits 1
  * when any BLOCK-level finding fires. Only Chief's word flips it to "block".
@@ -105,6 +106,48 @@ function sentences(t) {
   return out;
 }
 
+const MD_HEADING_LINE = /^\s*#{1,6}\s/;
+const HTML_HEADING = /<h[1-6]\b[^>]*>[\s\S]*?<\/h[1-6]>/gi;
+/** Longest standalone line (in words) still treated as a heading when it has no terminal punctuation. */
+export const HEADING_MAX_WORDS = 12;
+
+const MINOR_WORDS = new Set("a an and as at but by for from in into nor of on or per the to vs via with".split(" "));
+
+/** Title Case: two or more words, and every word that is not a minor word starts with a capital or digit. */
+export function isTitleCase(p) {
+  const words = p.replace(/[?!]+["')\]]*$/, "").split(/\s+/).filter(Boolean);
+  if (words.length < 2) return false;
+  return words.every((w, i) => /^[^A-Za-z]*[A-Z0-9]/.test(w) || (i > 0 && MINOR_WORDS.has(w.toLowerCase())));
+}
+
+/**
+ * True for a standalone line that reads as a heading: at most HEADING_MAX_WORDS words, starts with a capital,
+ * and either has no terminal punctuation or is in Title Case ending in ? or ! ("Why Do You Care?").
+ */
+export function isHeadingLine(line) {
+  const p = plain(line).trim();
+  if (!p || !/^[A-Z0-9"'(]/.test(p)) return false;
+  if (p.split(/\s+/).length > HEADING_MAX_WORDS) return false;
+  if (!/[.!?:;,]["')\]]*$/.test(p)) return true;
+  return /[?!]["')\]]*$/.test(p) && isTitleCase(p);
+}
+
+/**
+ * The prose used for sentence-length stats (staccato-run, rhythm). Headings are not sentences
+ * (Chief 2026-11-10 10:17 AM ET): Markdown # lines, HTML <h1>-<h6>, and standalone heading-like lines
+ * (short, no terminal punctuation) are left out. Pattern rules still read the full body.
+ */
+export function proseForStats(md) {
+  const paras = [];
+  for (const para of md.replace(HTML_HEADING, "\n\n").split(/\n\s*\n/)) {
+    const lines = para.split("\n").filter((l) => l.trim() && !MD_HEADING_LINE.test(l));
+    if (!lines.length) continue;
+    if (lines.length === 1 && isHeadingLine(lines[0])) continue;
+    paras.push(lines.join("\n"));
+  }
+  return plain(paras.join("\n\n"));
+}
+
 const clip = (s) => s.slice(0, 110).replace(/\n/g, " ");
 
 /**
@@ -118,7 +161,7 @@ export function lintText(text, kind = "gse", opts = {}) {
   for (const [id, level, src, flags, message] of RULES) {
     for (const m of t.matchAll(new RegExp(src, flags + "g"))) hits.push({ level, id, match: clip(m[0]), message });
   }
-  const L = sentences(t).map((s) => s.trim().split(/\s+/).length);
+  const L = sentences(proseForStats(md)).map((s) => s.trim().split(/\s+/).length);
   let run = 0, best = 0;
   for (const n of L) { run = n <= 9 ? run + 1 : 0; best = Math.max(best, run); }
   if (best >= 3) hits.push({ level: BLOCK, id: "staccato-run", match: `${best} sentences in a row of 9 words or fewer`, message: "Join them into full sentences with the specific first." });
@@ -160,7 +203,7 @@ export function collectFiles(target) {
   const out = [];
   for (const name of readdirSync(target).sort()) {
     const p = path.join(target, name);
-    if (statSync(p).isDirectory()) out.push(...collectFiles(p));
+    if (statSync(p).isDirectory()) { if (!name.startsWith(".")) out.push(...collectFiles(p)); }
     else if (LINTABLE.test(name) && !/\.pre-neo\.md$/i.test(name)) out.push(p);
   }
   return out;

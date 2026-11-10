@@ -9,7 +9,7 @@
     "dev": "astro dev",
     "build": "node scripts/check-heroes.mjs && npm run lint:copy && astro build",
     "check:heroes": "node scripts/check-heroes.mjs",
-    "lint:copy": "node scripts/copy-lint/slint.mjs --kind ffli src/pages",
+    "lint:copy": "node scripts/copy-lint/slint.test.mjs && node scripts/copy-lint/slint.mjs --kind ffli src/pages",
     "indexnow:submit": "node scripts/indexnow-submit.mjs",
     "preview": "astro preview",
     "astro": "astro"
