@@ -4,7 +4,7 @@
  * Same file in gunsearchengine and fflintel (scripts/copy-lint/) and on the box (/workspace/copy-desk/slint/).
  */
 import assert from "node:assert/strict";
-import { BLOCK, isHeadingLine, lintText, proseForStats } from "./slint.mjs";
+import { BLOCK, WARN, isHeadingLine, lintText, proseForStats } from "./slint.mjs";
 
 let failed = 0;
 function test(name, fn) {
@@ -146,6 +146,81 @@ test("D4 keyword in opening, one H2 and one FAQ is exempt from stamped-phrase", 
   ].join("\n\n");
   const other = lintText(otherGram, "gse", { raw: true });
   assert.ok(ids(other).includes("stamped-phrase"), "a non-keyword 7-gram x3 must still flag");
+});
+
+test("filler-phrases matches curly apostrophes on kept phrases; removed phrases do not flag", () => {
+  const long = LONG.join(" ");
+  const curlyHere = lintText(long + "\n\nHere\u2019s the thing to sit with.", "gse", { raw: true });
+  assert.ok(curlyHere.hits.some((h) => h.id === "filler-phrases" && h.level === BLOCK), `curly here's the thing should BLOCK: ${ids(curlyHere)}`);
+  const curlyIts = lintText(long + "\n\nIt\u2019s important to note the fee is public.", "gse", { raw: true });
+  assert.ok(curlyIts.hits.some((h) => h.id === "filler-phrases" && h.level === BLOCK), `curly it's important to note should BLOCK: ${ids(curlyIts)}`);
+  const straightHere = lintText(long + "\n\nHere's the thing to sit with.", "gse", { raw: true });
+  assert.ok(straightHere.hits.some((h) => h.id === "filler-phrases" && h.level === BLOCK), "straight here's the thing should BLOCK");
+  const todayCurly = lintText(long + "\n\nIn today\u2019s market, dealers still need a feed.", "gse", { raw: true });
+  assert.ok(!ids(todayCurly).includes("filler-phrases"), `removed in today's (curly) flagged filler: ${ids(todayCurly)}`);
+  const todayStraight = lintText(long + "\n\nIn today's market, dealers still need a feed.", "gse", { raw: true });
+  assert.ok(!ids(todayStraight).includes("filler-phrases"), `removed in today's (straight) flagged filler: ${ids(todayStraight)}`);
+});
+
+test("cut-list warns on Oct 4 lock words and forms; robust is not cut-list; kept filler still blocks", () => {
+  const long = LONG.join(" ");
+  const r = lintText(long + "\n\nThe checkout works seamlessly, and it can leverage the same feed. That empowers the shop. It is best-in-class, a real game changer.", "gse", { raw: true });
+  const cuts = r.hits.filter((h) => h.id === "cut-list");
+  assert.ok(cuts.length >= 5, `expected cut-list hits, got ${cuts.map((h) => h.match)}`);
+  assert.ok(cuts.every((h) => h.level === WARN), `cut-list must be WARN: ${cuts.map((h) => h.level + " " + h.match)}`);
+  const matches = cuts.map((h) => h.match.toLowerCase());
+  for (const p of ["seamlessly", "leverage", "empowers", "best-in-class", "game changer"]) {
+    assert.ok(matches.some((m) => m === p), `missing cut-list match ${p}: ${matches}`);
+  }
+  const robust = lintText(long + "\n\nIt is a robust feed, nothing more.", "gse", { raw: true });
+  assert.ok(!ids(robust).includes("cut-list"), "robust must not be cut-list");
+  assert.ok(!ids(robust).includes("filler-phrases"), "robust must not stay on filler-phrases");
+  const kept = lintText(long + "\n\nIn conclusion, the fee is public.", "gse", { raw: true });
+  assert.ok(kept.hits.some((h) => h.id === "filler-phrases" && h.level === BLOCK), "kept filler 'in conclusion' must still BLOCK");
+});
+
+test("more-than-just is warn-only", () => {
+  const r = lintText(LONG.join(" ") + "\n\nIt is more than a digital catalog for the counter.", "gse", { raw: true });
+  const hits = r.hits.filter((h) => h.id === "more-than-just");
+  assert.equal(hits.length, 1, `expected one more-than-just, got ${hits.map((h) => h.match)}`);
+  assert.equal(hits[0].level, WARN, "more-than-just must be WARN");
+});
+
+test("repeats of the post's own title or H1 are exempt from stamped-phrase; other repeats still flag", () => {
+  const title = "Why WooCommerce FFL Cockpit Managed by CoriolisAgency.com Beats Gearfire";
+  const body = [
+    "Dealers pick WooCommerce FFL Cockpit managed by CoriolisAgency.com because the stack is already theirs.",
+    LONG[0],
+    "A shop already on WooCommerce FFL Cockpit managed by CoriolisAgency.com keeps its catalog and checkout.",
+    LONG[1],
+    "That is why WooCommerce FFL Cockpit managed by CoriolisAgency.com shows up in this comparison three times.",
+    ...LONG.slice(2),
+  ].join("\n\n");
+  const withOpt = lintText(body, "news", { raw: true, title });
+  assert.ok(!ids(withOpt).includes("stamped-phrase"), `opts.title repeat flagged: ${withOpt.hits.filter((h) => h.id === "stamped-phrase").map((h) => h.match)}`);
+
+  const withHeader = `TITLE: ${title}\nURL: x\nDATE: 2026-01-01\nAUTHOR_ID: 1\nWORDS: 400\n\n${body}`;
+  const fromHeader = lintText(withHeader, "news", { raw: true });
+  assert.ok(!ids(fromHeader).includes("stamped-phrase"), `TITLE: header repeat flagged: ${fromHeader.hits.filter((h) => h.id === "stamped-phrase").map((h) => h.match)}`);
+
+  const fromH1 = lintText("# " + title + "\n\n" + body, "news", { raw: true });
+  assert.ok(!ids(fromH1).includes("stamped-phrase"), `H1 repeat flagged: ${fromH1.hits.filter((h) => h.id === "stamped-phrase").map((h) => h.match)}`);
+
+  const draft = ["- **Title tag:** " + title + " | GunSearchEngine.com", "- **H1:** " + title, "", "## Body", "", body].join("\n");
+  const fromDraft = lintText(draft, "gse");
+  assert.ok(!ids(fromDraft).includes("stamped-phrase"), `draft Title/H1 repeat flagged: ${fromDraft.hits.filter((h) => h.id === "stamped-phrase").map((h) => h.match)}`);
+
+  // Title typography: "Coriolis Agency" vs body "CoriolisAgency.com" (archive leftover).
+  const titleSpaced = "Why WooCommerce + FFL Cockpit Managed by Coriolis Agency Beats Gearfire and AmmoReady for FFL Dealers in 2026";
+  const typography = lintText(body, "news", { raw: true, title: titleSpaced });
+  assert.ok(!ids(typography).includes("stamped-phrase"), `title typography (Agency vs Agency.com) flagged: ${typography.hits.filter((h) => h.id === "stamped-phrase").map((h) => h.match)}`);
+
+  const otherGram = [
+    "The caveat about stale listings on a product page is the same caveat about stale listings on a product page, and then the caveat about stale listings on a product page appears again.",
+    LONG.join(" "),
+  ].join("\n\n");
+  const other = lintText(otherGram, "gse", { raw: true, title });
+  assert.ok(ids(other).includes("stamped-phrase"), "a non-title 7-gram x3 must still flag");
 });
 
 if (failed) { console.error(`slint.test: ${failed} failed`); process.exitCode = 1; } else console.log("ok: slint.test");

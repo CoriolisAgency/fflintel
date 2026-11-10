@@ -12,6 +12,13 @@
  * agency-line exemption); a post's target keyword may appear in the opening paragraph,
  * one H2 and one FAQ question without tripping stamped-phrase. Every other hit still flags.
  *
+ * Trim (SLOP-LINT-TRIM, Chief 2026-11-10 11:04 and 11:06 AM ET; Brandy's list):
+ * filler-phrases is the 17-phrase keep list (Paul's own words removed), still BLOCK;
+ * apostrophes match both ' and ’; more-than-just is WARN; stamped-phrase is BLOCK but
+ * also exempts repeats of the post's own title or H1 anywhere in the body; cut-list is a
+ * new WARN-only rule for seamless/leverage/empower/best-in-class/game-changing word forms
+ * (Oct 4 lock, pending Paul).
+ *
  * One file, no dependencies, Node 18+. The same file lives in:
  *   gunsearchengine  scripts/copy-lint/slint.mjs   (CI: scripts/test-slop-lint.ts, quality job)
  *   fflintel         scripts/copy-lint/slint.mjs   (CI: npm run build, next to the hero gate)
@@ -73,13 +80,15 @@ export const RULES = [
   ["not-x-its-y", BLOCK, String.raw`\b(?:it|this|that)(?:'s| is) not (?:just |only |about )?[^.;:!?]{1,60}[,;:.]\s*(?:it|this|that)(?:'s| is)\b`, "",
     "'It's not X, it's Y.' Say what it is."],
   ["not-only-but", WARN, String.raw`\bnot (?:just|only|merely)\b[^.]{1,80}\bbut\b`, "", "'Not only/just ... but' parallel."],
-  ["more-than-just", BLOCK, String.raw`\bmore than (?:just )?an? \w+\b`, "", "'More than just a ...' framing."],
+  ["more-than-just", WARN, String.raw`\bmore than (?:just )?an? \w+\b`, "", "'More than just a ...' framing."],
   ["heres-setup", BLOCK, String.raw`\bHere(?:'s| is) (?:what|how|why|the thing|the deal|the catch|where)\b`, "", "'Here's what/how' setup line. Just say it."],
   ["colon-reveal-q", WARN, String.raw`\b(?:The (?:result|catch|fix|answer|kicker|truth|bottom line|upshot))[?:]`, "", "Reveal-style setup ('The catch:')."],
   ["no-no-no", BLOCK, String.raw`(?:\b(?:No|Not)\b[^.]{1,40}\.\s+){2}(?:\b(?:No|Not|Just)\b[^.]{1,40}\.)`, "", "'No X. No Y. Just Z.' fragment run."],
   ["aphorism", WARN, String.raw`(?:^|(?<=[.!?]\s))(?:A|An|Every) [a-z][\w' -]{1,40} is (?:a|an|the) [\w' -]{2,30}\.`, "", "Slogan aphorism ('A listing is a promise.'). Cut or give the fact."],
-  ["filler-phrases", BLOCK, String.raw`\b(?:straight from the|written for you|make no mistake|let's be clear|here's the thing|bottom line|plain and simple|full stop|the hard part is|the real question|at the end of the day|in today's|game[- ]chang\w*|level up|dive in|let's dive|unlock\w*|leverag\w*|seamless\w*|robust|empower\w*|elevat\w*|supercharg\w*|best-in-class|cutting-edge|world-class|delve|tapestry|landscape of|navigate the|it's important to note|it is important to note|in conclusion|in summary)\b`, "i",
-    "Stock phrase on the house ban list."],
+  ["filler-phrases", BLOCK, String.raw`\b(?:straight from the|written for you|make no mistake|let['’]s be clear|here['’]s the thing|plain and simple|the hard part is|at the end of the day|level up|dive in|world-class|delve|tapestry|navigate the|it['’]s important to note|it is important to note|in conclusion)\b`, "i",
+    "Stock phrase on the house ban list (trimmed 2026-11-10; Paul's own words removed)."],
+  ["cut-list", WARN, String.raw`\b(?:seamless\w*|leverag\w*|empower\w*|best-in-class|game[- ]chang\w*)\b`, "i",
+    "Word on Paul's Oct 4 cut-on-sight list. Warn only until Paul rules (Chief 2026-11-10 11:06 AM ET)."],
   ["copula-dodge", WARN, String.raw`\b(?:serves as|stands as|acts as|boasts|functions as)\b`, "i", "Write 'is' or 'has'."],
   ["fake-depth", WARN, String.raw`,\s+(?:highlighting|underscoring|showcasing|reflecting|ensuring|signaling|demonstrating)\b`, "", "Trailing -ing 'analysis' clause."],
   ["source-hedge-body", WARN, String.raw`\b(?:wasn't|was not|weren't) reachable|from our desk|we haven't opened|could not be (?:retrieved|opened)|returned (?:an )?(?:error|403)\b`, "i",
@@ -306,6 +315,56 @@ function isKeywordGram(keywordWords, gram) {
 }
 
 /**
+ * Title and H1 word lists for the stamped-phrase exemption (SLOP-LINT-TRIM, Chief 2026-11-10 11:04 AM ET).
+ * A 7-gram that is a contiguous subspan of the post title or H1 is exempt anywhere in the body.
+ * Sources: opts.title, a TITLE: archive header, draft Title tag / H1 bullets, and markdown/HTML H1s
+ * in the original file (the title often sits outside the extracted body).
+ */
+export function extractTitlePhrases(fullText, opts = {}) {
+  const titles = [];
+  if (opts.title) titles.push(String(opts.title));
+  const text = String(fullText || "").replace(/\r\n?/g, "\n");
+  const header = text.match(/^TITLE:\s*(.+)$/m);
+  if (header) titles.push(header[1]);
+  const h1b = text.match(/^\s*[-*]\s+\*{0,2}H1:?\*{0,2}\s+(.+)$/im);
+  if (h1b) titles.push(h1b[1]);
+  const ttb = text.match(/^\s*[-*]\s+\*{0,2}Title tag:?\*{0,2}\s+(.+)$/im);
+  if (ttb) titles.push(ttb[1].replace(/\s*\|\s*GunSearchEngine\.com\s*$/i, ""));
+  const { titles: fromHeadings } = headingParts(text, {});
+  titles.push(...fromHeadings);
+  const out = [];
+  const seen = new Set();
+  for (const s of titles) {
+    const words = normalizePhrase(s);
+    if (!words.length) continue;
+    const key = words.join(" ");
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(words);
+  }
+  return out;
+}
+
+function compactWords(words) {
+  return words.join("");
+}
+
+function isTitleOrH1Gram(titlePhrases, gram) {
+  if (titlePhrases.some((words) => containsGram(words, gram))) return true;
+  // Title typography: "Coriolis Agency" in the title vs "CoriolisAgency.com" in the body
+  // (the leftover archive 7-gram Chief called out on 11:04 AM ET). A trailing "com"
+  // token from a .com domain does not break the title match, and spaces inside a
+  // brand name are ignored once the 7-gram is at least this long.
+  const g = compactWords(gram);
+  const gNoCom = g.endsWith("com") ? g.slice(0, -3) : g;
+  return titlePhrases.some((words) => {
+    const title = compactWords(words);
+    if (title.includes(g)) return true;
+    return gNoCom !== g && gNoCom.length >= 24 && title.includes(gNoCom);
+  });
+}
+
+/**
  * Walk the body into labeled blocks so a target-keyword 7-gram can be checked for
  * the allowed placement: opening paragraph, one H2, one FAQ question.
  */
@@ -424,12 +483,15 @@ export function lintText(text, kind = "gse", opts = {}) {
   }
   // Repeated 7-word strings (stamped caveats). A post's target keyword is allowed when it
   // appears only in the opening paragraph, one H2 and one FAQ question (Chief 10:49 AM ET).
+  // Repeats of the post's own title or H1 are exempt anywhere in the body (Chief 11:04 AM ET).
+  const titlePhrases = extractTitlePhrases(original, opts);
   const w = t.toLowerCase().match(/[a-z0-9']+/g) || [];
   const grams = new Map();
   for (let i = 0; i + 7 <= w.length; i++) { const g = w.slice(i, i + 7).join(" "); grams.set(g, (grams.get(g) || 0) + 1); }
   for (const [g, c] of grams) {
     if (c < 3) continue;
     const gram = g.split(" ");
+    if (isTitleOrH1Gram(titlePhrases, gram)) continue;
     if (isKeywordGram(kw.words, gram)) {
       const locs = locatePhrase(md, gram);
       if (keywordPlacementOk(locs)) continue;
