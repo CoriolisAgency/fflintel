@@ -5,14 +5,16 @@
 export const LINKS = {
   home: "https://fflintel.com",
   gse: "https://www.gunsearchengine.com",
-  fortress: "https://www.gunsearchengine.com/betsy-vs-retailbi",
+  // FFLI-OVERHAUL-P1 A4: GSE /betsy-vs-retailbi, /betsy-live and
+  // /betsy/enterprise-copilot are noindex. Point at indexable GSE pages.
+  fortress: "https://www.gunsearchengine.com/retailbi-firearm-sales-index",
   gseIndex: "https://www.gunsearchengine.com/retailbi-firearm-sales-index",
   gseNics: "https://www.gunsearchengine.com/nics-vs-firearm-sales",
   oemDemand: "https://www.gunsearchengine.com/oem-firearms-demand-analytics",
   demandIntel:
     "https://www.coriolisagency.com/demand-intelligence?utm_source=fflintel&utm_medium=referral&utm_campaign=di",
-  copilot: "https://www.gunsearchengine.com/betsy/enterprise-copilot",
-  betsyLive: "https://www.gunsearchengine.com/betsy-live",
+  copilot: "https://www.gunsearchengine.com/oem-firearms-demand-analytics",
+  betsyLive: "https://www.gunsearchengine.com/oem-firearms-demand-analytics",
   gseBetsy: "https://www.gunsearchengine.com/betsy",
   gseDealers: "https://www.gunsearchengine.com/for-dealers/feed",
   gseFflAnalytics: "https://www.gunsearchengine.com/for-dealers/ffl-analytics",

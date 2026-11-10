@@ -6,7 +6,12 @@
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.fflintel.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "www.fflintel.com"
+        }
+      ],
       "destination": "https://fflintel.com/:path*",
       "permanent": true
     },
@@ -18,6 +23,11 @@
     {
       "source": "/issues/2026-08-three-numbers",
       "destination": "/brief/three-numbers",
+      "permanent": true
+    },
+    {
+      "source": "/what-is-retailbi",
+      "destination": "/retailbi-firearm-sales-index",
       "permanent": true
     }
   ]

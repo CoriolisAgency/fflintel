@@ -24,8 +24,10 @@ export default defineConfig({
   // GitHub Pages serves /page/ and 301s /page, so emit the slash form.
   trailingSlash: "always",
   build: { format: "directory" },
+  // Sitemap lists only indexable, self-canonical pages (FFLI-OVERHAUL-P1 A6).
   integrations: [
     sitemap({
+      filter: (page) => !/\/confirmed\/?$/.test(new URL(page).pathname),
       serialize(item) {
         const d = LASTMOD.get(new URL(item.url).pathname);
         if (d) item.lastmod = `${d}T12:00:00-05:00`; // noon ET on the content date
@@ -33,9 +35,11 @@ export default defineConfig({
       },
     }),
   ],
+  // Slash-form targets so Pages serves them with no extra hop.
   redirects: {
-    "/issues": "/brief",
-    "/issues/2026-08-three-numbers": "/brief/three-numbers",
+    "/issues": "/brief/",
+    "/issues/2026-08-three-numbers": "/brief/three-numbers/",
+    "/what-is-retailbi": "/retailbi-firearm-sales-index/",
   },
   vite: {
     plugins: [tailwindcss()],

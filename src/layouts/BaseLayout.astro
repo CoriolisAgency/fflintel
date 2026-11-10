@@ -37,6 +37,8 @@ interface Props {
   showDoors?: boolean;
   /** Email capture modal. Off for confirm. @default true */
   emailCapture?: boolean;
+  /** Utility pages (confirm): meta robots noindex. Keep them out of the sitemap too. */
+  noindex?: boolean;
 }
 
 const {
@@ -56,6 +58,7 @@ const {
   jsonLdExtra = [],
   showDoors = true,
   emailCapture = true,
+  noindex = false,
 } = Astro.props;
 
 const siteOrigin = Astro.site ?? new URL("https://fflintel.com");
@@ -83,6 +86,7 @@ const jsonLd = pageGraph(extras);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex ? <meta name="robots" content="noindex, follow" /> : null}
     <link rel="canonical" href={canonical} />
     <meta name="theme-color" content="#f6f3ec" />
     <link rel="icon" type="image/svg+xml" href={withBase("favicon.svg")} />

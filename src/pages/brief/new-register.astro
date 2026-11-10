@@ -6,7 +6,7 @@ import LegalNote from "../../components/LegalNote.astro";
 import { BRIEFS } from "../../lib/briefs";
 import { linkClass, ext } from "../../lib/links";
 import { newsArticleNode } from "../../lib/schema";
-import { withBase } from "../../lib/base";
+import { withBase, pageHref } from "../../lib/base";
 
 const brief = BRIEFS.find((b) => b.slug === "new-register")!;
 
@@ -130,9 +130,8 @@ const hero = brief.image;
         and we will not invent one. Sell-through and search are different jobs.
         How they sit together is on{" "}
         <a
-          href="https://www.gunsearchengine.com/betsy-vs-retailbi"
-          class={linkClass}
-          {...ext}>Betsy vs RetailBI</a
+          href={pageHref("sell-through-vs-search-intent")}
+          class={linkClass}>Betsy vs RetailBI</a
         >.
       </p>
     </div>
