@@ -77,7 +77,7 @@ That makes it a different series from the other two official numbers people reac
 - NICS counts background checks. A check isn't a sale. Here's [why a background check is not a firearm sale](/nics-is-not-sales/).
 - ATF's manufacturing report counts units made. We cover that in [how many guns U.S. makers built](/brief/afmer-2024/).
 
-None of the three shows a brand what shoppers looked for. Tax dollars tell you what makers and importers sold, at their price, a quarter or more later. They don't tell you which gun a shopper searched for and couldn't find. That's a different kind of data. GunSearchEngine publishes [demand data aimed at firearms brands](https://www.gunsearchengine.com/oem-firearms-demand-analytics). There's also [brand-side search demand data from Coriolis](https://www.coriolisagency.com/demand-intelligence?utm_source=fflintel&utm_medium=referral&utm_campaign=fflintel-firearms-ammo-excise-tax-collections).
+None of the three shows a brand what shoppers looked for. Tax dollars reflect what makers and importers sold, at their price, a quarter or more later, and they say nothing about the gun a shopper searched for and couldn't find. GunSearchEngine publishes [demand data aimed at firearms brands](https://www.gunsearchengine.com/oem-firearms-demand-analytics) on that question.
 
 ## Why the lag
 
@@ -92,6 +92,8 @@ When TTB posts Q3, Q4 or the FY2026 final on its Tax Collections page, we add th
 **As of November 10, 2026:** TTB S 5630-Q2-2026, issued June 12, 2026, through March 31, 2026.
 
 Not affiliated with Gearfire, RetailBI or NSSF. Marks belong to their owners. This is not legal advice. This desk does not run NICS, 4473, or the bound book.
+
+For makers who want that read on their own lines, Coriolis also offers [brand-side search demand data](https://www.coriolisagency.com/demand-intelligence?utm_source=fflintel&utm_medium=referral&utm_campaign=fflintel-firearms-ammo-excise-tax-collections).
 
 ## Sources
 
