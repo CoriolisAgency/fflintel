@@ -3,13 +3,13 @@ layout: ../layouts/NoteLayout.astro
 slug: retailbi-firearm-sales-index
 ---
 
-The RetailBI Firearm Sales Index is Gearfire's public, same-store measure of new firearm units. It isn't NICS. It isn't a search-demand series. As of November 10, 2026, Gearfire's RetailBI page shows a 15.8 percent decline for September, a 6.0 percent decline for August, and a 5.6 percent year-to-date decline. The page doesn't show an October print yet. RetailBI says figures are subject to revision as retailer data syncs are finalized.
+The RetailBI Firearm Sales Index is Gearfire's public, same-store measure of new firearm units, and it's a separate series from NICS and from search demand. As of November 10, 2026, Gearfire's RetailBI page shows a 15.8 percent decline for September, a 6.0 percent decline for August and a 5.6 percent year-to-date decline, with no October print yet. RetailBI says figures are subject to revision as retailer data syncs are finalized.
 
-The Index counts new guns that sold at the same stores as last year. It can't see used guns, stores that opened or closed, or a shopper looking for a gun that wasn't on the shelf.
+The Index counts new guns that sold at the same stores as last year, so it can't see used guns, stores that opened or closed, or a shopper looking for a gun that wasn't on the shelf.
 
 ## The public print log
 
-Every row ties to a dated public page we opened on November 10, 2026. All figures are year-over-year declines at the same stores.
+Every row ties to a dated public page we opened on November 10, 2026, and all figures are year-over-year declines at the same stores.
 
 | Month | Same-store change | Year to date | Source and date |
 |---|---|---|---|
@@ -25,48 +25,42 @@ Every row ties to a dated public page we opened on November 10, 2026. All figure
 | Aug 2026 | 6.0% decline | | Gearfire RetailBI page, as of Nov 10, 2026 |
 | Sep 2026 | 15.8% decline | 5.6% decline (shown as Year to Date on the same page) | Gearfire RetailBI page, as of Nov 10, 2026 |
 
-We didn't find a public monthly print for May, June, July or October 2026 on any page we opened November 10, 2026. Those months stay off the table. We will not invent one. When a dated release appears, we add the row.
+We didn't find a public monthly print for May, June, July or October 2026 on any page we opened November 10, 2026, so those months stay off the table and we will not invent one. When a dated release appears, we add the row.
 
-A note on the last two rows. Gearfire's page labels them "September," "August" and "Year to Date" with no year. Each one sits next to a down arrow, so we log them as declines. We read them as 2026 because they're the current prints on that page today.
+A note on the last two rows: Gearfire's page labels them "September," "August" and "Year to Date" with no year. Each one sits next to a down arrow, so we log them as declines, and we read them as 2026 because they're the current prints on that page today.
 
 ## How they count what sold, and what they leave out
 
-Gearfire describes the method on its RetailBI page. RetailBI pulls point-of-sale and ecommerce transactions from a subset of retailers in its network. It keeps new firearm sales only. Then it compares unit sales for the same period, month or year to date, against the prior year at the same stores. The result is a percent change.
+Gearfire describes the method on its RetailBI page. RetailBI pulls point-of-sale and ecommerce transactions from a subset of retailers in its network and keeps new firearm sales only. Then it compares unit sales for the same period, month or year to date, against the prior year at the same stores, and the result is a percent change.
 
-So the Index is built from the two places a dealer sells, the register and the website, and in a lot of shops those are two systems that don't share inventory.
-
-Same stores means a shop that opened or closed doesn't show up as demand. New guns only means the used-gun case doesn't count. Both choices make the number cleaner. Both make it narrower.
+So the Index is built from the two places a dealer sells, the register and the website. Same stores means a shop that opened or closed doesn't show up as demand, and new guns only means the used-gun case doesn't count; both choices make the number cleaner, and both make it narrower.
 
 What the Index leaves out:
 
 - Used guns.
 - Stores outside the panel, and stores that didn't report both years.
 - Background checks that aren't sales. That's a [different number](/nics-is-not-sales/).
-- What people asked for and couldn't find. A sale needs a gun on the shelf. A search doesn't.
+- What people asked for and couldn't find, since a sale needs a gun on the shelf and a search doesn't.
 
-That last gap is the desk's lens. [What sold is not what people asked for](/sell-through-vs-search-intent/). The Index is useful for the first. It's silent on the second.
+That last gap is the desk's lens: [What sold is not what people asked for](/sell-through-vs-search-intent/). The Index is useful for the first and silent on the second.
 
-Gearfire's page also makes claims about the panel, like dealer counts. Those are Gearfire's description of its product. They aren't Index prints, and we don't calculate anything from them. For a longer walk through the method, GunSearchEngine has [a longer explainer of how the Index is counted](https://www.gunsearchengine.com/retailbi-firearm-sales-index).
+Gearfire's page also makes claims about the panel, like dealer counts. Those are Gearfire's description of its product rather than Index prints, and we don't calculate anything from them. For a longer walk through the method, GunSearchEngine has [a longer explainer of how the Index is counted](https://www.gunsearchengine.com/retailbi-firearm-sales-index).
 
 ## Revisions
 
-RetailBI revises. Its releases say figures are subject to revision as retailer data syncs are finalized.
+January 2026 shows how RetailBI's revisions work. The first print, on The Outdoor Wire February 9, 2026, was a 6.2 percent decline, and the February release on March 10 carried a footnote: January was revised to 5.7 percent "to reflect the full same-store dataset," and year to date was calculated from the revised figures.
 
-January 2026 is the worked example. The first print, on The Outdoor Wire February 9, 2026, was a 6.2 percent decline. The February release on March 10 carried a footnote: January was revised to 5.7 percent "to reflect the full same-store dataset," and year to date was calculated from the revised figures.
-
-We keep both. The first figure stays on the row, the revision sits next to it, each with its date. That's [how we cite](/methodology/).
+We keep both, with the first figure on the row and the revision next to it, each with its date; that's [how we cite](/methodology/).
 
 ## Quarterly reports are a different product
 
-RetailBI also publishes quarterly reports. These aren't monthly Index prints.
+RetailBI also publishes quarterly reports, which aren't monthly Index prints. The Q3 2026 Shooting Sports Report, on The Outdoor Wire October 20, 2026, says new firearm unit sales declined 7.8 percent year over year in Q3 2026, revenue declined 0.8 percent and average selling prices rose 7.6 percent.
 
-The Q3 2026 Shooting Sports Report, on The Outdoor Wire October 20, 2026, says new firearm unit sales declined 7.8 percent year over year in Q3 2026. It says revenue declined 0.8 percent and average selling prices rose 7.6 percent.
-
-That 7.8 percent covers a quarter. It doesn't fill in July, August or September as monthly cells, and we don't put it in the monthly table.
+That 7.8 percent covers a quarter, so it doesn't fill in July, August or September as monthly cells, and we don't put it in the monthly table.
 
 ## As of
 
-As of November 10, 2026. The latest public monthly print we can source is September 2026, a 15.8 percent same-store decline, on Gearfire's RetailBI page. We update this page when a new public print appears on Gearfire's page or in a dated Outdoor Wire release.
+As of November 10, 2026, the latest public monthly print we can source is September 2026, a 15.8 percent same-store decline, on Gearfire's RetailBI page. We update this page when a new public print appears on Gearfire's page or in a dated Outdoor Wire release.
 
 Not affiliated with Gearfire, RetailBI or NSSF. Marks belong to their owners. This is not legal advice. This desk does not run NICS, 4473, or the bound book.
 
