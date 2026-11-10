@@ -3,9 +3,9 @@ layout: ../layouts/NoteLayout.astro
 slug: how-many-ffls
 ---
 
-ATF's public complete listing for July 2026 has 77,485 federal firearms licensees, counted from ATF's July 2026 file. That figure is as of ATF's July 2026 listing, excludes Type 03. Type 03 collectors aren't in that public file. ATF's October 2026 listing wasn't reachable from our desk on November 10, 2026, so July is the newest month we could count.
+ATF's public complete listing for July 2026 has 77,485 federal firearms licensees, counted from ATF's July 2026 file; the figure excludes Type 03 collectors, who aren't in that public file. July is the newest ATF month this page could count.
 
-The count is licenses on a file. It isn't a count of open storefronts. It doesn't say who sells only online.
+The count is licenses on a file, so it isn't a count of open storefronts and it doesn't say who sells only online.
 
 ## Where the official listing lives
 
@@ -14,16 +14,11 @@ ATF posts the listing on its Federal Firearms Listings page:
 - https://www.atf.gov/firearms/listing-federal-firearms-licensees/
 - By state: https://www.atf.gov/firearms/listing-federal-firearms-licensees/state
 
-Each month's complete list is a file. That file is the source. A chart someone built from it is a copy.
-
-Two rules when you cite it:
-
-1. Name the month the file covers.
-2. Don't mix two months in one total.
+Each month's complete list is a file, and that file is the source; a chart someone built from it is a copy. When you cite it, name the month the file covers, and don't mix two months in one total.
 
 ## The latest count we could open
 
-**77,485 licensees, counted from ATF's July 2026 file, as of ATF's July 2026 listing, excludes Type 03.**
+**77,485 licensees, counted from ATF's July 2026 file.**
 
 | License type | ATF label | Count |
 |---|---|---:|
@@ -37,21 +32,21 @@ Two rules when you cite it:
 | 11 | Importer of Destructive Devices | 311 |
 | **Total** | | **77,485** |
 
-How we counted: 77,485 is the number of data rows in ATF's July 2026 complete list, file `0726-ffl-list.csv`. One row is one license. The eight type counts add up to the same total. The file has no separate "as of" date, so the month comes from ATF's file name.
+How we counted: 77,485 is the number of data rows in ATF's July 2026 complete list, file `0726-ffl-list.csv`, and one row is one license. The eight type counts add up to the same total. The file has no separate "as of" date, so the month comes from ATF's file name.
 
-**Type 03 is not in this number.** Type 03 is ATF's Collector of Curios and Relics license. Collectors don't appear in the public complete list. Other ATF reports that include collectors print a much larger national total. We haven't opened those today, so we don't print that figure here. Don't add a collector count to 77,485.
+**Type 03 is not in this number.** Type 03 is ATF's Collector of Curios and Relics license, and collectors don't appear in the public complete list. Other ATF reports that include collectors print a much larger national total, which this page doesn't print, so don't add a collector count to 77,485.
 
-**October 2026 wasn't reachable.** ATF's site returned an error for the October 2026 file and for August and September when we tried on November 10, 2026. No archived copy was available either. Other sites say October is out and publish their own counts. We don't reprint them. When we can open a newer ATF file, this page moves to that month.
+ATF's site returned an error for the August, September and October 2026 files when we tried on November 10, 2026, and no archived copy was available, so July is the newest month counted.
 
 ## License types, in plain words
 
-A license type tells you what the holder is licensed to do. It doesn't tell you how big the business is or whether it sold anything this month.
+A license type tells you what the holder is licensed to do, not how big the business is or whether it sold anything this month.
 
-On the July 2026 file, dealers (Type 01) are the biggest group at 45,172. Firearms manufacturers (Type 07) are next at 22,142. The labels in the table are ATF's own wording, from the "Federal Firearms License (FFL) Types" table on ATF's [Federal Firearms Listings page](https://web.archive.org/web/20260124015254/https://www.atf.gov/firearms/listing-federal-firearms-licensees) (archived January 23, 2026).
+On the July 2026 file, the 45,172 Type 01 licenses (dealers, including gunsmiths) are the biggest group, and firearms manufacturers (Type 07) are next at 22,142. The labels in the table are ATF's own wording, from the "Federal Firearms License (FFL) Types" table on ATF's [Federal Firearms Listings page](https://web.archive.org/web/20260124015254/https://www.atf.gov/firearms/listing-federal-firearms-licensees) (archived January 23, 2026).
 
 ## What a listing count is not
 
-A listing count is a count of licenses on a file. Here's what it isn't:
+A listing count is a count of licenses on a file, and none of the following:
 
 - It isn't a census of open storefronts. A license on the file doesn't mean the doors are open on Main Street.
 - It isn't a count of online sellers. The file has no field for that. We cover what the file can't say in [online-only FFLs: what the licensee files can and cannot tell you](/online-only-ffls/).
@@ -60,15 +55,15 @@ A listing count is a count of licenses on a file. Here's what it isn't:
 
 ## How we update
 
-We refresh this page each quarter, or sooner when we can open a newer ATF listing. The July 2026 total stays on the page with its file month when a new one goes up. We don't update from someone else's tracker. That's [how we cite](/methodology/).
+We refresh this page each quarter, or sooner when we can open a newer ATF listing, and the July 2026 total stays on the page with its file month when a new one goes up. Other sites say October is out and publish their own counts; we don't reprint them, and we don't update from someone else's tracker; that's [how we cite](/methodology/).
 
 ## What this means for a shop
 
-If you hold one of the 45,172 Type 01 licenses (dealers, including gunsmiths) on the July 2026 file, this count tells you how big the group is and nothing about how it's doing. The file doesn't show which dealers have an open storefront, how large they are or what they sold this year.
+The July 2026 file lists 45,172 Type 01 licenses (dealers, including gunsmiths), and that's about all the count can tell you about them. The file has no field for whether a licensee has an open storefront, how big the business is or whether it sold anything this month. So the count can't tell you which of those dealers are open for business, or which of them sell online.
 
 Not affiliated with Gearfire, RetailBI or NSSF. Marks belong to their owners. This is not legal advice. This desk does not run NICS, 4473, or the bound book.
 
-If you hold one of those licenses and want shoppers to see what's in your case before they drive over, Coriolis [builds gun store websites that list your real inventory](https://www.coriolisagency.com/ecommerce?utm_source=fflintel&utm_medium=referral&utm_campaign=fflintel-how-many-ffls).
+If you hold one of those licenses and you want shoppers to see what's actually in your case before they drive over, that's the job of [putting a gun store's inventory on a website it owns](https://www.coriolisagency.com/ecommerce?utm_source=fflintel&utm_medium=referral&utm_campaign=fflintel-how-many-ffls).
 
 ## Sources
 
