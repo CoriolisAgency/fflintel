@@ -1,0 +1,53 @@
+# CodeFab ping (CODEFAB-S7).
+# triggers directly there) or to an excluded repo (gun-runner-pos, quartermaster, warehouse,
+# manhattan, lipsey, wcpos, carryiq: never joined, see DEFAULT_GH_EXCLUDE in codefab.mjs).
+#
+# On a push (any branch) or a PR state change it asks coriolis to run the CodeFab tile poster now
+# (workflow_dispatch of codefab.yml on main, input source = this repo's name). The poster renders
+# from coriolis main and posts only when the rendered rows change; its codefab-sync concurrency
+# group collapses a burst to at most one running and one pending run.
+#
+# Paul-only setup (nothing runs until both exist):
+#   - org Actions secret CODEFAB_DISPATCH: fine-grained PAT, resource owner CoriolisAgency,
+#     repository access only CoriolisAgency/coriolis, permission Actions: Read and write
+#     (Metadata: read is automatic). Nothing else. Selected-repos visibility: the repos with
+#     this file.
+#   - org Actions variable CODEFAB_PING = on (the kill switch: unset or anything else skips the
+#     job, and a skipped job uses no runner minutes).
+# The token is only ever read from the secret and never printed.
+name: CodeFab ping
+
+on:
+  push:
+    branches: ['**']
+  # pull_request_target runs the default branch's copy of this file, so PR code never sees the
+  # secret. Nothing is checked out. A merged close is skipped (the push to main covers it).
+  pull_request_target:
+    types: [opened, reopened, ready_for_review, converted_to_draft, closed]
+
+permissions: {}
+
+concurrency:
+  group: codefab-ping
+  cancel-in-progress: false
+
+jobs:
+  ping:
+    if: vars.CODEFAB_PING == 'on' && !(github.event_name == 'pull_request_target' && github.event.pull_request.merged)
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Ask coriolis to refresh the CodeFab tile
+        env:
+          CODEFAB_DISPATCH: ${{ secrets.CODEFAB_DISPATCH }}
+          SOURCE: ${{ github.event.repository.name }}
+        run: |
+          if [ -z "$CODEFAB_DISPATCH" ]; then echo "CODEFAB_DISPATCH is not set; skip"; exit 0; fi
+          code=$(curl -sS -o /dev/null -w '%{http_code}' -X POST \
+            -H "Authorization: Bearer $CODEFAB_DISPATCH" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/CoriolisAgency/coriolis/actions/workflows/codefab.yml/dispatches \
+            -d "{\"ref\":\"main\",\"inputs\":{\"source\":\"$SOURCE\"}}" || true)
+          echo "CodeFab dispatch HTTP $code"
+          if [ "$code" != "204" ]; then echo "::warning title=CodeFab ping::dispatch HTTP $code; the hourly backstop still refreshes the tile"; fi
