@@ -17,10 +17,17 @@ export default defineConfig({
   // GitHub Pages serves /page/ and 301s /page, so emit the slash form.
   trailingSlash: "always",
   build: { format: "directory" },
-  integrations: [sitemap()],
+  // Sitemap lists only indexable, self-canonical pages (FFLI-OVERHAUL-P1 A6).
+  integrations: [
+    sitemap({
+      filter: (page) => !/\/confirmed\/?$/.test(new URL(page).pathname),
+    }),
+  ],
+  // Slash-form targets so Pages serves them with no extra hop.
   redirects: {
-    "/issues": "/brief",
-    "/issues/2026-08-three-numbers": "/brief/three-numbers",
+    "/issues": "/brief/",
+    "/issues/2026-08-three-numbers": "/brief/three-numbers/",
+    "/what-is-retailbi": "/retailbi-firearm-sales-index/",
   },
   vite: {
     plugins: [tailwindcss()],

@@ -1,5 +1,6 @@
 ---
 import { LINKS, ext } from "../lib/links";
+import { pageHref } from "../lib/base";
 
 interface Props {
   heading?: string;
@@ -56,7 +57,7 @@ const { heading = "What to do next" } = Astro.props;
   </div>
   <p class="mt-4 text-xs leading-relaxed text-stone-500">
     Doctrine:{" "}
-    <a href={LINKS.fortress} class="text-sky-800 hover:underline" {...ext}
+    <a href={pageHref("sell-through-vs-search-intent")} class="text-sky-800 hover:underline"
       >Betsy vs RetailBI</a
     >
     {" · "}
