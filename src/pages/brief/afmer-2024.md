@@ -79,5 +79,5 @@ Not affiliated with Gearfire, RetailBI or NSSF. Marks belong to their owners. Th
 ## Sources
 
 1. ATF, Annual Firearms Manufacturing and Export Report, Year 2024 Final (`AFMER 2024 Final Report 508c_0.pdf`). Prepared by LED 01/30/2026. Report data as of 01/30/2026. Official URL: <https://www.atf.gov/media/29786/download> (403 on Nov 10, 2026). Archived copy cited: <https://web.archive.org/web/20261001185014if_/https://www.atf.gov/media/29786/download> (snapshot Oct 1, 2026, 2:50 PM ET, retrieved Nov 10, 2026, 8:54 AM ET). Every printed type total and the definition match.
-2. ATF, Data and Statistics, <https://www.atf.gov/resource-center/data-statistics>
+2. ATF, Data and Statistics, <https://www.atf.gov/resource-center/data-statistics> (not opened live.)
 3. Totals 9,474,540 and 399,902: the sum of ATF's five printed type totals.
