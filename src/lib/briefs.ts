@@ -65,11 +65,12 @@ export const ESSAYS = [
   {
     href: "/retailbi-firearm-sales-index",
     kicker: "The Index",
-    title: "How they count what sold, and what they leave out",
-    dek: "Same stores. New guns only. Compared to last year. They revise it when more shops finish sending data. Useful. It is still last month, and it is still only what sold.",
-    dateLabel: "August 13, 2026",
-    image: "betsy/images/shop-register.jpg",
-    imageAlt: "A gun shop counter and register in morning light",
+    // N3 refresh (FFLI-NOTES-P1): card mirrors the page's H1, meta and hero.
+    title: "RetailBI Firearm Sales Index: every public monthly print",
+    dek: "Every public RetailBI Firearm Sales Index print we can source, with dates. September was a 15.8% same-store decline on Gearfire's page as of Nov 10.",
+    dateLabel: "November 10, 2026",
+    image: "notes/retailbi-firearm-sales-index-hero-1600x900.webp",
+    imageAlt: "Lollipop chart of RetailBI monthly same-store declines, Aug 2025 to Sep 2026; September 2026 down 15.8%.",
   },
   {
     href: "/sell-through-vs-search-intent",

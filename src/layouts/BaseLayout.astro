@@ -21,6 +21,14 @@ interface Props {
   /** Absolute URL override (what-is-retailbi → GSE fortress). */
   canonicalUrl?: string;
   ogImagePath?: string;
+  /** Hero og crop size and alt (notes). Emitted as og:image:width/height/alt and twitter:image:alt. */
+  ogImageWidth?: number;
+  ogImageHeight?: number;
+  ogImageAlt?: string;
+  /** "article" on notes. @default "website" */
+  ogType?: string;
+  /** ImageObject(s) for the WebPage node (primaryImageOfPage + image). */
+  pageImage?: Record<string, unknown>[];
   breadcrumbs?: Crumb[];
   faqs?: FaqItem[];
   extraJsonLd?: Record<string, unknown>[];
@@ -39,6 +47,11 @@ const {
   path = "/",
   canonicalUrl,
   ogImagePath = CANON_PATHS.headshot,
+  ogImageWidth,
+  ogImageHeight,
+  ogImageAlt,
+  ogType = "website",
+  pageImage,
   breadcrumbs,
   faqs,
   extraJsonLd = [],
@@ -57,7 +70,7 @@ const canonical = canonicalUrl ?? selfUrl;
 const ogAbs = new URL(withBase(ogImagePath), siteOrigin).href;
 
 const extras: Record<string, unknown>[] = [
-  webPageNode({ url: canonical, name: title, description }),
+  webPageNode({ url: canonical, name: title, description, image: pageImage }),
 ];
 if (breadcrumbs?.length) extras.push(breadcrumbJsonLd(breadcrumbs));
 if (faqs?.length) extras.push(faqJsonLd(faqs));
@@ -96,17 +109,21 @@ const jsonLd = pageGraph(extras);
       href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,500;0,600;0,700;1,500&display=swap"
       rel="stylesheet"
     />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogAbs} />
+    {ogImageWidth ? <meta property="og:image:width" content={String(ogImageWidth)} /> : null}
+    {ogImageHeight ? <meta property="og:image:height" content={String(ogImageHeight)} /> : null}
+    {ogImageAlt ? <meta property="og:image:alt" content={ogImageAlt} /> : null}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@2ABetsy" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogAbs} />
+    {ogImageAlt ? <meta name="twitter:image:alt" content={ogImageAlt} /> : null}
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body class="min-h-dvh flex flex-col bg-paper text-ink">
