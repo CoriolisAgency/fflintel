@@ -1,5 +1,7 @@
 # PR check (FFLI-NOTES-P1). Runs the hero gate and the Astro build on every pull request,
 # so no note can merge without its hero. The Pages deploy runs the same `npm run build`.
+# SLOP-LINT-P1 (WRITING-FIX, Paul 2026-11-10 10:02 AM ET): `npm run build` also runs the prose linter
+# (scripts/copy-lint/slint.mjs) over src/pages/**/*.md, after the hero gate. Warn-only while SLINT_MODE is "warn".
 name: ci
 
 on:
