@@ -93,5 +93,5 @@ Not affiliated with NSSF, Gearfire or RetailBI. Marks belong to their owners. Th
 
 1. FBI, NICS Firearm Background Checks: Month/Year by State. Year 2026 page (Jan 1 to Oct 31, 2026) and Year 2025 page (Jan 1 to Dec 31, 2025). PDF modified November 2, 2026, 9:07 AM ET. <https://www.fbi.gov/file-repository/cjis/nics_firearm_checks_-_month_year_by_state.pdf>
 2. FBI, NICS Firearm Background Checks: Month/Year, created November 2, 2026. <https://www.fbi.gov/file-repository/cjis/nics_firearm_checks_-_month_year.pdf> (national October 2026 total 2,221,553).
-3. NSSF, "NSSF-Adjusted NICS Background Checks for October 2026," The Shooting Wire, November 4, 2026. <https://www.shootingwire.com/releases/2026/11/nssf-adjusted-nics-background-checks-for-october-2026/> (method, adjusted top-five names, 28-state note. Re-opened Nov 10, 2026.)
+3. NSSF, "NSSF-Adjusted NICS Background Checks for October 2026," The Shooting Wire, November 4, 2026. <https://www.shootingwire.com/releases/2026/11/nssf-adjusted-nics-background-checks-for-october-2026/> (opened Nov 10, 2026)
 4. Percent changes (89.6, 15.1, 8.2) are our math from source 1 cells.
