@@ -259,26 +259,36 @@ export function headingParts(md, opts = {}) {
 
 /**
  * Longest word sequence (at least 4 words) shared by the title (if any), an H2, and an FAQ question.
- * If there is no title, the longest phrase shared by an H2 and an FAQ question is used.
+ * If there is no title, or the title is a rewrite that does not share a 4-word phrase with
+ * the H2 and FAQ (live GSE D4: title "Selling Dropship Items..." vs target query in the H2/FAQ),
+ * the longest phrase shared by an H2 and an FAQ question is used (same as the MD path).
  */
 export function deriveKeywordFromHeadings(md, opts = {}) {
   const { titles, h2s, faqs } = headingParts(md, opts);
   if (!h2s.length || !faqs.length) return [];
-  const pools = [h2s.map(normalizePhrase), faqs.map(normalizePhrase)];
-  if (titles.length) pools.unshift(titles.map(normalizePhrase));
-  let best = [];
-  const first = pools[0];
-  for (const words of first) {
-    for (let n = words.length; n >= 4; n--) {
-      if (n <= best.length) break;
-      for (let i = 0; i + n <= words.length; i++) {
-        const gram = words.slice(i, i + n);
-        const ok = pools.every((pool) => pool.some((w) => containsGram(w, gram)));
-        if (ok) { best = gram; break; }
+  const h2Pool = h2s.map(normalizePhrase);
+  const faqPool = faqs.map(normalizePhrase);
+  const titlePool = titles.map(normalizePhrase).filter((w) => w.length);
+  const shared = (pools) => {
+    let best = [];
+    const first = pools[0];
+    for (const words of first) {
+      for (let n = words.length; n >= 4; n--) {
+        if (n <= best.length) break;
+        for (let i = 0; i + n <= words.length; i++) {
+          const gram = words.slice(i, i + n);
+          const ok = pools.every((pool) => pool.some((w) => containsGram(w, gram)));
+          if (ok) { best = gram; break; }
+        }
       }
     }
+    return best;
+  };
+  if (titlePool.length) {
+    const withTitle = shared([titlePool, h2Pool, faqPool]);
+    if (withTitle.length) return withTitle;
   }
-  return best;
+  return shared([h2Pool, faqPool]);
 }
 
 function containsGram(words, gram) {

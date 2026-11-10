@@ -148,6 +148,24 @@ test("D4 keyword in opening, one H2 and one FAQ is exempt from stamped-phrase", 
   assert.ok(ids(other).includes("stamped-phrase"), "a non-keyword 7-gram x3 must still flag");
 });
 
+test("keyword exemption still applies when the published title is a rewrite (live GSE D4)", () => {
+  const md = [
+    "The honest way to show dropship items on a gun store site is to say so: put those dropship or catalog products in their own clearly marked area.",
+    LONG[0],
+    "### How to show dropship items on a gun store site",
+    LONG[1] + " " + LONG[2],
+    "### Quick answers",
+    "**How do I show dropship items on a gun store website without confusing walk-in customers?** Put those items in their own clearly marked area.",
+    LONG[3] + " " + LONG[4],
+  ].join("\n\n");
+  const title = "Selling Dropship Items Without Confusing Walk-In Customers";
+  const raw = lintText(md, "gse", { raw: true, title });
+  assert.match(raw.keyword, /show dropship items on a gun store/, raw.keyword);
+  assert.ok(!ids(raw).includes("stamped-phrase"), `rewrite title flagged: ${raw.hits.filter((h) => h.id === "stamped-phrase").map((h) => h.match)}`);
+  const extra = lintText(md + "\n\nStaff should also show dropship items on a gun store homepage the same way.", "gse", { raw: true, title });
+  assert.ok(ids(extra).includes("stamped-phrase"), "a fourth body repeat must still flag when the title is a rewrite");
+});
+
 test("filler-phrases matches curly apostrophes on kept phrases; removed phrases do not flag", () => {
   const long = LONG.join(" ");
   const curlyHere = lintText(long + "\n\nHere\u2019s the thing to sit with.", "gse", { raw: true });
