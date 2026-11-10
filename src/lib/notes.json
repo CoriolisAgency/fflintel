@@ -189,15 +189,15 @@
     "faqs": [
       {
         "q": "How many home-based FFLs are there?",
-        "a": "There's no official count. ATF's public listing has no field that flags a licensee as home-based. We won't build one from address guesses. The official figures are license counts by type and state, from a named month's ATF file. See how many FFLs are there."
+        "a": "ATF doesn't publish a count, because the public listing has no field that flags a licensee as home-based, and we won't build one from address guesses. The official figures are license counts by type and state, from a named month's ATF file; see our note on how many FFLs there are."
       },
       {
         "q": "How many online-only FFLs are there?",
-        "a": "There's no official count. The same file has no field that flags a licensee as online-only. A Type 01 license at a given address isn't a statement about how that licensee sells."
+        "a": "ATF doesn't publish a count; the same file has no field that flags a licensee as online-only, and a Type 01 license at a given address isn't a statement about how that licensee sells."
       },
       {
         "q": "What can the official file tell you?",
-        "a": "For a named month, how many licenses were listed, of what type, and the information ATF publishes for each one. It can't tell you who made a sale that month, who sells only online, or who works from a home."
+        "a": "For a named month, it tells you how many licenses were listed, of what type, and the information ATF publishes for each one. It can't tell you who made a sale that month, who sells only online, or who works from a home."
       }
     ]
   }

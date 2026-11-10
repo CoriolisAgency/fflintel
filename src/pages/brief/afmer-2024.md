@@ -72,6 +72,8 @@ This note runs once a year, when ATF posts the next AFMER year, and we don't pri
 
 Not affiliated with Gearfire, RetailBI or NSSF. Marks belong to their owners. This is not legal advice. This desk does not run NICS, 4473, or the bound book.
 
+AFMER counts units manufactured and disposed of in commerce, not what shoppers looked for. Coriolis has a page on [brand-side search demand data](https://www.coriolisagency.com/demand-intelligence?utm_source=fflintel&utm_medium=referral&utm_campaign=fflintel-afmer-2024).
+
 ## Sources
 
 1. ATF, Annual Firearms Manufacturing and Export Report, Year 2024 Final (`AFMER 2024 Final Report 508c_0.pdf`). Prepared by LED 01/30/2026. Report data as of 01/30/2026. Official URL: <https://www.atf.gov/media/29786/download> (403 on Nov 10, 2026). Archived copy cited: <https://web.archive.org/web/20261001185014if_/https://www.atf.gov/media/29786/download> (snapshot Oct 1, 2026, 2:50 PM ET, retrieved Nov 10, 2026, 8:54 AM ET). Every printed type total and the definition match.
