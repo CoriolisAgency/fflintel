@@ -28,15 +28,12 @@ RetailBI is Gearfire’s shooting-sports sell-through platform. It aggregates po
 
 - OEM / DI: https://www.coriolisagency.com/demand-intelligence
 - Dealers: https://www.gunsearchengine.com/for-dealers/feed
-- How the two sit side by side: https://www.gunsearchengine.com/betsy-vs-retailbi
 
 ## URLs
 
-- What is RetailBI: https://www.gunsearchengine.com/betsy-vs-retailbi
 - Firearm Sales Index (product literacy): https://www.gunsearchengine.com/retailbi-firearm-sales-index
 - NICS vs sales: https://www.gunsearchengine.com/nics-vs-firearm-sales
 - OEM demand: https://www.gunsearchengine.com/oem-firearms-demand-analytics
 - Demand Intelligence: https://www.coriolisagency.com/demand-intelligence
-- Betsy Live: https://www.gunsearchengine.com/betsy-live
 - FFLIntel desk: https://fflintel.com
 - FFLIntel issue 01: https://fflintel.com/brief/three-numbers/

@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/check-heroes.mjs && npm run lint:copy && astro build",
+    "build": "node scripts/check-heroes.mjs && npm run lint:copy && astro build && node scripts/check-links.mjs",
     "check:heroes": "node scripts/check-heroes.mjs",
     "lint:copy": "node scripts/copy-lint/slint.test.mjs && node scripts/copy-lint/slint.mjs --kind ffli src/pages",
     "indexnow:submit": "node scripts/indexnow-submit.mjs",
