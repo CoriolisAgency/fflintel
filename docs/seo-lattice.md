@@ -1,58 +1,44 @@
 # SEO content lattice (FFLIntel)
 
-> **Governed by `CoriolisAgency/coriolis` `docs/seo/`** (ARCHITECTURE.md, PAGE-MAP.md, LINK-PLAN.md). This file is FFLIntel's own page table. When this file and `docs/seo/` disagree, `docs/seo/` wins. Pointer header added Wed Oct 21, 2026 (Sprint 0, DC-5). Doc only. Three rows corrected to match LINK-PLAN §3 and D-N16 (FFL Accelerator and GSA: no link; Demand Intelligence moved to the agency). The link rules below are quoted from LINK-PLAN §3 on coriolis `main` at `e101d52` (D-N3, Paul 4:47 PM ET; locked by Karp in `docs/decisions/2026-10-21-ffl-intel-content-links.md`).
->
-> **Link rules (D-N3), quoted from `docs/seo/LINK-PLAN.md`:**
-> - Locked rule 2: "FFLIntel is now an exception (D-N3, Paul 4:47 PM ET; locked by Karp in `2026-10-21-ffl-intel-content-links`): its content may link to CoriolisAgency.com and GSE, under the rules in §3. It still never links to FFLAccelerator.com, to the retired sister domain, or to client sites that sell guns."
-> - FFLIntel data notes → GSE data pages (`/nics-vs-firearm-sales`, `/retailbi-firearm-sales-index`, `/betsy-live`, `/oem-firearms-demand-analytics`, `/betsy-vs-retailbi`). "**`/demand-intelligence` moves to the agency (D-N16),** so FFLIntel's 3 links to it point at `https://www.coriolisagency.com/demand-intelligence` with `utm_source=fflintel`." Rule: "Keep the links that are live today. Use descriptive anchors that name the topic, such as "NICS checks vs firearm sales" or "the live demand map". At most 2 links per note to the same GSE page."
-> - FFLIntel notes that mention a caliber or product type → the matching GSE money hub (`/ammo/{cal}`, `/guns/{type}/{cal}`): "Plain anchor naming the hub, such as "9mm ammo in stock". Only to URLs that return 200 and are listed in GSE `sitemap-hubs.xml` (blog guardrail G6)."
-> - FFLIntel notes about how dealers sell or get found → CoriolisAgency.com owner pages (`/ffl-analytics` for site-search and demand, `/ffl-seo` once it ships in SEO-U32, `/ecommerce` for selling online): "Descriptive anchors, one agency link per note, using the PAGE-MAP owner term (for example "FFL SEO", "FFL website")." UTM `utm_source=fflintel&utm_medium=referral&utm_campaign=fflintel-{note-slug}`.
-> - FFLIntel footer (sitewide) → agency `/`: "Brand anchor "A Coriolis publication" (or "Coriolis"), **one** sitewide link, to `https://www.coriolisagency.com/`, not the bare domain, which 308s."
-> - FFLIntel → the retired sister domain: "**Remove them**, or point them straight at GSE `/for-dealers/feed`, where that domain already 301s" (fix in SEO-U15).
-> - FFLIntel → FFLAccelerator.com: "**None**". Not allowed.
-> - Satellite guardrails (D-N3 and D-N3b): plain links, no nofollow; never link from FFLIntel to `/ecommerce` pricing with a sales anchor; never link to noindex, 404 or redirected URLs; no sameAs from the agency to FFLIntel.
+> Governed by `CoriolisAgency/coriolis` `docs/seo/` (ARCHITECTURE.md, PAGE-MAP.md, LINK-PLAN.md). When this file and `docs/seo/` disagree, `docs/seo/` wins. Rewritten for FFLI-OVERHAUL-P1 (Paul, 2026-11-10 8:13 AM ET; link rules from Chief, 8:09 AM ET).
 
-Source of truth for internal linking and cannibalization rules.
-
-**This site owns commentary.** FFLIntel keeps three numbers from becoming one: NICS (background checks), RetailBI Index (what sold), Betsy BI (what people asked for). Numbers by Betsy. Not a product home. Not a character site.
-
-Frozen strings: [GunSearchEngine entity kit](../../gunsearchengine/docs/entity-kit.md).
-
-## Dual-site ownership (anti-cannibalization)
-
-| Intent class | Ranking owner | FFLIntel role |
-|--------------|---------------|---------------|
-| What is RetailBI (definition) | **GSE** `https://www.gunsearchengine.com/betsy-vs-retailbi` | Short summary; **canonical → GSE fortress** |
-| Firearm Sales Index (product literacy) | **GSE** `https://www.gunsearchengine.com/retailbi-firearm-sales-index` | Commentary how-to-read; self canonical; link GSE + fortress |
-| NICS vs firearm sales (platform) | **GSE** `https://www.gunsearchengine.com/nics-vs-firearm-sales` | Desk essay `/nics-is-not-sales`; self canonical; link GSE |
-| Sell-through vs search intent (doctrine) | Shared literacy | Desk essay; link fortress + Demand Intelligence |
-| OEM Demand Intelligence | **CoriolisAgency.com** `https://www.coriolisagency.com/demand-intelligence` (moved to the agency, D-N16) | Soft CTA only |
-| Betsy Live | **GSE** `/betsy-live` | Link (labeled sample) |
-| Dealer product / GA for FFLs | **None** | **No link.** Never link to the retired sister domain; remove the 3 home-page links to it, or point them straight at GSE `/for-dealers/feed`, where that domain already 301s (LINK-PLAN §3; fix in SEO-U15) |
-| FFL Accelerator | **fflaccelerator.com** | **No link** (LINK-PLAN §3: FFLIntel → FFLAccelerator.com is not allowed; keeps FFLA's link profile ad-safe) |
-| Betsy character / media | **2aBetsy** | Header headshot only |
-| Desk issues / three-numbers commentary | **FFLIntel** | Primary |
+## Role and audience
+FFLIntel is the industry data desk: FFL news, data and intel that people read and cite. Readers: FFL owners and managers, brand and OEM staff, trade press, analysts, and AI answer engines. It stands on its own. It is not a product home, not a sales page and not a character site. The "three numbers" thesis (checks are not sales; sales are not searches) stays the lens.
 
 ## Intent → primary URL (this site)
+| Intent | Primary URL | Notes |
+|---|---|---|
+| Desk front page | `/` | Latest notes and trackers. Own H1; never copies a note's H1 |
+| About and publisher | `/about/` | Publisher: Coriolis, LLC. The footer brand link to `https://www.coriolisagency.com/` stays on every page (D-N3) |
+| How we cite | `/methodology/` | Date and source on every number; revisions stay on the page |
+| Notes archive | `/brief/` | `/issues/` 301s here |
+| NICS explained (evergreen) | `/nics-is-not-sales/` | Hub for the monthly NICS tracker |
+| NICS and NSSF-adjusted NICS, monthly | `/brief/nics-{month}-{year}/` | One URL per month |
+| NICS by state | `/brief/nics-by-state/` | Refreshed monthly |
+| RetailBI print log | `/retailbi-firearm-sales-index/` | Every public print with date and source. `/what-is-retailbi/` 301s here |
+| FFL licensee counts | `/brief/how-many-ffls/` | From ATF's published licensee files |
+| Excise collections | `/brief/firearm-ammo-excise-tax/` | From TTB quarterly collections |
+| ATF manufacturing report | `/brief/atf-manufacturing-report/` | Annual |
+| Sell-through vs search intent | `/sell-through-vs-search-intent/` | Doctrine |
+| Email confirmation | `/confirmed/` | `noindex`, not in sitemap |
 
-| Intent class | Primary URL | Notes |
-|--------------|-------------|-------|
-| Signal home / three numbers | `/` | Thesis + two doors |
-| About the desk | `/about` | Research by Betsy. Publisher: Coriolis, LLC |
-| How we treat the numbers | `/methodology` | Cited public Index only |
-| What is RetailBI (spoke) | `/what-is-retailbi` | **canonicalUrl** → GSE fortress |
-| How to read the Index | `/retailbi-firearm-sales-index` | Self canonical |
-| NICS is not sales | `/nics-is-not-sales` | Self canonical |
-| Sell-through vs search intent | `/sell-through-vs-search-intent` | Frozen doctrine |
-| Issue archive | `/issues` | Lists issue 01 |
-| Launch brief | `/brief/three-numbers/` | NewsArticle |
+## Shared topics with GSE
+| Topic | FFLIntel | GSE |
+|---|---|---|
+| NICS | Owns the dated industry numbers and the evergreen explainer | `/blog/fbi-background-check-numbers-explained` keeps the shopper explainer; `/nics-vs-firearm-sales` stays until Paul rules on a merge (**open**) |
+| RetailBI Firearm Sales Index | Owns the dated print log | `/retailbi-firearm-sales-index` keeps the "how it is counted" explainer; titles must not collide |
+| What is RetailBI | 301 to the print log | `/betsy-vs-retailbi` is `noindex`; FFLIntel does not canonical or link to it |
 
-## Rules
+## Link rules
+1. The footer brand link to `https://www.coriolisagency.com/` and the footer Demand Intelligence link stay (D-N3, Paul 2026-11-10 8:36 AM ET (via Chief)). Every other agency link is in note bodies; none in header, rails or other sitewide components.
+2. At most one coriolisagency.com link per note, as one soft line at the end of the note (Paul 2026-11-10 10:02 AM ET; never in the body), to a page that answers the reader's next question: `/ecommerce`, `/firearms-dropshipping`, `/demand-intelligence`. Never `/gun-store-pos` (Chief 2026-11-10 10:07 AM ET: that link is GSE dealer post D2 only). Descriptive anchors; never the agency's head term. UTM `utm_source=fflintel&utm_medium=referral&utm_campaign=fflintel-{note-slug}`.
+3. GSE links: indexable data pages and dealer pages (`/nics-vs-firearm-sales`, `/retailbi-firearm-sales-index`, `/oem-firearms-demand-analytics`, `/for-dealers/feed`) and money hubs in `sitemap-hubs.xml`. Never to `noindex` pages (`/betsy-vs-retailbi`, `/betsy-live`, `/betsy/*`). At most 2 links per note to the same GSE page.
+4. Never: fflaccelerator.com, the retired sister domain, client gun sites, `/ffl-messenger-enterprise`, `/betsy-ai`. No agency `sameAs` to FFLIntel.
+5. Outside links matter most; earned citations from press and analysts are the goal.
 
-1. Definition of RetailBI canonicals to the **GSE fortress** (`/betsy-vs-retailbi`). Do not try to rank this host for “what is RetailBI.”
-2. This host ranks commentary, issues, and “three numbers” literacy — not OEM product SERPs.
-3. Never invent Index numbers. Cite date + source on the page, or omit the print.
-4. Never claim 4473 / ATF / POS / NICS-system capability.
-5. Never H1 “RetailBI alternative.”
-6. Soft CTAs only, as **two doors**: if you make the guns → fortress / Demand Intelligence / Co-Pilot; if you sell them → GunSearchEngine for dealers. No hard sell. No headshot chip.
-7. `sameAs` mesh from the entity kit (Coriolis, LLC).
+## Content rules
+1. Never invent a number. Date and source on the page, or omit the print. "We will not invent one" when a series does not exist.
+2. Never claim 4473, ATF, POS or NICS-system capability. Never hint at a Coriolis POS.
+3. No transfer, transfer-ticket or remote-identity topics, and none of the embargoed names in the Coriolis baseline (check before every note; a hit means stop and flag Chief).
+4. RetailBI and Gearfire may be named (Paul 2026-11-10 8:36 AM ET (via Chief)); factual and sourced, no sales framing. Never H1 "RetailBI alternative".
+5. No em dashes.
